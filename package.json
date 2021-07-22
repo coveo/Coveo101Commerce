@@ -1,0 +1,12 @@
+{
+  "name": "coveo-101-commerce",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "@coveord/platform-client": "^23.0.0",
+    "abortcontroller-polyfill": "^1.7.3",
+    "isomorphic-fetch": "^3.0.0",
+    "tslib": "^2.3.0"
+  }
+}

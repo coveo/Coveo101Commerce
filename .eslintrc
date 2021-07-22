@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "next",
+    "eslint:recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
