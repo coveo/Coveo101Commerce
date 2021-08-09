@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Launch Program",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "port": 9229
+    },
+    {
+      "type": "node-terminal",
+      "name": "YARN dev",
+      "request": "launch",
+      "command": "yarn run dev",
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceRoot}/*",
+      },
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to NextJs",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${workspaceRoot}/*",
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "port": 9229
+    }
+  ]
+}

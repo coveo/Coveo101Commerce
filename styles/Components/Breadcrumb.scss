@@ -1,0 +1,17 @@
+.breadcrumb__container {
+  margin-bottom: 20px;
+}
+
+.breadcrumb-container {
+  font-size: small;
+  background: $grey-light;
+  .breadcrumb-link {
+    cursor: pointer;
+    color: $blue-dark;
+  }
+}
+
+.breadcrumb-link {
+  cursor: pointer;
+  color: $blue-dark;
+}

@@ -1,0 +1,16 @@
+.btn-control {
+  padding: 0;
+
+  &:hover {
+    background: transparent;
+    text-decoration: underline;
+  }
+}
+
+.btn-control--primary {
+  @extend .btn-control;
+}
+
+.btn-control--secondary {
+  @extend .btn-control;
+}

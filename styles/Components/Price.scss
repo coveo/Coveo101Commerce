@@ -1,0 +1,42 @@
+.widget-price {
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: middle;
+  & sup {
+    vertical-align: super;
+    font-size: 0.7em;
+  }
+
+  .display-promo {
+    margin-left: 10px;
+    font-size: 0.8em;
+  }
+
+  .store {
+    display: block;
+  }
+  .store {
+    font-size: 15px !important;
+  }
+  .store .price-money {
+    font-size: 18px !important;
+  }
+  .sdisplay-price {
+    font-size: 0.8em !important;
+  }
+  .store-na {
+    font-weight: normal;
+    font-size: 8pt;
+  }
+  .display-promo,
+  .display-price {
+    font-weight: bold;
+    color: $red;
+  }
+  .display-orig-price {
+    font-weight: normal;
+    text-decoration: line-through;
+    color: $red;
+    padding-right: 5px;
+  }
+}

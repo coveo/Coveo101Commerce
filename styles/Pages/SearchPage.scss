@@ -1,0 +1,137 @@
+.searchInterface {
+  display: flex;
+  position: relative;
+  background: $white;
+  margin: 0;
+  width: 100%;
+
+  .search__footer-ui {
+    animation: loadIn 1.5s;
+  }
+
+  .search-nav {
+    background: $grey-light;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: loadIn 1s;
+
+    a.MuiTypography-root {
+      padding-right: 20px;
+      color: #000;
+      cursor: pointer;
+
+      &.breadcrumb-link {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .search-nav--listing {
+    @extend .search-nav;
+    justify-content: flex-end;
+  }
+
+  .btn--filters {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border: solid 1px #000;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .search-facets__container {
+    width: 350px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 100;
+    background: $white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    display: none;
+    padding: 15px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    padding-top: 30px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.show-facets {
+      display: block;
+    }
+  }
+
+  .search__facet-column {
+    z-index: 10;
+
+    .btn--close-facets {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      background: #000;
+      padding: 10px;
+      display: block;
+      text-align: center;
+      color: $white;
+      z-index: 100;
+      width: 350px;
+      border-radius: 0;
+    }
+  }
+
+  .mobile-backdrop {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $white;
+    opacity: 0.8;
+    z-index: -1;
+  }
+
+  .search__result-section {
+    flex: 1;
+  }
+
+  @include breakpoint(sm) {
+    .btn--filters,
+    .btn--close-facets,
+    .mobile-backdrop {
+      display: none !important;
+    }
+
+    .search-facets__container {
+      width: 300px;
+      position: relative;
+      height: 100%;
+      display: block;
+      box-shadow: none;
+      z-index: 1;
+    }
+  }
+
+  @include breakpoint(md) {
+    .search-facets__container {
+      width: 380px;
+    }
+  }
+}
+
+@keyframes loadIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

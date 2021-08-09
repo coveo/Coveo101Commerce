@@ -1,0 +1,32 @@
+#generic-store-pdp {
+  .pdp__header {
+    margin-bottom: 25px;
+  }
+
+  .pdp__tl {
+    font-size: 32px;
+    font-weight: bold;
+    max-width: 700px;
+  }
+
+  .display-price {
+    font-size: 30px;
+  }
+  .widget-price .store {
+    font-size: 15px !important;
+  }
+  .widget-price .store .price-money {
+    font-size: 20px !important;
+  }
+
+  .breadcrumb__container {
+    margin-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: $grey-light;
+
+    .breadcrumb-link {
+      color: $black;
+    }
+  }
+}
