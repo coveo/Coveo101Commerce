@@ -181,19 +181,19 @@
     "type": "STRING"
   },
   {
+    "name": "ec_price",
+    "facet": true,
+    "includeInQuery": true,
+    "includeInResults": true,
+    "type": "DOUBLE"
+  },
+  {
     "name": "ec_product_id",
     "facet": true,
     "includeInQuery": true,
     "includeInResults": true,
     "type": "STRING",
     "mergeWithLexicon": true
-  },
-  {
-    "name": "ec_price",
-    "facet": true,
-    "includeInQuery": true,
-    "includeInResults": true,
-    "type": "DOUBLE"
   },
   {
     "name": "ec_promo_price",

@@ -9,12 +9,16 @@ const PLATFORM = 'production';
 function validateEnv() {
   const args = process.argv.slice(2);
   if (args.length < 2) {
-    console.log(`\n\t⚠️  Missing arguments\n\n\tUsage: node createSource.js <org_id> <token>\n\n`);
+    console.log(`\n\t⚠️  Missing arguments\n\n\tUsage: node create_source_products.js <org_id> <token> <fields.json>\n\n`);
     process.exit(1);
   }
 
+  let FIELDS_FILENAME = 'fashion.fields.json';
+  if (args.length > 2) {
+    FIELDS_FILENAME = args[2];
+  }
   return {
-    FIELDS_FILENAME: 'fields.json',
+    FIELDS_FILENAME,
     ORG_ID: args[0],
     TOKEN: args[1],
   };
@@ -37,7 +41,7 @@ async function main(ARGS) {
     organizationId: ARGS.ORG_ID,
   });
 
-  // Create fields
+  // Create missing fields (Gets the existing fields first, to compare with the fields we want)
   const existingFields = await client.field.list({ perPage: 1000 });
   const existingFieldNames = existingFields.items.map(field => field.name);
   let fieldsToCreate = JSON.parse(fs.readFileSync(ARGS.FIELDS_FILENAME));
@@ -52,7 +56,7 @@ async function main(ARGS) {
   // Create/validate Catalog source
   let source = await getSource(client, 'Products');
   if (!source) {
-    const createSourceResponse = await client.source.create({
+    await client.source.create({
       name: 'Products',
       sourceType: SourceType.CATALOG,
       sourceVisibility: SourceVisibility.SHARED,

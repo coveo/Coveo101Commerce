@@ -1,0 +1,12 @@
+{
+  "name": "commerce-training-setup-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@coveord/platform-client": "^24.3.0",
+    "abortcontroller-polyfill": "^1.7.3",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
