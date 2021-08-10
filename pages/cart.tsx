@@ -6,16 +6,16 @@ import { Unsubscribe } from '@coveo/headless';
 import { Container, Button } from "@material-ui/core";
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-import CartList from "../Components/cart/CartList";
+import CartList from "../Components/Cart/CartList";
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import CartEmptyButton from "../Components/cart/CartEmptyButton";
+import CartEmptyButton from "../Components/Cart/CartEmptyButton";
 
 import CartRecommendations from '../Components/Recommendations/CartRecommendations';
 import store from '../reducers/cartStore';
-import { CartState } from '../Components/cart/cart-state';
+import { CartState } from '../Components/Cart/cart-state';
 import CoveoUA, { getAnalyticsProductData } from "../helpers/CoveoAnalytics";
 
-import { emptyCart } from "../Components/cart/cart-actions";
+import { emptyCart } from "../Components/Cart/cart-actions";
 
 import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
@@ -91,7 +91,7 @@ class Cart extends React.Component {
           </Grid>
         </Grid>
         <br /><br />
-        {skus.length > 0 && <CartRecommendations title={'Products you may want to see based on your cart'} skus={skus} />}
+        {skus.length > 0 && <CartRecommendations title="Products you may want to see based on your cart" skus={skus} />}
       </Container>
     );
   }

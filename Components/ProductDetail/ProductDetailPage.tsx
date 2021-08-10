@@ -10,7 +10,7 @@ import { IProduct } from "../ProductCard/Product.spec";
 import Price from "../../Components/Price";
 import Rating from "../ProductCard/Rating";
 import ImagesSlider from "./ImagesSlider";
-import AddRemoveProduct from "../../Components/cart/AddRemoveProduct";
+import AddRemoveProduct from "../Cart/AddRemoveProduct";
 
 import FrequentlyViewedTogether from '../../Components/Recommendations/FrequentlyViewedTogether';
 import FrequentlyBoughtTogether from '../../Components/Recommendations/FrequentlyBoughtTogether';

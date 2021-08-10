@@ -1,5 +1,5 @@
 import { Middleware } from 'redux';
-import { updateCart } from '../Components/cart/cart-actions';
+import { updateCart } from '../Components/Cart/cart-actions';
 import { CartResponse } from "./cart/cart-response";
 
 export interface CartProduct {

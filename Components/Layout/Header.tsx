@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'next/image';
 
 import SearchBox from "../Search/SearchBox";
-import CartIndicator from "../cart/CartIndicator";
+import CartIndicator from "../Cart/CartIndicator";
 import Grid from '@material-ui/core/Grid';
 import { AppBar, Toolbar, IconButton, Container } from "@material-ui/core";
 
@@ -13,7 +13,7 @@ import getConfig from 'next/config';
 import StoreSelector from '../Stores/StoreSelector';
 import { headlessEngine } from "../../helpers/Engine";
 import { loadSearchAnalyticsActions, loadSearchActions, Unsubscribe } from "@coveo/headless";
-import { setStoreId } from '../cart/cart-actions';
+import { setStoreId } from '../Cart/cart-actions';
 import store from '../../reducers/cartStore';
 
 import logo from '../../public/logos/coveo_logo.png';

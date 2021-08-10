@@ -3,7 +3,7 @@ import { Card, CardMedia, CardContent, Typography } from "@material-ui/core";
 import { Unsubscribe } from "@coveo/headless";
 import Price from "../Price";
 import Rating from "./Rating";
-import AddRemoveProduct from "../cart/AddRemoveProduct";
+import AddRemoveProduct from "../Cart/AddRemoveProduct";
 import { IProduct, normalizeProduct } from "./Product.spec";
 import { NextRouter, withRouter } from "next/router";
 import CoveoUA from "../../helpers/CoveoAnalytics";
