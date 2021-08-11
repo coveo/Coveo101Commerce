@@ -12,9 +12,9 @@
     },
     {
       "type": "node-terminal",
-      "name": "YARN dev",
+      "name": "RUN dev",
       "request": "launch",
-      "command": "yarn run dev",
+      "command": "npm run dev",
       "cwd": "${workspaceFolder}",
       "sourceMaps": true,
       "sourceMapPathOverrides": {

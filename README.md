@@ -11,23 +11,13 @@
 
 This project relies on [Node.js](https://nodejs.org/) to build and run. It has been tested with version 16.
 
-It also relies on [Yarn](https://yarnpkg.com/) to handle the dependencies.
-
-With `Node.js` installed, make sure you also have `yarn`:
-
-```bash
-> npm install -g yarn
-```
-
-(or `sudo npm install -g yarn` if it complains about permission, on Mac or Linux)
-
 ## Start the storefront UI
 
-Then, run the development server:
+To run the development server:
 
 ```bash
-yarn install
-yarn dev
+npm install
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
