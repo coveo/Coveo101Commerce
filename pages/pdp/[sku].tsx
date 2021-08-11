@@ -41,8 +41,9 @@ function ProductPage(_product: IProduct & IProductError) {
       brand: product.ec_brand,
       category,
       id: product.permanentid,
+      group: product.ec_item_group_id,
       name: product.ec_name,
-      price: product.ec_price
+      price: product.ec_price,
     });
   }, [product]);
 

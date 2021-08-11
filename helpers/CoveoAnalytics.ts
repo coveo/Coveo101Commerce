@@ -8,6 +8,7 @@ interface AnalyticsProductData {
   name: string;
   id: string;
   brand: string;
+  group: string;
   price: number;
   category: string;
 }
@@ -25,6 +26,7 @@ export const getAnalyticsProductData = (product, quantity = 0, withQuantity = tr
     name: product.ec_name,
     id: product.permanentid,
     brand: product.ec_brand,
+    group: product.ec_item_group_id,
     price: product.ec_price,
     category: category,
   };

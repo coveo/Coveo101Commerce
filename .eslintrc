@@ -1,6 +1,7 @@
 {
   "extends": [
     "next",
+    "node",
     "eslint:recommended"
   ],
   "env": {

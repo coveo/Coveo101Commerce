@@ -44,4 +44,4 @@ In a terminal, from the folder `_Setup/data/stores`, run:
 > pushapi stores_with_variants.json
 ```
 
-> !! Notice you should be running from within the `store` folder. The `pushapi` tool remembers the confiuration per folders.
+> !! Notice you should be running from within the `store` folder. The `pushapi` tool remembers the configurations per folder.
