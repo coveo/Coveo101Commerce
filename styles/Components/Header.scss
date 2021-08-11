@@ -1,0 +1,114 @@
+.header {
+  height: 80px;
+  background: $blue-dark;
+  color: $white;
+  z-index: 10;
+
+  & > .MuiContainer-root {
+    height: 100%;
+  }
+
+  .MuiToolbar-root {
+    height: 100%;
+    padding: 0 15px;
+    position: relative;
+  }
+
+  .header-el {
+    padding: 15px;
+    .header-el__last {
+      padding-right: 15px;
+    }
+  }
+
+  .MuiAutocomplete-root {
+    margin: 0 !important;
+    .MuiOutlinedInput-notchedOutline {
+      box-shadow: none;
+      outline: none;
+      border: none;
+    }
+  }
+
+  .MuiInputBase-root {
+    background: rgba(0, 0, 0, 0.04);
+    border: none;
+  }
+
+  .MuiIconButton-root {
+    &.header-icon {
+      margin-left: 10px;
+
+      .header-icon__no-hover:hover {
+        background: "none";
+      }
+
+      .header-icon__txt {
+        font-size: 16px;
+        color: $white;
+        font-weight: bold;
+      }
+
+      & .MuiSvgIcon-root {
+        width: 30px;
+        height: auto;
+        fill: $white;
+      }
+    }
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .header-sub-tl {
+    margin-left: 65px;
+    color: $white;
+    font-size: 14px;
+    display: block;
+    // letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  .logo {
+    cursor: pointer;
+    padding: 0;
+    width: 50px;
+    height: auto;
+    vertical-align: bottom;
+  }
+
+  .header-icon__no-hover {
+    background: none;
+  }
+
+  .MuiBadge-badge {
+    font-weight: bold;
+  }
+
+  @include breakpointMax(sm) {
+    .header-sub-tl {
+      display: none;
+    }
+  }
+
+  @include breakpointMax(xs) {
+    .logo-container {
+      display: none;
+    }
+    .MuiToolbar-root {
+      height: 100%;
+      padding: 0 2px;
+      position: relative;
+    }
+    .MuiGrid-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      box-sizing: border-box;
+    }
+    .header-el {
+      padding: 1px;
+    }
+  }
+}

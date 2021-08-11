@@ -1,0 +1,43 @@
+.recommendations-component {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+
+  h3.MuiTypography-root {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+.recommendations-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.recommendations-card__link {
+  cursor: pointer;
+  overflow: hidden;
+  display: -webkit-box;
+  color: #000;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.recommendations-card__media {
+  background-size: contain;
+  cursor: pointer;
+  width: 100%;
+  padding-bottom: 50%;
+}
+
+.recommendations-card__priceAndRating {
+  cursor: default;
+  display: flex;
+  flex-wrap: wrap;
+  & > *:first-child {
+    flex: 1;
+  }
+}

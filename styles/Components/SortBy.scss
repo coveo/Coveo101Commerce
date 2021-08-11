@@ -1,0 +1,14 @@
+.CoveoSortBy {
+  flex-direction: row;
+  align-items: center;
+
+  .MuiFormLabel-root {
+    position: relative;
+    transform: translate(0, 0);
+    margin-right: 10px;
+  }
+
+  .MuiInputBase-root {
+    margin: 0;
+  }
+}

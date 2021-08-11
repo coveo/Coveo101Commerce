@@ -1,0 +1,3347 @@
+{
+  "(Black) Black": {
+    "code": "3DB",
+    "label": "(Black) Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13526283.jpg"
+  },
+  "(Black) Matte Black": {
+    "code": "71C",
+    "label": "(Black) Matte Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14394521.jpg"
+  },
+  "(Black) True Black": {
+    "code": "702",
+    "label": "(Black) True Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15514714.jpg"
+  },
+  "(Dark) Blue Black": {
+    "code": "8B9",
+    "label": "(Dark) Blue Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14915365.jpg"
+  },
+  "(Dark) Rinsed": {
+    "code": "B34",
+    "label": "(Dark) Rinsed",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15330807.jpg"
+  },
+  "(Light) Light Destroy": {
+    "code": "444",
+    "label": "(Light) Light Destroy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15433948.jpg"
+  },
+  "(Light) Light Indigo": {
+    "code": "2A2",
+    "label": "(Light) Light Indigo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15465459.jpg"
+  },
+  "(Medium) Medium Indigo": {
+    "code": "E52",
+    "label": "(Medium) Medium Indigo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14961904.jpg"
+  },
+  "(Medium) Riptide Blue Destroy": {
+    "code": "4AC",
+    "label": "(Medium) Riptide Blue Destroy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14634860.jpg"
+  },
+  "100% Heart": {
+    "code": "202",
+    "label": "100% Heart",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14854790.jpg"
+  },
+  "14 Years Daring": {
+    "code": "841",
+    "label": "14 Years Daring",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14152536.jpg"
+  },
+  "1978 All Star League": {
+    "code": "AD6",
+    "label": "1978 All Star League",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15571652.jpg"
+  },
+  "A Shore Thing": {
+    "code": "13D",
+    "label": "A Shore Thing",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14826679.jpg"
+  },
+  "A Stone's Throw": {
+    "code": "041",
+    "label": "A Stone's Throw",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15323984.jpg"
+  },
+  "About Thyme": {
+    "code": "DF5",
+    "label": "About Thyme",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15436089.jpg"
+  },
+  "Abyss": {
+    "code": "4DE",
+    "label": "Abyss",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12587766.gif"
+  },
+  "Acid Stone Wash": {
+    "code": "D6D",
+    "label": "Acid Stone Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15562343.jpg"
+  },
+  "Adventure Then Cocktails": {
+    "code": "2B2",
+    "label": "Adventure Then Cocktails",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15489681.jpg"
+  },
+  "Agave Nectar": {
+    "code": "3E9",
+    "label": "Agave Nectar",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460099.jpg"
+  },
+  "Ahoy Navy": {
+    "code": "9D8",
+    "label": "Ahoy Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15954037.jpg"
+  },
+  "All In": {
+    "code": "17D",
+    "label": "All In",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15618185.jpg"
+  },
+  "All Things With Love": {
+    "code": "B2B",
+    "label": "All Things With Love",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15558659.jpg"
+  },
+  "All Together Now": {
+    "code": "418",
+    "label": "All Together Now",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15361705.jpg"
+  },
+  "All for One": {
+    "code": "FA9",
+    "label": "All for One",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16030416.jpg"
+  },
+  "Anchor": {
+    "code": "5DF",
+    "label": "Anchor",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14732971.jpg"
+  },
+  "Ancient Forest": {
+    "code": "1B7",
+    "label": "Ancient Forest",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15618005.jpg"
+  },
+  "Antique White Heather": {
+    "code": "720",
+    "label": "Antique White Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15245763.jpg"
+  },
+  "Arbor Olive": {
+    "code": "530",
+    "label": "Arbor Olive",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15600308.jpg"
+  },
+  "Arrow": {
+    "code": "E8E",
+    "label": "Arrow",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15721019.jpg"
+  },
+  "Arrowhead Campground": {
+    "code": "421",
+    "label": "Arrowhead Campground",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15783433.jpg"
+  },
+  "Arugula": {
+    "code": "536",
+    "label": "Arugula",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15874777.jpg"
+  },
+  "Aspire & Inspire": {
+    "code": "6C5",
+    "label": "Aspire & Inspire",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608255.jpg"
+  },
+  "Astronaut": {
+    "code": "64E",
+    "label": "Astronaut",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496496.jpg"
+  },
+  "Auberge": {
+    "code": "618",
+    "label": "Auberge",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15686520.jpg"
+  },
+  "Auberge Heather": {
+    "code": "BD8",
+    "label": "Auberge Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15598340.jpg"
+  },
+  "Auberge/ Black": {
+    "code": "AEB",
+    "label": "Auberge/ Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15765454.jpg"
+  },
+  "Auberge/ Candy Apple": {
+    "code": "D43",
+    "label": "Auberge/ Candy Apple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15621929.jpg"
+  },
+  "Azurite": {
+    "code": "E55",
+    "label": "Azurite",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15506046.jpg"
+  },
+  "Ballerina Gown": {
+    "code": "8F9",
+    "label": "Ballerina Gown",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15697130.jpg"
+  },
+  "Ballerina Gown Heather": {
+    "code": "8A3",
+    "label": "Ballerina Gown Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15599085.jpg"
+  },
+  "Bandolier Brown": {
+    "code": "D9A",
+    "label": "Bandolier Brown",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13119564.jpg"
+  },
+  "Bare Necessity": {
+    "code": "1FF",
+    "label": "Bare Necessity",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15653896.jpg"
+  },
+  "Basswood Brown": {
+    "code": "0C4",
+    "label": "Basswood Brown",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14749989.jpg"
+  },
+  "Beach": {
+    "code": "EE9",
+    "label": "Beach",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15253211.jpg"
+  },
+  "Beach Palms": {
+    "code": "901",
+    "label": "Beach Palms",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15253977.jpg"
+  },
+  "Bear": {
+    "code": "971",
+    "label": "Bear",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15240075.jpg"
+  },
+  "Bear With Me": {
+    "code": "594",
+    "label": "Bear With Me",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15788971.jpg"
+  },
+  "Bears in Trees": {
+    "code": "AB9",
+    "label": "Bears in Trees",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15730615.jpg"
+  },
+  "Beige Stone": {
+    "code": "B82",
+    "label": "Beige Stone",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14913246.jpg"
+  },
+  "Belize Rain": {
+    "code": "D0D",
+    "label": "Belize Rain",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15391449.jpg"
+  },
+  "Bella Donna Pink": {
+    "code": "F9D",
+    "label": "Bella Donna Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15618266.jpg"
+  },
+  "Berry Bramble": {
+    "code": "C9F",
+    "label": "Berry Bramble",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15152245.jpg"
+  },
+  "Berry Pink": {
+    "code": "71E",
+    "label": "Berry Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460241.jpg"
+  },
+  "Berry Sorbet": {
+    "code": "F43",
+    "label": "Berry Sorbet",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15265946.jpg"
+  },
+  "Big Navy": {
+    "code": "741",
+    "label": "Big Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13332366.jpg"
+  },
+  "Black": {
+    "code": "0DE",
+    "label": "Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15611314.jpg"
+  },
+  "Black & White": {
+    "code": "508",
+    "label": "Black & White",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15649630.jpg"
+  },
+  "Black Dots": {
+    "code": "3A1",
+    "label": "Black Dots",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14460163.jpg"
+  },
+  "Black Fair Isle": {
+    "code": "5D5",
+    "label": "Black Fair Isle",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15984909.jpg"
+  },
+  "Black Floral": {
+    "code": "C0A",
+    "label": "Black Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608754.jpg"
+  },
+  "Black Flower": {
+    "code": "2E0",
+    "label": "Black Flower",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15566332.jpg"
+  },
+  "Black Gray Stripe": {
+    "code": "DFE",
+    "label": "Black Gray Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15566415.jpg"
+  },
+  "Black Heather": {
+    "code": "4CF",
+    "label": "Black Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn9857780.gif"
+  },
+  "Black Jack": {
+    "code": "BF9",
+    "label": "Black Jack",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15489517.jpg"
+  },
+  "Black Jack 3": {
+    "code": "160",
+    "label": "Black Jack 3",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn11945406.jpg"
+  },
+  "Black Leopard": {
+    "code": "3D3",
+    "label": "Black Leopard",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460587.jpg"
+  },
+  "Black Marl": {
+    "code": "FF6",
+    "label": "Black Marl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15686107.jpg"
+  },
+  "Black Olive": {
+    "code": "366",
+    "label": "Black Olive",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15603934.jpg"
+  },
+  "Black Print": {
+    "code": "8ED",
+    "label": "Black Print",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15230465.jpg"
+  },
+  "Black Rinse": {
+    "code": "4EB",
+    "label": "Black Rinse",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13653267.jpg"
+  },
+  "Black Stripe": {
+    "code": "94F",
+    "label": "Black Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14914141.jpg"
+  },
+  "Black Stripe Top": {
+    "code": "CEC",
+    "label": "Black Stripe Top",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15770996.jpg"
+  },
+  "Black Wash": {
+    "code": "1F7",
+    "label": "Black Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15509081.jpg"
+  },
+  "Black and White Floral": {
+    "code": "4EC",
+    "label": "Black and White Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15952166.jpg"
+  },
+  "Black/Gold Stripe": {
+    "code": "888",
+    "label": "Black/Gold Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16032060.jpg"
+  },
+  "Black/Grey Geo": {
+    "code": "99D",
+    "label": "Black/Grey Geo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496501.jpg"
+  },
+  "Black/White Dots": {
+    "code": "80D",
+    "label": "Black/White Dots",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15477933.jpg"
+  },
+  "Black/White Stripe": {
+    "code": "F1B",
+    "label": "Black/White Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460873.jpg"
+  },
+  "Blackjack": {
+    "code": "58C",
+    "label": "Blackjack",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15735151.jpg"
+  },
+  "Blank Slate": {
+    "code": "FEF",
+    "label": "Blank Slate",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14654706.jpg"
+  },
+  "Blaze of Glory": {
+    "code": "92F",
+    "label": "Blaze of Glory",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15233520.jpg"
+  },
+  "Blue": {
+    "code": "3D9",
+    "label": "Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15152305.jpg"
+  },
+  "Blue Anchors": {
+    "code": "3B7",
+    "label": "Blue Anchors",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705571.jpg"
+  },
+  "Blue Bear": {
+    "code": "683",
+    "label": "Blue Bear",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15730616.jpg"
+  },
+  "Blue Black": {
+    "code": "33E",
+    "label": "Blue Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14826360.jpg"
+  },
+  "Blue Buffalo Plaid": {
+    "code": "5CE",
+    "label": "Blue Buffalo Plaid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15795844.jpg"
+  },
+  "Blue Grid": {
+    "code": "CE0",
+    "label": "Blue Grid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15509063.jpg"
+  },
+  "Blue It Off": {
+    "code": "536",
+    "label": "Blue It Off",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15471497.jpg"
+  },
+  "Blue Linen": {
+    "code": "4A5",
+    "label": "Blue Linen",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15084739.jpg"
+  },
+  "Blue Marl": {
+    "code": "EDF",
+    "label": "Blue Marl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15768939.jpg"
+  },
+  "Blue Mountain": {
+    "code": "D58",
+    "label": "Blue Mountain",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15954037.jpg"
+  },
+  "Blue Mountains": {
+    "code": "3D8",
+    "label": "Blue Mountains",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15783424.jpg"
+  },
+  "Blue My Cover": {
+    "code": "927",
+    "label": "Blue My Cover",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn11736691.jpg"
+  },
+  "Blue Palms": {
+    "code": "9CF",
+    "label": "Blue Palms",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15074506.jpg"
+  },
+  "Blue Plaid": {
+    "code": "81D",
+    "label": "Blue Plaid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16007275.jpg"
+  },
+  "Blue Sardines": {
+    "code": "66D",
+    "label": "Blue Sardines",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15074507.jpg"
+  },
+  "Blue Stripe": {
+    "code": "8E1",
+    "label": "Blue Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15240722.jpg"
+  },
+  "Blue Tango": {
+    "code": "448",
+    "label": "Blue Tango",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13610692.jpg"
+  },
+  "Blue Violet": {
+    "code": "E7E",
+    "label": "Blue Violet",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14793284.jpg"
+  },
+  "Blue Wazoo": {
+    "code": "856",
+    "label": "Blue Wazoo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15253270.jpg"
+  },
+  "Blue/White Stripe": {
+    "code": "19A",
+    "label": "Blue/White Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15790260.jpg"
+  },
+  "Blush Hue": {
+    "code": "A1E",
+    "label": "Blush Hue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15486738.jpg"
+  },
+  "Blush Pink": {
+    "code": "161",
+    "label": "Blush Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15914184.jpg"
+  },
+  "Blushed": {
+    "code": "EAF",
+    "label": "Blushed",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15870292.jpg"
+  },
+  "Bodies of Water": {
+    "code": "5D9",
+    "label": "Bodies of Water",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15324915.jpg"
+  },
+  "Boomboxes": {
+    "code": "6F7",
+    "label": "Boomboxes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15797023.jpg"
+  },
+  "Botanical Green": {
+    "code": "6D2",
+    "label": "Botanical Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737582.jpg"
+  },
+  "Boysenberry Juice": {
+    "code": "10F",
+    "label": "Boysenberry Juice",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15341100.jpg"
+  },
+  "Boysenberry Purple": {
+    "code": "567",
+    "label": "Boysenberry Purple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15889427.jpg"
+  },
+  "Bright Pink": {
+    "code": "C4D",
+    "label": "Bright Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15841232.jpg"
+  },
+  "Bright Red": {
+    "code": "04A",
+    "label": "Bright Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15627798.jpg"
+  },
+  "Bright White": {
+    "code": "CF3",
+    "label": "Bright White",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15610930.jpg"
+  },
+  "Bright Yellow Stripe": {
+    "code": "E72",
+    "label": "Bright Yellow Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15240515.jpg"
+  },
+  "Briquette": {
+    "code": "6C5",
+    "label": "Briquette",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15455600.jpg"
+  },
+  "Brooklyn": {
+    "code": "093",
+    "label": "Brooklyn",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737480.jpg"
+  },
+  "Bubblegum Pink": {
+    "code": "7A5",
+    "label": "Bubblegum Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14749967.jpg"
+  },
+  "Burgundy Floral": {
+    "code": "DF8",
+    "label": "Burgundy Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15566423.jpg"
+  },
+  "Burgundy Red": {
+    "code": "EAB",
+    "label": "Burgundy Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15794941.jpg"
+  },
+  "Burgundy Stripe": {
+    "code": "99F",
+    "label": "Burgundy Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15334242.jpg"
+  },
+  "Bust A Mauve": {
+    "code": "208",
+    "label": "Bust A Mauve",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705454.jpg"
+  },
+  "Butternut Squash": {
+    "code": "E55",
+    "label": "Butternut Squash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15486954.jpg"
+  },
+  "Cali": {
+    "code": "12B",
+    "label": "Cali",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14905923.jpg"
+  },
+  "California": {
+    "code": "D4C",
+    "label": "California",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15245507.jpg"
+  },
+  "California Bear": {
+    "code": "73F",
+    "label": "California Bear",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705506.jpg"
+  },
+  "California Camping": {
+    "code": "6B4",
+    "label": "California Camping",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15863205.jpg"
+  },
+  "California Grizzly": {
+    "code": "E6B",
+    "label": "California Grizzly",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14731856.jpg"
+  },
+  "Calla Lilies": {
+    "code": "0E6",
+    "label": "Calla Lilies",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15634884.jpg"
+  },
+  "Calla Lily": {
+    "code": "1E7",
+    "label": "Calla Lily",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15341308.jpg"
+  },
+  "Camel": {
+    "code": "9B2",
+    "label": "Camel",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890661.jpg"
+  },
+  "Camo": {
+    "code": "005",
+    "label": "Camo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15571613.jpg"
+  },
+  "Camotanical": {
+    "code": "C47",
+    "label": "Camotanical",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15362147.jpg"
+  },
+  "Can't Phase Me": {
+    "code": "D81",
+    "label": "Can't Phase Me",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15761110.jpg"
+  },
+  "Candy Apple": {
+    "code": "8C3",
+    "label": "Candy Apple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15606035.jpg"
+  },
+  "Canoes": {
+    "code": "9F0",
+    "label": "Canoes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15735112.jpg"
+  },
+  "Carbon": {
+    "code": "9E4",
+    "label": "Carbon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10057576.jpg"
+  },
+  "Cassette Tape": {
+    "code": "2C9",
+    "label": "Cassette Tape",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15174306.jpg"
+  },
+  "Chai Latte": {
+    "code": "F4C",
+    "label": "Chai Latte",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15867973.jpg"
+  },
+  "Chambray Blue": {
+    "code": "C48",
+    "label": "Chambray Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14806603.jpg"
+  },
+  "Champagne Wishes": {
+    "code": "8CA",
+    "label": "Champagne Wishes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14469741.jpg"
+  },
+  "Chantilly Cream": {
+    "code": "198",
+    "label": "Chantilly Cream",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15599103.jpg"
+  },
+  "Charcoal": {
+    "code": "5EC",
+    "label": "Charcoal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15067003.jpg"
+  },
+  "Charcoal Gray": {
+    "code": "8F8",
+    "label": "Charcoal Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15906023.jpg"
+  },
+  "Charcoal Grey": {
+    "code": "AA3",
+    "label": "Charcoal Grey",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15873356.jpg"
+  },
+  "Charcoal Heather": {
+    "code": "72D",
+    "label": "Charcoal Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16056588.jpg"
+  },
+  "Charcoal Heather Nep": {
+    "code": "440",
+    "label": "Charcoal Heather Nep",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15682862.jpg"
+  },
+  "Charcoal Palm Print": {
+    "code": "BEE",
+    "label": "Charcoal Palm Print",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14899194.jpg"
+  },
+  "Charcoal Pinstripe": {
+    "code": "68D",
+    "label": "Charcoal Pinstripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15747081.jpg"
+  },
+  "Cheetah": {
+    "code": "E06",
+    "label": "Cheetah",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15481210.jpg"
+  },
+  "Cherry": {
+    "code": "F2F",
+    "label": "Cherry",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15860542.jpg"
+  },
+  "Chill Vibes": {
+    "code": "E63",
+    "label": "Chill Vibes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15117414.jpg"
+  },
+  "Chrome": {
+    "code": "1B4",
+    "label": "Chrome",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14749968.jpg"
+  },
+  "Cinnamon Brown": {
+    "code": "DCC",
+    "label": "Cinnamon Brown",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15643271.jpg"
+  },
+  "Citrine": {
+    "code": "4F5",
+    "label": "Citrine",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15599626.jpg"
+  },
+  "Claret Red": {
+    "code": "2FF",
+    "label": "Claret Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12161205.jpg"
+  },
+  "Classic Navy": {
+    "code": "D88",
+    "label": "Classic Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13234550.jpg"
+  },
+  "Clove": {
+    "code": "27D",
+    "label": "Clove",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15506044.jpg"
+  },
+  "Coal Smoke": {
+    "code": "279",
+    "label": "Coal Smoke",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15877543.jpg"
+  },
+  "Cobalt Moon": {
+    "code": "D88",
+    "label": "Cobalt Moon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15833143.jpg"
+  },
+  "Cocoa Mocha": {
+    "code": "FB3",
+    "label": "Cocoa Mocha",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15646701.jpg"
+  },
+  "Coffee & Confidence": {
+    "code": "105",
+    "label": "Coffee & Confidence",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15561840.jpg"
+  },
+  "Colorado": {
+    "code": "3CB",
+    "label": "Colorado",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737479.jpg"
+  },
+  "Constellation Blue": {
+    "code": "601",
+    "label": "Constellation Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15604253.jpg"
+  },
+  "Coral Glory": {
+    "code": "CCE",
+    "label": "Coral Glory",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15575118.jpg"
+  },
+  "Coral Stripes": {
+    "code": "96C",
+    "label": "Coral Stripes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15242321.jpg"
+  },
+  "Coral Tropics": {
+    "code": "561",
+    "label": "Coral Tropics",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12668369.jpg"
+  },
+  "Cosmic": {
+    "code": "FCF",
+    "label": "Cosmic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16022114.jpg"
+  },
+  "Cosmic Rouge": {
+    "code": "BE6",
+    "label": "Cosmic Rouge",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15564123.jpg"
+  },
+  "Cowboy Blue": {
+    "code": "366",
+    "label": "Cowboy Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476677.jpg"
+  },
+  "Craig's Castle": {
+    "code": "0A5",
+    "label": "Craig's Castle",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14826652.jpg"
+  },
+  "Crater Lake": {
+    "code": "64D",
+    "label": "Crater Lake",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15241917.jpg"
+  },
+  "Cream": {
+    "code": "19B",
+    "label": "Cream",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15329411.jpg"
+  },
+  "Cream/Navy": {
+    "code": "270",
+    "label": "Cream/Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737790.jpg"
+  },
+  "Creme": {
+    "code": "A20",
+    "label": "Creme",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15888772.jpg"
+  },
+  "Creme Caramel": {
+    "code": "AB6",
+    "label": "Creme Caramel",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15509056.jpg"
+  },
+  "Creme De La Creme": {
+    "code": "542",
+    "label": "Creme De La Creme",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460085.jpg"
+  },
+  "Crocodile Tears": {
+    "code": "6EB",
+    "label": "Crocodile Tears",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14648230.jpg"
+  },
+  "Crowning Achievement": {
+    "code": "B0E",
+    "label": "Crowning Achievement",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13610736.jpg"
+  },
+  "Crumb On Down": {
+    "code": "D78",
+    "label": "Crumb On Down",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn11974123.jpg"
+  },
+  "Crushed Berry": {
+    "code": "FBC",
+    "label": "Crushed Berry",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14092268.gif"
+  },
+  "Crème Stripe": {
+    "code": "382",
+    "label": "Crème Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14877669.jpg"
+  },
+  "Current Mood Smiley Face": {
+    "code": "84C",
+    "label": "Current Mood Smiley Face",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15648734.jpg"
+  },
+  "Curry Red": {
+    "code": "89C",
+    "label": "Curry Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15790254.jpg"
+  },
+  "DJ Digs": {
+    "code": "514",
+    "label": "DJ Digs",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15790316.jpg"
+  },
+  "Dark Authentic 10": {
+    "code": "653",
+    "label": "Dark Authentic 10",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10025243.jpg"
+  },
+  "Dark Brown": {
+    "code": "806",
+    "label": "Dark Brown",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13588863.jpg"
+  },
+  "Dark Charcoal Gray": {
+    "code": "DB9",
+    "label": "Dark Charcoal Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15075627.jpg"
+  },
+  "Dark Destroyed": {
+    "code": "CEE",
+    "label": "Dark Destroyed",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15626797.jpg"
+  },
+  "Dark Foliage": {
+    "code": "824",
+    "label": "Dark Foliage",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15873975.jpg"
+  },
+  "Dark Forest": {
+    "code": "839",
+    "label": "Dark Forest",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15157512.jpg"
+  },
+  "Dark Gray": {
+    "code": "0DF",
+    "label": "Dark Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15075304.jpg"
+  },
+  "Dark Heather Gray": {
+    "code": "196",
+    "label": "Dark Heather Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15385074.jpg"
+  },
+  "Dark Heathered Gray": {
+    "code": "63B",
+    "label": "Dark Heathered Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14730203.jpg"
+  },
+  "Dark Herringbone Grey": {
+    "code": "8A1",
+    "label": "Dark Herringbone Grey",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15694737.jpg"
+  },
+  "Dark May Rose": {
+    "code": "7BE",
+    "label": "Dark May Rose",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15587256.jpg"
+  },
+  "Dark Med Gray Heather": {
+    "code": "AE3",
+    "label": "Dark Med Gray Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13654578.jpg"
+  },
+  "Dark Navy": {
+    "code": "669",
+    "label": "Dark Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14739554.jpg"
+  },
+  "Dark Red": {
+    "code": "C58",
+    "label": "Dark Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737606.jpg"
+  },
+  "Dark Wash": {
+    "code": "121",
+    "label": "Dark Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13560342.jpg"
+  },
+  "Darkest Hour": {
+    "code": "ECB",
+    "label": "Darkest Hour",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12945004.jpg"
+  },
+  "Dear Paradise, Let's Run Away Together": {
+    "code": "CCC",
+    "label": "Dear Paradise, Let's Run Away Together",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15455608.jpg"
+  },
+  "Deep Camel": {
+    "code": "010",
+    "label": "Deep Camel",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890711.jpg"
+  },
+  "Deep Olive Green": {
+    "code": "C54",
+    "label": "Deep Olive Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15848616.jpg"
+  },
+  "Definitely Dijon": {
+    "code": "882",
+    "label": "Definitely Dijon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15976795.jpg"
+  },
+  "Denim": {
+    "code": "1F5",
+    "label": "Denim",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14833895.jpg"
+  },
+  "Desert Coral": {
+    "code": "9CC",
+    "label": "Desert Coral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15582847.jpg"
+  },
+  "Desert Rose": {
+    "code": "21C",
+    "label": "Desert Rose",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13951826.gif"
+  },
+  "Destroyed Wash": {
+    "code": "E8C",
+    "label": "Destroyed Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14634350.jpg"
+  },
+  "Detour Neon": {
+    "code": "7E3",
+    "label": "Detour Neon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14730204.jpg"
+  },
+  "Diamond Geo": {
+    "code": "986",
+    "label": "Diamond Geo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15225211.jpg"
+  },
+  "Dino-Mite!": {
+    "code": "BEC",
+    "label": "Dino-Mite!",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15665454.jpg"
+  },
+  "Doe A Deer": {
+    "code": "C28",
+    "label": "Doe A Deer",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15562238.jpg"
+  },
+  "Doing My Thing": {
+    "code": "CA6",
+    "label": "Doing My Thing",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15873992.jpg"
+  },
+  "Dorian Gray": {
+    "code": "862",
+    "label": "Dorian Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15292472.jpg"
+  },
+  "Dots": {
+    "code": "B25",
+    "label": "Dots",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15634885.jpg"
+  },
+  "Dove": {
+    "code": "992",
+    "label": "Dove",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15956151.jpg"
+  },
+  "Dove Grey Heather": {
+    "code": "E3C",
+    "label": "Dove Grey Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15682404.jpg"
+  },
+  "Dusty Mauve": {
+    "code": "836",
+    "label": "Dusty Mauve",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15647250.jpg"
+  },
+  "Dusty Pink": {
+    "code": "111",
+    "label": "Dusty Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890710.jpg"
+  },
+  "Dutch Blue with Navy Blue": {
+    "code": "879",
+    "label": "Dutch Blue with Navy Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15961323.jpg"
+  },
+  "East Coast Champions": {
+    "code": "439",
+    "label": "East Coast Champions",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496555.jpg"
+  },
+  "East Coast Custom Frames Workshop": {
+    "code": "C5D",
+    "label": "East Coast Custom Frames Workshop",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496833.jpg"
+  },
+  "Easy Peasy": {
+    "code": "F8D",
+    "label": "Easy Peasy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15061228.jpg"
+  },
+  "Ebony Tropical Print": {
+    "code": "C19",
+    "label": "Ebony Tropical Print",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15224221.jpg"
+  },
+  "Ecru": {
+    "code": "347",
+    "label": "Ecru",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14708224.jpg"
+  },
+  "Electric Cantaloupe": {
+    "code": "ABB",
+    "label": "Electric Cantaloupe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14912499.jpg"
+  },
+  "Ember Red": {
+    "code": "98F",
+    "label": "Ember Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15833488.jpg"
+  },
+  "Embroidered Heart": {
+    "code": "F5C",
+    "label": "Embroidered Heart",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15375934.jpg"
+  },
+  "Embroidered Pineapple": {
+    "code": "7C2",
+    "label": "Embroidered Pineapple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15240457.jpg"
+  },
+  "Everyday Adventures": {
+    "code": "286",
+    "label": "Everyday Adventures",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15471498.jpg"
+  },
+  "Far Out": {
+    "code": "853",
+    "label": "Far Out",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15655941.jpg"
+  },
+  "Feather": {
+    "code": "0A7",
+    "label": "Feather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14678448.jpg"
+  },
+  "Feeling Peachy": {
+    "code": "4A0",
+    "label": "Feeling Peachy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15159994.jpg"
+  },
+  "Fennel Seed": {
+    "code": "F35",
+    "label": "Fennel Seed",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14804510.jpg"
+  },
+  "Fiesta Then Siesta": {
+    "code": "C4A",
+    "label": "Fiesta Then Siesta",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15248195.jpg"
+  },
+  "Flamingo": {
+    "code": "0D6",
+    "label": "Flamingo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15196729.jpg"
+  },
+  "Flight Jacket": {
+    "code": "340",
+    "label": "Flight Jacket",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15524514.jpg"
+  },
+  "Flint Grey/ Black": {
+    "code": "74A",
+    "label": "Flint Grey/ Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13824520.gif"
+  },
+  "Floral Logo": {
+    "code": "18D",
+    "label": "Floral Logo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496603.jpg"
+  },
+  "Forest Canopy": {
+    "code": "05A",
+    "label": "Forest Canopy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15479610.jpg"
+  },
+  "Forest Floor": {
+    "code": "7EB",
+    "label": "Forest Floor",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15553286.jpg"
+  },
+  "Forest Green": {
+    "code": "B36",
+    "label": "Forest Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15913981.jpg"
+  },
+  "Free Thinker": {
+    "code": "304",
+    "label": "Free Thinker",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15602343.jpg"
+  },
+  "Frosty Pine": {
+    "code": "9BF",
+    "label": "Frosty Pine",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14891676.jpg"
+  },
+  "Frozen Blue": {
+    "code": "2B5",
+    "label": "Frozen Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890654.jpg"
+  },
+  "Fuschia Pink": {
+    "code": "E40",
+    "label": "Fuschia Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15913982.jpg"
+  },
+  "Galactic": {
+    "code": "9E7",
+    "label": "Galactic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16120552.jpg"
+  },
+  "Ghouls Night Out": {
+    "code": "3CD",
+    "label": "Ghouls Night Out",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15889012.jpg"
+  },
+  "Golden Opportunity": {
+    "code": "D30",
+    "label": "Golden Opportunity",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14854477.jpg"
+  },
+  "Golden State California Old Navy": {
+    "code": "0FA",
+    "label": "Golden State California Old Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496818.jpg"
+  },
+  "Goodnight Nora": {
+    "code": "557",
+    "label": "Goodnight Nora",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12089787.jpg"
+  },
+  "Gosh Garnet": {
+    "code": "E01",
+    "label": "Gosh Garnet",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13463305.jpg"
+  },
+  "Graphite": {
+    "code": "E2C",
+    "label": "Graphite",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16124724.jpg"
+  },
+  "Graphite Heather": {
+    "code": "6FC",
+    "label": "Graphite Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15704996.jpg"
+  },
+  "Gray": {
+    "code": "B93",
+    "label": "Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14749668.jpg"
+  },
+  "Gray Camo": {
+    "code": "63E",
+    "label": "Gray Camo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890652.jpg"
+  },
+  "Gray Charles": {
+    "code": "921",
+    "label": "Gray Charles",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15571637.jpg"
+  },
+  "Gray Floral Print": {
+    "code": "8AC",
+    "label": "Gray Floral Print",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15877539.jpg"
+  },
+  "Gray Goods": {
+    "code": "133",
+    "label": "Gray Goods",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12965452.jpg"
+  },
+  "Gray Heather": {
+    "code": "3B8",
+    "label": "Gray Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15734489.jpg"
+  },
+  "Gray Herringbone": {
+    "code": "9E7",
+    "label": "Gray Herringbone",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15509059.jpg"
+  },
+  "Gray Leopard": {
+    "code": "65A",
+    "label": "Gray Leopard",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608775.jpg"
+  },
+  "Gray Marl": {
+    "code": "177",
+    "label": "Gray Marl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705449.jpg"
+  },
+  "Gray Overdyed Camo": {
+    "code": "497",
+    "label": "Gray Overdyed Camo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890682.jpg"
+  },
+  "Gray Plaid": {
+    "code": "AEB",
+    "label": "Gray Plaid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16120553.jpg"
+  },
+  "Gray Stone": {
+    "code": "12B",
+    "label": "Gray Stone",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13190282.jpg"
+  },
+  "Gray Stripe": {
+    "code": "F5B",
+    "label": "Gray Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15074546.jpg"
+  },
+  "Gray Wash": {
+    "code": "F81",
+    "label": "Gray Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12936252.jpg"
+  },
+  "Grayscale": {
+    "code": "BD7",
+    "label": "Grayscale",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12694615.jpg"
+  },
+  "Grazing Grasses": {
+    "code": "5AC",
+    "label": "Grazing Grasses",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15323969.jpg"
+  },
+  "Green Camo": {
+    "code": "99A",
+    "label": "Green Camo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13401298.jpg"
+  },
+  "Green Digi Camo": {
+    "code": "AF3",
+    "label": "Green Digi Camo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14833905.jpg"
+  },
+  "Green Floral": {
+    "code": "1A9",
+    "label": "Green Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15334257.jpg"
+  },
+  "Green Geometric": {
+    "code": "EBA",
+    "label": "Green Geometric",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15506064.jpg"
+  },
+  "Green Stripe": {
+    "code": "71F",
+    "label": "Green Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915521.jpg"
+  },
+  "Greetings from Paradise": {
+    "code": "438",
+    "label": "Greetings from Paradise",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15233524.jpg"
+  },
+  "Grey Heather": {
+    "code": "09D",
+    "label": "Grey Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15603975.jpg"
+  },
+  "Grey Heather/ Oyster": {
+    "code": "142",
+    "label": "Grey Heather/ Oyster",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15618122.jpg"
+  },
+  "Grey Marl": {
+    "code": "345",
+    "label": "Grey Marl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15240421.jpg"
+  },
+  "Grey Polar Bear": {
+    "code": "6B4",
+    "label": "Grey Polar Bear",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15730555.jpg"
+  },
+  "Happy": {
+    "code": "3DB",
+    "label": "Happy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15837206.jpg"
+  },
+  "Happy Blue": {
+    "code": "B6F",
+    "label": "Happy Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15325027.jpg"
+  },
+  "Harbour Surf & Sail": {
+    "code": "A73",
+    "label": "Harbour Surf & Sail",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14438104.jpg"
+  },
+  "Havana Brown": {
+    "code": "80B",
+    "label": "Havana Brown",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15603330.jpg"
+  },
+  "Heather Blue": {
+    "code": "D8B",
+    "label": "Heather Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890649.jpg"
+  },
+  "Heather Camel": {
+    "code": "93D",
+    "label": "Heather Camel",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476659.jpg"
+  },
+  "Heather Charcoal": {
+    "code": "244",
+    "label": "Heather Charcoal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15667001.jpg"
+  },
+  "Heather Dark Gray": {
+    "code": "042",
+    "label": "Heather Dark Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14628255.jpg"
+  },
+  "Heather Gray": {
+    "code": "10F",
+    "label": "Heather Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15920159.jpg"
+  },
+  "Heather Gray/Burgundy": {
+    "code": "3BC",
+    "label": "Heather Gray/Burgundy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15720315.jpg"
+  },
+  "Heather Green": {
+    "code": "387",
+    "label": "Heather Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15804795.jpg"
+  },
+  "Heather Light Blue": {
+    "code": "DDF",
+    "label": "Heather Light Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15625854.jpg"
+  },
+  "Heather Light Gray": {
+    "code": "EC7",
+    "label": "Heather Light Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15581621.jpg"
+  },
+  "Heather Light Gray with White": {
+    "code": "E51",
+    "label": "Heather Light Gray with White",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15666948.jpg"
+  },
+  "Heather Navy": {
+    "code": "05D",
+    "label": "Heather Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15562575.jpg"
+  },
+  "Heather Raspberry": {
+    "code": "CDB",
+    "label": "Heather Raspberry",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15703448.jpg"
+  },
+  "Herb Olive": {
+    "code": "C8C",
+    "label": "Herb Olive",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15682835.jpg"
+  },
+  "Herringbone": {
+    "code": "4A2",
+    "label": "Herringbone",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15984908.jpg"
+  },
+  "Hey Friend": {
+    "code": "439",
+    "label": "Hey Friend",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15694565.jpg"
+  },
+  "Honey Gold": {
+    "code": "36E",
+    "label": "Honey Gold",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15744621.jpg"
+  },
+  "Honey Mustard Yellow": {
+    "code": "E32",
+    "label": "Honey Mustard Yellow",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15666947.jpg"
+  },
+  "Horseshoe": {
+    "code": "D59",
+    "label": "Horseshoe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15927527.jpg"
+  },
+  "Houndstooth": {
+    "code": "B6D",
+    "label": "Houndstooth",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15477834.jpg"
+  },
+  "Hula Girl": {
+    "code": "F5F",
+    "label": "Hula Girl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15158776.jpg"
+  },
+  "Hunter Pines": {
+    "code": "671",
+    "label": "Hunter Pines",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14655191.jpg"
+  },
+  "Huntington Beach": {
+    "code": "A07",
+    "label": "Huntington Beach",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15150413.jpg"
+  },
+  "Hyper Blue Plaid": {
+    "code": "E74",
+    "label": "Hyper Blue Plaid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15404383.jpg"
+  },
+  "I Can't Teal": {
+    "code": "B85",
+    "label": "I Can't Teal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15454133.jpg"
+  },
+  "I Have Seen the Future and There Are Snacks": {
+    "code": "3B0",
+    "label": "I Have Seen the Future and There Are Snacks",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15477939.jpg"
+  },
+  "I Love Brew": {
+    "code": "4CA",
+    "label": "I Love Brew",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15613189.jpg"
+  },
+  "I Saw the Pine": {
+    "code": "397",
+    "label": "I Saw the Pine",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13967204.jpg"
+  },
+  "I Speak French (Fries)": {
+    "code": "C22",
+    "label": "I Speak French (Fries)",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15664454.jpg"
+  },
+  "I Think Olive": {
+    "code": "B53",
+    "label": "I Think Olive",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15329412.jpg"
+  },
+  "Icelandic Mineral": {
+    "code": "666",
+    "label": "Icelandic Mineral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460220.jpg"
+  },
+  "Ideal Teal": {
+    "code": "ED3",
+    "label": "Ideal Teal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15870286.jpg"
+  },
+  "In A Flurry": {
+    "code": "393",
+    "label": "In A Flurry",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14320143.jpg"
+  },
+  "In the Navy": {
+    "code": "F5B",
+    "label": "In the Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14974739.jpg"
+  },
+  "Indigo": {
+    "code": "35F",
+    "label": "Indigo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15646491.jpg"
+  },
+  "Indigo Blast": {
+    "code": "AE5",
+    "label": "Indigo Blast",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14749667.jpg"
+  },
+  "Indigo Heather": {
+    "code": "71B",
+    "label": "Indigo Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476291.jpg"
+  },
+  "Ink Blue": {
+    "code": "D1E",
+    "label": "Ink Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13564748.jpg"
+  },
+  "Ivory": {
+    "code": "18D",
+    "label": "Ivory",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15780356.jpg"
+  },
+  "Jade": {
+    "code": "1AC",
+    "label": "Jade",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15588996.jpg"
+  },
+  "Joshua Tree Mojave Desert": {
+    "code": "E37",
+    "label": "Joshua Tree Mojave Desert",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15174150.jpg"
+  },
+  "Just Chill": {
+    "code": "D5A",
+    "label": "Just Chill",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16140912.jpg"
+  },
+  "Just Five S'more Minutes": {
+    "code": "3B5",
+    "label": "Just Five S'more Minutes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890611.jpg"
+  },
+  "Kelly Green": {
+    "code": "65D",
+    "label": "Kelly Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15961306.jpg"
+  },
+  "Khaki Stripe": {
+    "code": "B34",
+    "label": "Khaki Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15509058.jpg"
+  },
+  "Kiss and Teal": {
+    "code": "422",
+    "label": "Kiss and Teal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15026353.jpg"
+  },
+  "Kiss the Sky": {
+    "code": "E02",
+    "label": "Kiss the Sky",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15618226.jpg"
+  },
+  "Knock on Wood": {
+    "code": "181",
+    "label": "Knock on Wood",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15571624.jpg"
+  },
+  "L.A.": {
+    "code": "90F",
+    "label": "L.A.",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15788203.jpg"
+  },
+  "Lake Tahoe": {
+    "code": "F30",
+    "label": "Lake Tahoe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15325144.jpg"
+  },
+  "Laundered Blue": {
+    "code": "D74",
+    "label": "Laundered Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15655788.jpg"
+  },
+  "Lavender": {
+    "code": "551",
+    "label": "Lavender",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15788209.jpg"
+  },
+  "Lavender Haven": {
+    "code": "FE1",
+    "label": "Lavender Haven",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15497109.jpg"
+  },
+  "Lavender Stripe": {
+    "code": "20C",
+    "label": "Lavender Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15260850.jpg"
+  },
+  "Lemon Stripe": {
+    "code": "40E",
+    "label": "Lemon Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15808577.jpg"
+  },
+  "Life Is Grand": {
+    "code": "284",
+    "label": "Life Is Grand",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15888789.jpg"
+  },
+  "Light Asphalt": {
+    "code": "7A5",
+    "label": "Light Asphalt",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13436088.gif"
+  },
+  "Light Authentic": {
+    "code": "36A",
+    "label": "Light Authentic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15617706.jpg"
+  },
+  "Light Blue": {
+    "code": "E48",
+    "label": "Light Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15704969.jpg"
+  },
+  "Light Blue Heather": {
+    "code": "D65",
+    "label": "Light Blue Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15875086.jpg"
+  },
+  "Light Brown Heather": {
+    "code": "B6E",
+    "label": "Light Brown Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890537.jpg"
+  },
+  "Light Gray": {
+    "code": "B05",
+    "label": "Light Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15720034.jpg"
+  },
+  "Light Gray Heather": {
+    "code": "CD0",
+    "label": "Light Gray Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15764592.jpg"
+  },
+  "Light Grey Heather/ White": {
+    "code": "F2F",
+    "label": "Light Grey Heather/ White",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15596938.jpg"
+  },
+  "Light Heather Gray": {
+    "code": "3AC",
+    "label": "Light Heather Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14864140.jpg"
+  },
+  "Light Khaki": {
+    "code": "77D",
+    "label": "Light Khaki",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15557722.jpg"
+  },
+  "Light Peony": {
+    "code": "CF4",
+    "label": "Light Peony",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15936025.jpg"
+  },
+  "Light Pink": {
+    "code": "A0C",
+    "label": "Light Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15783167.jpg"
+  },
+  "Light Purple Stripe": {
+    "code": "EBB",
+    "label": "Light Purple Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15067002.jpg"
+  },
+  "Light Wash": {
+    "code": "142",
+    "label": "Light Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14986293.jpg"
+  },
+  "Light Wash Low": {
+    "code": "7F4",
+    "label": "Light Wash Low",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14891668.jpg"
+  },
+  "Lightning Bolt": {
+    "code": "C4A",
+    "label": "Lightning Bolt",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15996798.jpg"
+  },
+  "Lilac Cloud": {
+    "code": "2C7",
+    "label": "Lilac Cloud",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14913253.jpg"
+  },
+  "Lilac Opal": {
+    "code": "23F",
+    "label": "Lilac Opal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15887694.jpg"
+  },
+  "Lilac Purple": {
+    "code": "0BA",
+    "label": "Lilac Purple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15862697.jpg"
+  },
+  "Lily White": {
+    "code": "3B5",
+    "label": "Lily White",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15390099.jpg"
+  },
+  "Lime Stripe": {
+    "code": "433",
+    "label": "Lime Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15336362.jpg"
+  },
+  "Limitless, Unstoppable, Extraordinary, Courageous, One & Only Woman": {
+    "code": "DF7",
+    "label": "Limitless, Unstoppable, Extraordinary, Courageous, One & Only Woman",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15694465.jpg"
+  },
+  "Lost at Sea Navy": {
+    "code": "016",
+    "label": "Lost at Sea Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14833909.jpg"
+  },
+  "Love": {
+    "code": "947",
+    "label": "Love",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15790259.jpg"
+  },
+  "Love Is Universal": {
+    "code": "726",
+    "label": "Love Is Universal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476211.jpg"
+  },
+  "Love Potion": {
+    "code": "220",
+    "label": "Love Potion",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15253616.jpg"
+  },
+  "Love Struck": {
+    "code": "8B2",
+    "label": "Love Struck",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15533674.jpg"
+  },
+  "Love Wins": {
+    "code": "D30",
+    "label": "Love Wins",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15329526.jpg"
+  },
+  "Love the Sun": {
+    "code": "136",
+    "label": "Love the Sun",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15362241.jpg"
+  },
+  "Lower East Side NY": {
+    "code": "D50",
+    "label": "Lower East Side NY",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15509071.jpg"
+  },
+  "Lt. Blue Heather": {
+    "code": "00C",
+    "label": "Lt. Blue Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15734502.jpg"
+  },
+  "Made in the Shade": {
+    "code": "113",
+    "label": "Made in the Shade",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15442037.jpg"
+  },
+  "Made of Magic": {
+    "code": "172",
+    "label": "Made of Magic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15749862.jpg"
+  },
+  "Magenta Haze": {
+    "code": "D60",
+    "label": "Magenta Haze",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15868051.jpg"
+  },
+  "Magic": {
+    "code": "DD1",
+    "label": "Magic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915093.jpg"
+  },
+  "Majestic Sea": {
+    "code": "3A7",
+    "label": "Majestic Sea",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14855919.jpg"
+  },
+  "Make My Gray": {
+    "code": "071",
+    "label": "Make My Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14106554.jpg"
+  },
+  "Makes Cents": {
+    "code": "84B",
+    "label": "Makes Cents",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15875070.jpg"
+  },
+  "Man in the Moon": {
+    "code": "93B",
+    "label": "Man in the Moon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15493820.jpg"
+  },
+  "Maple Beige": {
+    "code": "60B",
+    "label": "Maple Beige",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15612855.jpg"
+  },
+  "Mariana Trench": {
+    "code": "54B",
+    "label": "Mariana Trench",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15747113.jpg"
+  },
+  "Maritime Pine": {
+    "code": "BB6",
+    "label": "Maritime Pine",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15764033.jpg"
+  },
+  "Marl Grey Heather": {
+    "code": "856",
+    "label": "Marl Grey Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13216604.gif"
+  },
+  "Marled Rust": {
+    "code": "221",
+    "label": "Marled Rust",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608155.jpg"
+  },
+  "Maroon": {
+    "code": "822",
+    "label": "Maroon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15768318.jpg"
+  },
+  "Maroon Jive": {
+    "code": "066",
+    "label": "Maroon Jive",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16005628.jpg"
+  },
+  "Marsh Green": {
+    "code": "66A",
+    "label": "Marsh Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15618137.jpg"
+  },
+  "Matcha Green": {
+    "code": "BDE",
+    "label": "Matcha Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14854481.jpg"
+  },
+  "Mauve": {
+    "code": "150",
+    "label": "Mauve",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476230.jpg"
+  },
+  "Mauve On Down": {
+    "code": "AF8",
+    "label": "Mauve On Down",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890677.jpg"
+  },
+  "Mauve Over": {
+    "code": "DCE",
+    "label": "Mauve Over",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14462898.jpg"
+  },
+  "Mauven Gardens": {
+    "code": "4B8",
+    "label": "Mauven Gardens",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16120531.jpg"
+  },
+  "Mauvey Star": {
+    "code": "503",
+    "label": "Mauvey Star",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15804739.jpg"
+  },
+  "May Rose": {
+    "code": "E9F",
+    "label": "May Rose",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15582887.jpg"
+  },
+  "Medium Authentic": {
+    "code": "814",
+    "label": "Medium Authentic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15557755.jpg"
+  },
+  "Medium Blue Heather": {
+    "code": "BE6",
+    "label": "Medium Blue Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15617873.jpg"
+  },
+  "Medium Charcoal Gray": {
+    "code": "0DD",
+    "label": "Medium Charcoal Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14833901.jpg"
+  },
+  "Medium Gray": {
+    "code": "F64",
+    "label": "Medium Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13588871.jpg"
+  },
+  "Medium Gray Heather": {
+    "code": "FE4",
+    "label": "Medium Gray Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15954042.jpg"
+  },
+  "Medium Tint": {
+    "code": "211",
+    "label": "Medium Tint",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14826651.jpg"
+  },
+  "Medium Wash": {
+    "code": "CEC",
+    "label": "Medium Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13560289.jpg"
+  },
+  "Metallic Polka Dot": {
+    "code": "AA8",
+    "label": "Metallic Polka Dot",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15768715.jpg"
+  },
+  "Mid Grey Heather": {
+    "code": "7CE",
+    "label": "Mid Grey Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15603560.jpg"
+  },
+  "Midnight Gray": {
+    "code": "E9C",
+    "label": "Midnight Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16095889.jpg"
+  },
+  "Midnight Madness": {
+    "code": "7F2",
+    "label": "Midnight Madness",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15599487.jpg"
+  },
+  "Milkshake Pink": {
+    "code": "365",
+    "label": "Milkshake Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15686109.jpg"
+  },
+  "Milky White": {
+    "code": "9DC",
+    "label": "Milky White",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15646717.jpg"
+  },
+  "Mimosas Are Magic": {
+    "code": "D17",
+    "label": "Mimosas Are Magic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460585.jpg"
+  },
+  "Mini Mint": {
+    "code": "A15",
+    "label": "Mini Mint",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15486753.jpg"
+  },
+  "Mocha": {
+    "code": "7F7",
+    "label": "Mocha",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15873979.jpg"
+  },
+  "Mocha Brown": {
+    "code": "677",
+    "label": "Mocha Brown",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15599122.jpg"
+  },
+  "Monet Blue": {
+    "code": "25E",
+    "label": "Monet Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13519796.jpg"
+  },
+  "Monument Valley": {
+    "code": "29F",
+    "label": "Monument Valley",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15241826.jpg"
+  },
+  "Moon Dance": {
+    "code": "FE2",
+    "label": "Moon Dance",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15833143.jpg"
+  },
+  "Moonlight Grey": {
+    "code": "D3C",
+    "label": "Moonlight Grey",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15606124.jpg"
+  },
+  "Moonlight Heather": {
+    "code": "A35",
+    "label": "Moonlight Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15686108.jpg"
+  },
+  "Morning in the Mountains": {
+    "code": "80E",
+    "label": "Morning in the Mountains",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496842.jpg"
+  },
+  "Moss Landing": {
+    "code": "DD9",
+    "label": "Moss Landing",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14913252.jpg"
+  },
+  "Mountain Stripes": {
+    "code": "C92",
+    "label": "Mountain Stripes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15729959.jpg"
+  },
+  "Mountain Sunrise": {
+    "code": "105",
+    "label": "Mountain Sunrise",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15874203.jpg"
+  },
+  "Multi Ditsy Floral": {
+    "code": "E91",
+    "label": "Multi Ditsy Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496486.jpg"
+  },
+  "Multi Floral": {
+    "code": "C34",
+    "label": "Multi Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15500112.jpg"
+  },
+  "Mushroom": {
+    "code": "C98",
+    "label": "Mushroom",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14678546.jpg"
+  },
+  "Mustard": {
+    "code": "D4F",
+    "label": "Mustard",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15395123.jpg"
+  },
+  "My Coffee Needs Coffee": {
+    "code": "4B7",
+    "label": "My Coffee Needs Coffee",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15362170.jpg"
+  },
+  "NY Summer League": {
+    "code": "C40",
+    "label": "NY Summer League",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15325029.jpg"
+  },
+  "NYC": {
+    "code": "9A5",
+    "label": "NYC",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15261011.jpg"
+  },
+  "Navy": {
+    "code": "E79",
+    "label": "Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15872165.jpg"
+  },
+  "Navy & Red": {
+    "code": "51E",
+    "label": "Navy & Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15649591.jpg"
+  },
+  "Navy Anchor Print": {
+    "code": "F02",
+    "label": "Navy Anchor Print",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14730207.jpg"
+  },
+  "Navy Blue": {
+    "code": "CDC",
+    "label": "Navy Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15241323.jpg"
+  },
+  "Navy Captain": {
+    "code": "BD1",
+    "label": "Navy Captain",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn11775466.jpg"
+  },
+  "Navy Captain/ Black": {
+    "code": "A3F",
+    "label": "Navy Captain/ Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15611807.jpg"
+  },
+  "Navy Dots": {
+    "code": "7D6",
+    "label": "Navy Dots",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15558656.jpg"
+  },
+  "Navy Floral": {
+    "code": "887",
+    "label": "Navy Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14956534.jpg"
+  },
+  "Navy Heather": {
+    "code": "1F4",
+    "label": "Navy Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12205217.gif"
+  },
+  "Navy Stripe": {
+    "code": "34B",
+    "label": "Navy Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15704972.jpg"
+  },
+  "Navy Surfers": {
+    "code": "52E",
+    "label": "Navy Surfers",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15391696.jpg"
+  },
+  "Navy Tri Blend": {
+    "code": "6F9",
+    "label": "Navy Tri Blend",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15069270.jpg"
+  },
+  "Navy White Dot": {
+    "code": "E5D",
+    "label": "Navy White Dot",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15749865.jpg"
+  },
+  "Neutral": {
+    "code": "A01",
+    "label": "Neutral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15888787.jpg"
+  },
+  "Neutral Camel": {
+    "code": "1DD",
+    "label": "Neutral Camel",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608154.jpg"
+  },
+  "Neutral Stripe": {
+    "code": "EA0",
+    "label": "Neutral Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15375938.jpg"
+  },
+  "Neutral Stripe Top": {
+    "code": "A11",
+    "label": "Neutral Stripe Top",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15767868.jpg"
+  },
+  "New Heather Gray": {
+    "code": "D79",
+    "label": "New Heather Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608914.jpg"
+  },
+  "New Light Vintage": {
+    "code": "241",
+    "label": "New Light Vintage",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10025265.jpg"
+  },
+  "New Medium Vintage": {
+    "code": "537",
+    "label": "New Medium Vintage",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10025266.jpg"
+  },
+  "New York Athletic Club, Brooklyn": {
+    "code": "7EE",
+    "label": "New York Athletic Club, Brooklyn",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15260294.jpg"
+  },
+  "New York City": {
+    "code": "438",
+    "label": "New York City",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15624455.jpg"
+  },
+  "Night Flight": {
+    "code": "AC2",
+    "label": "Night Flight",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15314487.jpg"
+  },
+  "No Drama Llama": {
+    "code": "1A0",
+    "label": "No Drama Llama",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15694559.jpg"
+  },
+  "Nouveau Rose": {
+    "code": "E2E",
+    "label": "Nouveau Rose",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15606018.jpg"
+  },
+  "Nude": {
+    "code": "B42",
+    "label": "Nude",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14445985.gif"
+  },
+  "O.N. New Black Stripe": {
+    "code": "F0C",
+    "label": "O.N. New Black Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14944360.jpg"
+  },
+  "ON White Heather": {
+    "code": "832",
+    "label": "ON White Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15157446.jpg"
+  },
+  "Oatmeal": {
+    "code": "BE6",
+    "label": "Oatmeal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15245758.jpg"
+  },
+  "Oatmeal Heather": {
+    "code": "875",
+    "label": "Oatmeal Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15066780.jpg"
+  },
+  "Oatmeal Marl": {
+    "code": "06B",
+    "label": "Oatmeal Marl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15841094.jpg"
+  },
+  "Ocean": {
+    "code": "098",
+    "label": "Ocean",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15587033.jpg"
+  },
+  "Of Quartz": {
+    "code": "F71",
+    "label": "Of Quartz",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15075874.jpg"
+  },
+  "Old Navy California Bear": {
+    "code": "D10",
+    "label": "Old Navy California Bear",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476229.jpg"
+  },
+  "Olive": {
+    "code": "247",
+    "label": "Olive",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13530345.jpg"
+  },
+  "Olive Arrow Print": {
+    "code": "21C",
+    "label": "Olive Arrow Print",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15730307.jpg"
+  },
+  "Olive Floral": {
+    "code": "007",
+    "label": "Olive Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15952155.jpg"
+  },
+  "Olive Heather": {
+    "code": "5A8",
+    "label": "Olive Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15976794.jpg"
+  },
+  "Olive Leaf": {
+    "code": "845",
+    "label": "Olive Leaf",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15404385.jpg"
+  },
+  "Olive Stripe": {
+    "code": "681",
+    "label": "Olive Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15288804.jpg"
+  },
+  "Oliver Olive": {
+    "code": "36A",
+    "label": "Oliver Olive",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12779828.jpg"
+  },
+  "On Black Dot": {
+    "code": "EF2",
+    "label": "On Black Dot",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15783640.jpg"
+  },
+  "One For All, All For One": {
+    "code": "C76",
+    "label": "One For All, All For One",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15564371.jpg"
+  },
+  "One With the Cosmos": {
+    "code": "E16",
+    "label": "One With the Cosmos",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15648988.jpg"
+  },
+  "Onward & Upward": {
+    "code": "DC0",
+    "label": "Onward & Upward",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15057124.jpg"
+  },
+  "Optimist": {
+    "code": "15A",
+    "label": "Optimist",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608915.jpg"
+  },
+  "Orange Floral": {
+    "code": "F4A",
+    "label": "Orange Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15362248.jpg"
+  },
+  "Orange Palm Trees": {
+    "code": "B60",
+    "label": "Orange Palm Trees",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15144940.jpg"
+  },
+  "Our Future Is Now": {
+    "code": "66F",
+    "label": "Our Future Is Now",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15694557.jpg"
+  },
+  "Out of this World": {
+    "code": "F1A",
+    "label": "Out of this World",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15609164.jpg"
+  },
+  "Over the Moon": {
+    "code": "8CE",
+    "label": "Over the Moon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15558658.jpg"
+  },
+  "Pacific": {
+    "code": "563",
+    "label": "Pacific",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15253971.jpg"
+  },
+  "Pacific Blue": {
+    "code": "396",
+    "label": "Pacific Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15067448.jpg"
+  },
+  "Pale Gray Micro-Pattern": {
+    "code": "FDA",
+    "label": "Pale Gray Micro-Pattern",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14634879.jpg"
+  },
+  "Palm Chest Stripe": {
+    "code": "963",
+    "label": "Palm Chest Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14729978.jpg"
+  },
+  "Palm Leaf": {
+    "code": "918",
+    "label": "Palm Leaf",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15254048.jpg"
+  },
+  "Palm Print": {
+    "code": "5B6",
+    "label": "Palm Print",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15142882.jpg"
+  },
+  "Palm Tree": {
+    "code": "0A8",
+    "label": "Palm Tree",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15325145.jpg"
+  },
+  "Palm Trees": {
+    "code": "DB7",
+    "label": "Palm Trees",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15159995.jpg"
+  },
+  "Palm Trees/Pineapples": {
+    "code": "0ED",
+    "label": "Palm Trees/Pineapples",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16022113.jpg"
+  },
+  "Palomino": {
+    "code": "A6A",
+    "label": "Palomino",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15218629.jpg"
+  },
+  "Palomino Heather": {
+    "code": "2D7",
+    "label": "Palomino Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460879.jpg"
+  },
+  "Panther": {
+    "code": "123",
+    "label": "Panther",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15324516.jpg"
+  },
+  "Pants On Fire": {
+    "code": "F30",
+    "label": "Pants On Fire",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15976873.jpg"
+  },
+  "Paper Roses": {
+    "code": "BD7",
+    "label": "Paper Roses",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14262440.jpg"
+  },
+  "Parrot": {
+    "code": "072",
+    "label": "Parrot",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15150755.jpg"
+  },
+  "Peace Hand Sign": {
+    "code": "54F",
+    "label": "Peace Hand Sign",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15694574.jpg"
+  },
+  "Peace Sign": {
+    "code": "94C",
+    "label": "Peace Sign",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15455604.jpg"
+  },
+  "Peach Stripe": {
+    "code": "8E4",
+    "label": "Peach Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14962982.jpg"
+  },
+  "Pebble Grey": {
+    "code": "DD4",
+    "label": "Pebble Grey",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15584732.jpg"
+  },
+  "Pedal to the Metal": {
+    "code": "7B5",
+    "label": "Pedal to the Metal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15058564.jpg"
+  },
+  "Phosphor Green": {
+    "code": "D15",
+    "label": "Phosphor Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15497119.jpg"
+  },
+  "Pink Blush": {
+    "code": "CB1",
+    "label": "Pink Blush",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15913987.jpg"
+  },
+  "Pink Glow with Red": {
+    "code": "551",
+    "label": "Pink Glow with Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15666941.jpg"
+  },
+  "Pink Paradigm": {
+    "code": "235",
+    "label": "Pink Paradigm",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15175203.jpg"
+  },
+  "Pink Sherbert": {
+    "code": "CD8",
+    "label": "Pink Sherbert",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16005627.jpg"
+  },
+  "Pinot Noir": {
+    "code": "E1E",
+    "label": "Pinot Noir",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15730313.jpg"
+  },
+  "Pixie": {
+    "code": "0E3",
+    "label": "Pixie",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15682683.jpg"
+  },
+  "Plant Life": {
+    "code": "79C",
+    "label": "Plant Life",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13463568.jpg"
+  },
+  "Plum": {
+    "code": "BFE",
+    "label": "Plum",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915319.jpg"
+  },
+  "Plum Tonic": {
+    "code": "7BB",
+    "label": "Plum Tonic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16124777.jpg"
+  },
+  "Polka Dot": {
+    "code": "433",
+    "label": "Polka Dot",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15768715.jpg"
+  },
+  "Positive Altitudes Makes for Good Times": {
+    "code": "2D2",
+    "label": "Positive Altitudes Makes for Good Times",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737583.jpg"
+  },
+  "Positively Stunning": {
+    "code": "C43",
+    "label": "Positively Stunning",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16005677.jpg"
+  },
+  "Practically Pink": {
+    "code": "A2A",
+    "label": "Practically Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705476.jpg"
+  },
+  "Preppy Pink": {
+    "code": "683",
+    "label": "Preppy Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13519797.jpg"
+  },
+  "Prosecco & Pizza": {
+    "code": "C77",
+    "label": "Prosecco & Pizza",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15564125.jpg"
+  },
+  "Pug Purple": {
+    "code": "C72",
+    "label": "Pug Purple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14487995.jpg"
+  },
+  "Pure Blue": {
+    "code": "603",
+    "label": "Pure Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10078861.gif"
+  },
+  "Purple Drama": {
+    "code": "B8C",
+    "label": "Purple Drama",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15140208.jpg"
+  },
+  "Purple Floral": {
+    "code": "5E3",
+    "label": "Purple Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915537.jpg"
+  },
+  "Purple Heather": {
+    "code": "B3E",
+    "label": "Purple Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737687.jpg"
+  },
+  "Purple/Silver Stripe": {
+    "code": "51F",
+    "label": "Purple/Silver Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn16063904.jpg"
+  },
+  "Rainbow Heart": {
+    "code": "E94",
+    "label": "Rainbow Heart",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15334723.jpg"
+  },
+  "Rainier Cherry": {
+    "code": "589",
+    "label": "Rainier Cherry",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14761456.jpg"
+  },
+  "Raisin Arizona": {
+    "code": "CB0",
+    "label": "Raisin Arizona",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15558628.jpg"
+  },
+  "Raspberry Blush": {
+    "code": "F62",
+    "label": "Raspberry Blush",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15441945.jpg"
+  },
+  "Red": {
+    "code": "B47",
+    "label": "Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705477.jpg"
+  },
+  "Red Buffalo Plaid": {
+    "code": "8A0",
+    "label": "Red Buffalo Plaid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15790780.jpg"
+  },
+  "Red Marl": {
+    "code": "877",
+    "label": "Red Marl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15558657.jpg"
+  },
+  "Red Stripe": {
+    "code": "D5B",
+    "label": "Red Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15720035.jpg"
+  },
+  "Red Stripes": {
+    "code": "E1E",
+    "label": "Red Stripes",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15500245.jpg"
+  },
+  "Red Tape": {
+    "code": "02A",
+    "label": "Red Tape",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13530264.jpg"
+  },
+  "Red Wine Vinegar": {
+    "code": "3D3",
+    "label": "Red Wine Vinegar",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15799505.jpg"
+  },
+  "Red/White Stripe": {
+    "code": "B6B",
+    "label": "Red/White Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15936104.jpg"
+  },
+  "Reddy Or Not": {
+    "code": "391",
+    "label": "Reddy Or Not",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15694834.jpg"
+  },
+  "Reef History of Time": {
+    "code": "265",
+    "label": "Reef History of Time",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14898706.jpg"
+  },
+  "Relax": {
+    "code": "1B4",
+    "label": "Relax",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15152246.jpg"
+  },
+  "Relief Pitcher": {
+    "code": "742",
+    "label": "Relief Pitcher",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15174321.jpg"
+  },
+  "Retro Logo Blue": {
+    "code": "32B",
+    "label": "Retro Logo Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15780358.jpg"
+  },
+  "Retro Logo Cream": {
+    "code": "97A",
+    "label": "Retro Logo Cream",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15808580.jpg"
+  },
+  "Rich Eggplant": {
+    "code": "B0E",
+    "label": "Rich Eggplant",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15666837.jpg"
+  },
+  "Rinse": {
+    "code": "DB7",
+    "label": "Rinse",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13560293.jpg"
+  },
+  "Rise Up": {
+    "code": "682",
+    "label": "Rise Up",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915300.jpg"
+  },
+  "Robbie Red": {
+    "code": "EB6",
+    "label": "Robbie Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13895551.jpg"
+  },
+  "Rolled Oats": {
+    "code": "0CD",
+    "label": "Rolled Oats",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn11945411.jpg"
+  },
+  "Royal Pine": {
+    "code": "46F",
+    "label": "Royal Pine",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15612929.jpg"
+  },
+  "Rust": {
+    "code": "FE8",
+    "label": "Rust",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15873977.jpg"
+  },
+  "Rust Stripe": {
+    "code": "B94",
+    "label": "Rust Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15609186.jpg"
+  },
+  "Rust Yellow": {
+    "code": "AEE",
+    "label": "Rust Yellow",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15608153.jpg"
+  },
+  "Rusty Orange": {
+    "code": "911",
+    "label": "Rusty Orange",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15521559.jpg"
+  },
+  "Rusty Yellow": {
+    "code": "29E",
+    "label": "Rusty Yellow",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15774687.jpg"
+  },
+  "Sage Advice": {
+    "code": "6D7",
+    "label": "Sage Advice",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15954060.jpg"
+  },
+  "San Francisco The City by the Bay": {
+    "code": "790",
+    "label": "San Francisco The City by the Bay",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15260235.jpg"
+  },
+  "Saucy Red": {
+    "code": "4FB",
+    "label": "Saucy Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14628095.jpg"
+  },
+  "Sea Salt": {
+    "code": "248",
+    "label": "Sea Salt",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14433687.jpg"
+  },
+  "Sea Salt Heather Nep": {
+    "code": "A1E",
+    "label": "Sea Salt Heather Nep",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15588295.jpg"
+  },
+  "Seek Adventure": {
+    "code": "086",
+    "label": "Seek Adventure",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15723945.jpg"
+  },
+  "Shades of Jade": {
+    "code": "5A6",
+    "label": "Shades of Jade",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15941713.jpg"
+  },
+  "Shady Pineapples": {
+    "code": "45E",
+    "label": "Shady Pineapples",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15218732.jpg"
+  },
+  "Shoot for the Moon": {
+    "code": "682",
+    "label": "Shoot for the Moon",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15874022.jpg"
+  },
+  "Shore Enough": {
+    "code": "8B7",
+    "label": "Shore Enough",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10548501.jpg"
+  },
+  "Silver Bells": {
+    "code": "91E",
+    "label": "Silver Bells",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13664920.gif"
+  },
+  "Silver Grey": {
+    "code": "A55",
+    "label": "Silver Grey",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15599185.jpg"
+  },
+  "Sleeve Stripe Graphic": {
+    "code": "C9F",
+    "label": "Sleeve Stripe Graphic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15648735.jpg"
+  },
+  "Smoke Gray Heather": {
+    "code": "B2E",
+    "label": "Smoke Gray Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10131148.jpg"
+  },
+  "Soft Lilac": {
+    "code": "BF0",
+    "label": "Soft Lilac",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15871169.jpg"
+  },
+  "Soft Pink": {
+    "code": "107",
+    "label": "Soft Pink",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15489683.jpg"
+  },
+  "Soy Latte": {
+    "code": "D0F",
+    "label": "Soy Latte",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460208.jpg"
+  },
+  "Space Llama": {
+    "code": "7AE",
+    "label": "Space Llama",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15669006.jpg"
+  },
+  "Space-Dye Gray": {
+    "code": "E97",
+    "label": "Space-Dye Gray",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15458589.jpg"
+  },
+  "Sprucing Up": {
+    "code": "6B2",
+    "label": "Sprucing Up",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496767.jpg"
+  },
+  "Squash": {
+    "code": "E4A",
+    "label": "Squash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15562630.jpg"
+  },
+  "Stay Stellar": {
+    "code": "3C3",
+    "label": "Stay Stellar",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15613524.jpg"
+  },
+  "Stay Wild": {
+    "code": "3DD",
+    "label": "Stay Wild",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15737602.jpg"
+  },
+  "Staying In Is the New Going Out": {
+    "code": "6F8",
+    "label": "Staying In Is the New Going Out",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15613299.jpg"
+  },
+  "Still Dreaming": {
+    "code": "0F7",
+    "label": "Still Dreaming",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15927645.jpg"
+  },
+  "Stone Beige Stripe": {
+    "code": "43B",
+    "label": "Stone Beige Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15889416.jpg"
+  },
+  "Street": {
+    "code": "C65",
+    "label": "Street",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15065988.jpg"
+  },
+  "Sumptuous Purple": {
+    "code": "011",
+    "label": "Sumptuous Purple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15541608.jpg"
+  },
+  "Sun & Surf": {
+    "code": "D38",
+    "label": "Sun & Surf",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15496803.jpg"
+  },
+  "Sunny Days Always": {
+    "code": "0A4",
+    "label": "Sunny Days Always",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15109152.jpg"
+  },
+  "Sunny Mountains": {
+    "code": "88A",
+    "label": "Sunny Mountains",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15730863.jpg"
+  },
+  "Sunrise Mountain": {
+    "code": "270",
+    "label": "Sunrise Mountain",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15788209.jpg"
+  },
+  "Sunrise to Sunset": {
+    "code": "285",
+    "label": "Sunrise to Sunset",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15212108.jpg"
+  },
+  "Surfer Graphic": {
+    "code": "90E",
+    "label": "Surfer Graphic",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15391429.jpg"
+  },
+  "Surfers": {
+    "code": "D64",
+    "label": "Surfers",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15392178.jpg"
+  },
+  "Surplus Khaki": {
+    "code": "CDC",
+    "label": "Surplus Khaki",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15509260.jpg"
+  },
+  "Sweet Butter": {
+    "code": "F93",
+    "label": "Sweet Butter",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13464414.jpg"
+  },
+  "Take It Easy": {
+    "code": "520",
+    "label": "Take It Easy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15874021.jpg"
+  },
+  "Tan": {
+    "code": "F60",
+    "label": "Tan",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15407233.jpg"
+  },
+  "Tan Heather": {
+    "code": "8BD",
+    "label": "Tan Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15780498.jpg"
+  },
+  "Tasty Waves": {
+    "code": "DCE",
+    "label": "Tasty Waves",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14912496.jpg"
+  },
+  "Teal": {
+    "code": "2B8",
+    "label": "Teal",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15067755.jpg"
+  },
+  "Teal Away": {
+    "code": "D44",
+    "label": "Teal Away",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14983812.jpg"
+  },
+  "Teal Floral Ground": {
+    "code": "A66",
+    "label": "Teal Floral Ground",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15936093.jpg"
+  },
+  "Teal Heather": {
+    "code": "F48",
+    "label": "Teal Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15253978.jpg"
+  },
+  "Teal Stripe": {
+    "code": "44B",
+    "label": "Teal Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15460871.jpg"
+  },
+  "Teal/White Stripe": {
+    "code": "657",
+    "label": "Teal/White Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15252949.jpg"
+  },
+  "The Cerulean Life": {
+    "code": "0AE",
+    "label": "The Cerulean Life",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15613678.jpg"
+  },
+  "The Great Outdoors": {
+    "code": "F8D",
+    "label": "The Great Outdoors",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705523.jpg"
+  },
+  "This Girl Can": {
+    "code": "346",
+    "label": "This Girl Can",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15780365.jpg"
+  },
+  "This Is My Costume": {
+    "code": "01D",
+    "label": "This Is My Costume",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15888825.jpg"
+  },
+  "Tiger": {
+    "code": "617",
+    "label": "Tiger",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476658.jpg"
+  },
+  "Tinted Light Wash": {
+    "code": "D0F",
+    "label": "Tinted Light Wash",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15552243.jpg"
+  },
+  "To Grape Lengths": {
+    "code": "698",
+    "label": "To Grape Lengths",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890660.jpg"
+  },
+  "Toasty": {
+    "code": "750",
+    "label": "Toasty",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10057551.jpg"
+  },
+  "Tobacco Leaf": {
+    "code": "008",
+    "label": "Tobacco Leaf",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15826319.jpg"
+  },
+  "Toucans": {
+    "code": "68C",
+    "label": "Toucans",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15245764.jpg"
+  },
+  "Trident Maple": {
+    "code": "0A7",
+    "label": "Trident Maple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13741932.jpg"
+  },
+  "Tropical Drinks": {
+    "code": "2F2",
+    "label": "Tropical Drinks",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915115.jpg"
+  },
+  "True Navy": {
+    "code": "0F8",
+    "label": "True Navy",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15755379.jpg"
+  },
+  "Turntable": {
+    "code": "65A",
+    "label": "Turntable",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15705505.jpg"
+  },
+  "Tuscany Green": {
+    "code": "A55",
+    "label": "Tuscany Green",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15350790.jpg"
+  },
+  "Twilight Lilac": {
+    "code": "56A",
+    "label": "Twilight Lilac",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15625900.jpg"
+  },
+  "Two-Tone Blue": {
+    "code": "A7E",
+    "label": "Two-Tone Blue",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14286422.jpg"
+  },
+  "Upper Crust": {
+    "code": "BBC",
+    "label": "Upper Crust",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn12944948.jpg"
+  },
+  "Vamp Red": {
+    "code": "CAE",
+    "label": "Vamp Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15913985.jpg"
+  },
+  "Vermilion Red": {
+    "code": "B52",
+    "label": "Vermilion Red",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915550.jpg"
+  },
+  "Warm Bread": {
+    "code": "81C",
+    "label": "Warm Bread",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15324296.jpg"
+  },
+  "Warm Multi Stripe": {
+    "code": "1B9",
+    "label": "Warm Multi Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15915568.jpg"
+  },
+  "Warm Stripe": {
+    "code": "B1C",
+    "label": "Warm Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15780364.jpg"
+  },
+  "Warmer Waters": {
+    "code": "74F",
+    "label": "Warmer Waters",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15152299.jpg"
+  },
+  "Weekend Made": {
+    "code": "65B",
+    "label": "Weekend Made",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15273569.jpg"
+  },
+  "What Goes Around Records": {
+    "code": "981",
+    "label": "What Goes Around Records",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15253970.jpg"
+  },
+  "What's the Scoop?": {
+    "code": "2E0",
+    "label": "What's the Scoop?",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15436081.jpg"
+  },
+  "Where the Buffalo Roam": {
+    "code": "5D1",
+    "label": "Where the Buffalo Roam",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15743928.jpg"
+  },
+  "Whipped Apricot": {
+    "code": "E3D",
+    "label": "Whipped Apricot",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14654705.jpg"
+  },
+  "White": {
+    "code": "006",
+    "label": "White",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13478674.gif"
+  },
+  "White & Blue Stripe": {
+    "code": "7E9",
+    "label": "White & Blue Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15240419.jpg"
+  },
+  "White & Gray Stripe": {
+    "code": "49B",
+    "label": "White & Gray Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15913986.jpg"
+  },
+  "White Heather": {
+    "code": "0D8",
+    "label": "White Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15954040.jpg"
+  },
+  "White Multi Stripe Top": {
+    "code": "9A1",
+    "label": "White Multi Stripe Top",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15804681.jpg"
+  },
+  "White Stripe": {
+    "code": "B20",
+    "label": "White Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14864307.jpg"
+  },
+  "White Wave Stripe": {
+    "code": "243",
+    "label": "White Wave Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14749687.jpg"
+  },
+  "White with Black": {
+    "code": "431",
+    "label": "White with Black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15666990.jpg"
+  },
+  "White/ Slate Grey": {
+    "code": "560",
+    "label": "White/ Slate Grey",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13824631.gif"
+  },
+  "White/Gray Marl": {
+    "code": "515",
+    "label": "White/Gray Marl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15780355.jpg"
+  },
+  "White/Pink Stripe": {
+    "code": "678",
+    "label": "White/Pink Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15148979.jpg"
+  },
+  "White/Yellow Stripe": {
+    "code": "EBD",
+    "label": "White/Yellow Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15273807.jpg"
+  },
+  "Wild Bloom": {
+    "code": "9EB",
+    "label": "Wild Bloom",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15181967.jpg"
+  },
+  "Wildcats": {
+    "code": "E42",
+    "label": "Wildcats",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15486880.jpg"
+  },
+  "Willow Bark": {
+    "code": "A37",
+    "label": "Willow Bark",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13741654.jpg"
+  },
+  "Wine Defined": {
+    "code": "8C4",
+    "label": "Wine Defined",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15564369.jpg"
+  },
+  "Wine Heather": {
+    "code": "897",
+    "label": "Wine Heather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15480368.jpg"
+  },
+  "Wine Purple": {
+    "code": "1EA",
+    "label": "Wine Purple",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15648733.jpg"
+  },
+  "Wine Stain": {
+    "code": "BB8",
+    "label": "Wine Stain",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476204.jpg"
+  },
+  "Wined Down": {
+    "code": "813",
+    "label": "Wined Down",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn13741934.jpg"
+  },
+  "Winter Wine": {
+    "code": "9F2",
+    "label": "Winter Wine",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15729521.jpg"
+  },
+  "Wintry Waters": {
+    "code": "B8B",
+    "label": "Wintry Waters",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15735113.jpg"
+  },
+  "Worn Leather": {
+    "code": "10F",
+    "label": "Worn Leather",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15061214.jpg"
+  },
+  "Written in the Stars": {
+    "code": "7E4",
+    "label": "Written in the Stars",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15561841.jpg"
+  },
+  "Yellow": {
+    "code": "8B8",
+    "label": "Yellow",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15772245.jpg"
+  },
+  "Yellow Floral": {
+    "code": "3EF",
+    "label": "Yellow Floral",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15476205.jpg"
+  },
+  "Yellow Mustard": {
+    "code": "E9E",
+    "label": "Yellow Mustard",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15390100.jpg"
+  },
+  "Yellow Stripe": {
+    "code": "262",
+    "label": "Yellow Stripe",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15278685.jpg"
+  },
+  "Yellow Stripe Combo C": {
+    "code": "50F",
+    "label": "Yellow Stripe Combo C",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15240515.jpg"
+  },
+  "Yellow Sunshine": {
+    "code": "0CE",
+    "label": "Yellow Sunshine",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15233519.jpg"
+  },
+  "You Can Brew It": {
+    "code": "26F",
+    "label": "You Can Brew It",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15217888.jpg"
+  },
+  "You Glow Girl": {
+    "code": "6FC",
+    "label": "You Glow Girl",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15889062.jpg"
+  },
+  "anchorage cream": {
+    "code": "9DA",
+    "label": "anchorage cream",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15814219.jpg"
+  },
+  "blue plaid": {
+    "code": "D01",
+    "label": "blue plaid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890536.jpg"
+  },
+  "dark night": {
+    "code": "0CB",
+    "label": "dark night",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15883867.jpg"
+  },
+  "grey plaid": {
+    "code": "81E",
+    "label": "grey plaid",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15890538.jpg"
+  },
+  "heather grey": {
+    "code": "E07",
+    "label": "heather grey",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10891375.jpg"
+  },
+  "herringbone": {
+    "code": "1AD",
+    "label": "herringbone",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15606928.jpg"
+  },
+  "light grey marle": {
+    "code": "96B",
+    "label": "light grey marle",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15784572.jpg"
+  },
+  "medium indigo": {
+    "code": "25A",
+    "label": "medium indigo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15197419.jpg"
+  },
+  "resin rinse": {
+    "code": "540",
+    "label": "resin rinse",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14855751.jpg"
+  },
+  "snowflake milk": {
+    "code": "481",
+    "label": "snowflake milk",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15227184.jpg"
+  },
+  "true black": {
+    "code": "138",
+    "label": "true black",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15390566.jpg"
+  },
+  "true indigo": {
+    "code": "9A5",
+    "label": "true indigo",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn10892788.jpg"
+  },
+  "white": {
+    "code": "B5C",
+    "label": "white",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn15312610.jpg"
+  },
+  "worn dark": {
+    "code": "F71",
+    "label": "worn dark",
+    "swatch": "https://fashion.coveodemo.com/images/color_cn14901120.jpg"
+  }
+}

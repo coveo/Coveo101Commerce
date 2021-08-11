@@ -1,0 +1,144 @@
+.CoveoCategoryFacet,
+.CoveoFacet {
+  animation: loadIn 1s;
+}
+
+.CoveoFacet {
+  margin-bottom: 30px;
+
+  .btn-control--secondary,
+  .btn-control--primary {
+    margin-right: 12px;
+  }
+
+  .facet-title {
+    font-weight: bold;
+  }
+
+  .MuiListSubheader-root {
+    font-size: 16px;
+    font-weight: 900;
+    color: #000;
+
+    .MuiListItemText-root .MuiTypography-root {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: #0046be;
+    }
+  }
+
+  .facet-list-item {
+    cursor: pointer;
+    position: relative;
+    padding-right: 70px;
+    padding-left: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .facet-count {
+      font-size: 12px;
+      position: absolute;
+      right: 10px;
+      color: #989898;
+    }
+  }
+
+  .MuiListFacetSize {
+    display: inline;
+  }
+}
+
+.facet-color-swatch {
+  height: 22px;
+  width: 22px;
+  margin-right: 5px;
+}
+
+.coveo-selected .facet-color-swatch {
+  border: 3px solid #04afff;
+}
+
+.facet-list-item-size {
+  cursor: pointer;
+  position: relative;
+  padding-right: 5px;
+  padding-left: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .facet-count-size {
+    vertical-align: super;
+    font-size: 0.7em;
+    padding-left: 3px;
+    color: #989898;
+    height: 30px;
+  }
+
+  .item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    &:hover {
+      background-color: #0046be;
+      color: white;
+    }
+  }
+
+  .coveo-selected {
+    background-color: #0046be !important;
+    color: white !important;
+  }
+}
+
+.CoveoCategoryFacet {
+  @extend .CoveoFacet;
+
+  .facet-title {
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .facet-child {
+    padding-left: 30px !important;
+  }
+
+  .parent-item {
+    font-weight: bold;
+    padding-left: 30px !important;
+    color: #999;
+  }
+
+  .parent-item-back {
+    cursor: pointer;
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+}
+
+@keyframes loadIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

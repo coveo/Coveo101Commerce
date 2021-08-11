@@ -1,0 +1,99 @@
+.card-product {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: none;
+  animation: loadIn 1s;
+
+  .card__body {
+    padding: 15px 0;
+  }
+
+  .card__price,
+  .card__rating,
+  .CoveoResultLink,
+  .card__brand,
+  .card__model {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .CoveoResultLink {
+    cursor: pointer;
+    display: block;
+    color: $black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  div[class^="ChildImages-thumbnail-"] {
+    box-shadow: 0 4px 2px -2px grey;
+  }
+  .card__media {
+    cursor: pointer;
+    height: 0;
+    background-size: contain;
+    padding-top: 56.25%;
+    margin: 10px 10px 0;
+  }
+
+  .card__brand,
+  .card__model {
+    cursor: default;
+    line-height: 1;
+    display: block;
+    color: $grey-dark;
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+.widget-rating {
+  display: inline-block;
+  color: silver;
+  font-size: 16px;
+  vertical-align: middle;
+  position: relative;
+  & sup {
+    vertical-align: top;
+  }
+
+  .rating-fill {
+    color: $yellow;
+    position: absolute;
+    overflow: hidden;
+  }
+}
+
+@keyframes loadIn {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.product-sizes .facet-list-item-size.product-size-not-available {
+  &,
+  * {
+    pointer-events: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .item {
+    color: $grey-dark;
+    border-color: $grey-dark;
+
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent 0%,
+      transparent 48%,
+      $grey-dark 50%,
+      transparent 52%,
+      transparent 100%
+    );
+  }
+}

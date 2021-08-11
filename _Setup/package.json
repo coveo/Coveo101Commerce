@@ -1,0 +1,12 @@
+{
+  "name": "commerce-training-setup-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "@coveord/platform-client": "^24.3.1",
+    "abortcontroller-polyfill": "^1.7.3",
+    "coveo-pushapi-cli": "^1.0.7",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}

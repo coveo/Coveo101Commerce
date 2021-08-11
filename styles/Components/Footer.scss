@@ -1,0 +1,26 @@
+.footer__container {
+  background: $blue-dark;
+  color: $white;
+
+  .footer-link {
+    color: $white;
+    margin-right: 5px;
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+  .footer-logo {
+    max-width: 200px;
+  }
+
+  @include breakpoint(sm) {
+    .footer-content {
+      text-align: left;
+
+      h5 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

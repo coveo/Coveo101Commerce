@@ -1,0 +1,134 @@
+.hero {
+  background: $white;
+  padding: 0 25px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 70px;
+
+  .hero__grid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 0;
+    margin: 0 !important;
+
+    .MuiGrid-spacing-xs-4 {
+      margin: 0 !important;
+    }
+  }
+
+  .hero__content {
+    position: static;
+    z-index: 1;
+    padding: 80px 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .btn--hero {
+    background: $blue-dark;
+    color: $white;
+    border: none;
+    padding: 15px 20px;
+    font-weight: bold;
+  }
+
+  .hero__tl {
+    .hero__tl-sp {
+      color: $blue;
+    }
+  }
+
+  .hero__subtl {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: italic;
+    color: $grey-dark;
+  }
+
+  .hero__txt {
+    margin-bottom: 30px;
+    display: none;
+  }
+
+  .hero__content {
+    padding-right: 40px;
+  }
+
+  h1.MuiTypography-root {
+    font-size: 34px;
+  }
+
+  @include breakpoint(xs) {
+    h1.MuiTypography-root {
+      font-size: 44px;
+    }
+
+    .hero__column-1 {
+      transform: translateY(-30%);
+    }
+
+    .hero__column-2 {
+      transform: translateY(-15%);
+    }
+    .hero__column-3 {
+      transform: translateY(5%);
+    }
+  }
+
+  @include breakpoint(sm) {
+    // overflow: visible;
+    margin-bottom: 100px;
+
+    .hero__txt {
+      display: block;
+    }
+
+    h1.MuiTypography-root {
+      font-size: 64px;
+    }
+
+    .hero__grid {
+      position: absolute;
+      left: unset;
+      right: 0;
+    }
+  }
+  @include breakpoint(md) {
+    h1.MuiTypography-root {
+      font-size: 50px;
+    }
+    .hero__content {
+      text-align: left;
+    }
+  }
+}
+
+.hero__card {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  box-shadow: none;
+  opacity: 0.1;
+  background: $grey-light;
+
+  .hero__card-img {
+    width: 80%;
+    margin: 0 auto;
+    // height: 100%;
+    box-shadow: none;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+  }
+
+  @include breakpoint(md) {
+    opacity: 1;
+  }
+}
