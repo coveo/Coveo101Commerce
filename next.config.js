@@ -17,9 +17,6 @@ module.exports = {
     // logo: 'https://fashion.coveodemo.com/images/152216_cn10607893.jpg',
     title: 'Coveo Fashion Store',
 
-    pipelinePDP: 'PDP',
-    pipelinePLP: 'Listing',
-    pipelineRecommendations: 'Recommendations',
     searchhubPDP: 'PDP',
     searchhubPLP: 'Listing',
 

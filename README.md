@@ -37,7 +37,7 @@ Here you can specify the following:
 | env > SEARCH_PIPELINE | Pipeline for search |
 | publicRuntimeConfig > logo | Logo to display in the Header |
 | publicRuntimeConfig > title | Title to display in the Header |
-| publicRuntimeConfig > pipelinePDP | Pipeline for the Product Detail Page |
+| publicRuntimeConfig > searchhubPDP | Search hub for the Product Detail Page |
 | publicRuntimeConfig > fields | Extra fields to return with the search response |
 | publicRuntimeConfig > facetFields | Additional facets to show for this store array of: `{ field: 'ec_processor_model_number', label: 'Processor Model' }` |
 
