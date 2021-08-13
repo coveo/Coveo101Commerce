@@ -14,7 +14,7 @@ module.exports = {
   images: { domains: ['fashion.coveodemo.com'] },
 
   publicRuntimeConfig: {
-    logo: 'https://fashion.coveodemo.com/images/152216_cn10607893.jpg',
+    // logo: 'https://fashion.coveodemo.com/images/152216_cn10607893.jpg',
     title: 'Coveo Fashion Store',
 
     pipelinePDP: 'PDP',

@@ -114,7 +114,7 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
                   alt=""
                   className="logo"
                   src={publicRuntimeConfig?.logo || logo}
-                  layout="fill" objectFit="contain" objectPosition="left"
+                  height={50} width={50}
                 />
                 <span className="header-sub-tl">{publicRuntimeConfig.title}</span>
               </Grid>
