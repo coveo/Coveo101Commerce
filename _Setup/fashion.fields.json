@@ -125,6 +125,14 @@
     "type": "STRING"
   },
   {
+    "name": "cat_slug",
+    "includeInQuery": true,
+    "includeInResults": true,
+    "multiValueFacet": true,
+    "multiValueFacetTokenizers": ";",
+    "type": "STRING"
+  },
+  {
     "name": "cat_total_sizes",
     "includeInQuery": true,
     "includeInResults": true,

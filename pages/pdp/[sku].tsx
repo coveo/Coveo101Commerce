@@ -31,7 +31,7 @@ function ProductPage(_product: IProduct & IProductError) {
   useEffect(() => {
     let category = '';
 
-    const ec_category = product.ec_category || product['ec_brand_cat'];
+    const ec_category = product.ec_category || product['cat_categories'];
     if (ec_category?.length) {
       let category_last = ec_category[ec_category.length - 1];
       category = category_last.split('|').pop();
