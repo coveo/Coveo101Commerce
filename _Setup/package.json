@@ -6,7 +6,7 @@
   "devDependencies": {
     "@coveord/platform-client": "^24.3.1",
     "abortcontroller-polyfill": "^1.7.3",
-    "coveo-pushapi-cli": "^1.0.7",
+    "coveo-pushapi-cli": "^1.0.8",
     "isomorphic-fetch": "^3.0.0"
   }
 }
