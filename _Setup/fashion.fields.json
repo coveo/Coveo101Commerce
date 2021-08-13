@@ -224,5 +224,13 @@
     "includeInResults": true,
     "type": "STRING",
     "mergeWithLexicon": true
+  },
+  {
+    "name": "permanentid",
+    "facet": true,
+    "includeInQuery": true,
+    "includeInResults": true,
+    "type": "STRING",
+    "mergeWithLexicon": true
   }
 ]
