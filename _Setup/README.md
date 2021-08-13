@@ -15,7 +15,7 @@ Install dependencies. In a terminal, from the folder `_Setup`, run:
 In a terminal, from the folder `_Setup`, run:
 
 ```bash
-> node create_source_product.js <org_id> <token> <fields.json>
+> node create_source_products.js <org_id> <token> <fields.json>
 ```
 
 ## Pushing data
