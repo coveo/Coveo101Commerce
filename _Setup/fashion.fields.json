@@ -13,7 +13,8 @@
     "includeInResults": true,
     "multiValueFacet": true,
     "multiValueFacetTokenizers": ";",
-    "type": "STRING"
+    "type": "STRING",
+    "mergeWithLexicon": true
   },
   {
     "name": "cat_available_sizes",
@@ -43,7 +44,8 @@
     "facet": true,
     "includeInQuery": true,
     "includeInResults": true,
-    "type": "STRING"
+    "type": "STRING",
+    "mergeWithLexicon": true
   },
   {
     "name": "cat_color_code",
@@ -92,7 +94,8 @@
     "facet": true,
     "includeInQuery": true,
     "includeInResults": true,
-    "type": "STRING"
+    "type": "STRING",
+    "mergeWithLexicon": true
   },
   {
     "name": "cat_retailer_category",
