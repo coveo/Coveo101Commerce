@@ -36,9 +36,9 @@ class CategoryBreadcrumb extends React.Component<IBreadcrumbProps, IBreadcrumbSt
 
   handleClick(categorySlug) {
     const options = {
-      pathname: '/plp/[category]',
+      pathname: '/plp/[...category]',
       query: {
-        category: categorySlug,
+        category: categorySlug.split('/'),
       }
     };
     const { storeId } = store.getState();

@@ -1,7 +1,8 @@
 import { Unsubscribe } from '@coveo/headless';
-import { Avatar, Button, Grid, Link, Typography, withStyles } from '@material-ui/core';
+import { Avatar, Button, Grid, Link, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
-import { NextRouter, withRouter } from "next/router";
+import { NextRouter, withRouter } from 'next/router';
+import getConfig from 'next/config';
 
 import store from '../../reducers/cartStore';
 import Price, { formatPrice } from '../Price';
@@ -11,38 +12,10 @@ import AddRemoveProduct from './AddRemoveProduct';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import { CartProduct } from '../../api/cart-api-client';
 import { deleteProduct } from './cart-actions';
-import CoveoUA, { getAnalyticsProductData } from "../../helpers/CoveoAnalytics";
+import CoveoUA, { getAnalyticsProductData } from '../../helpers/CoveoAnalytics';
 import { routerPush } from '../../helpers/Context';
 
-const styles = {
-  root: {
-  },
-  item: {
-    paddingBottom: '15px',
-    borderBottom: '1px solid silver',
-    margin: '10px 0',
-    '& a': {
-      cursor: 'pointer',
-    },
-  },
-  thumnbnail: {
-    width: '80px',
-    height: '80px',
-    marginRight: '30px',
-    '& > img': {
-      objectFit: 'contain',
-    }
-  },
-  price: {
-    fontSize: '16px',
-    fontWeight: 'bold',
-    color: '#ED731A',
-  },
-  total: {
-    textAlign: 'right',
-  },
-
-};
+const { publicRuntimeConfig } = getConfig();
 
 class CartList extends Component<{ router?: NextRouter; }> {
   state: CartState;
@@ -69,7 +42,7 @@ class CartList extends Component<{ router?: NextRouter; }> {
   handleRemoveProduct(item: CartProduct) {
     store.dispatch(deleteProduct(item));
 
-    const product = getAnalyticsProductData(item.detail, 0);
+    const product = getAnalyticsProductData(item.detail, item.sku, 0);
     CoveoUA.removeFromCart(product);
   }
 
@@ -78,62 +51,96 @@ class CartList extends Component<{ router?: NextRouter; }> {
   }
 
   private renderItem(cartItem: CartProduct) {
-    const { classes } = this.props as any;
+    const image = (typeof cartItem.detail.ec_images === 'string' && cartItem.detail.ec_images) || cartItem.detail.ec_images[0];
+    const colorLabel = cartItem.detail[publicRuntimeConfig.features?.colorField];
+    const colorSwatch = cartItem.detail[publicRuntimeConfig.features?.colorSwatchField] || image;
 
-    return <Grid key={cartItem.sku} className={classes.item} container>
-      <Grid item>
-        <Avatar variant="square" className={classes.thumnbnail} src={cartItem.detail.ec_images[0]} />
-      </Grid>
-      <Grid item sm container>
-        <Grid item xs container direction="column" spacing={2}>
-          <Link onClick={() => routerPush(this.props.router, { pathname: `/pdp/[sku]`, query: { sku: cartItem.detail?.ec_product_id, model: cartItem.detail?.ec_item_group_id } })}>
-            {cartItem.detail.ec_name || cartItem.sku}
-          </Link>
-          <Typography gutterBottom variant="subtitle1">
-            {cartItem.detail?.cat_color && <span>Color: {cartItem.detail.cat_color}</span>}
-            {cartItem.detail?.cat_color_swatch && <div className="facet-color-swatch" style={{ margin: '0 10px', display: 'inline-block', backgroundImage: `url(${cartItem.detail.cat_color_swatch})`, verticalAlign: 'bottom' }} data-src={cartItem.detail?.cat_color_swatch}></div>}
-          </Typography>
-          <Typography gutterBottom variant="body2">{cartItem.detail.ec_item_group_id} {cartItem.sku}</Typography>
+    return (
+      <Grid key={cartItem.sku} className='cart-item' container>
+        <Grid item>
+          <Avatar variant='square' className='cart-item__thumbnail' src={image} />
+        </Grid>
+        <Grid item sm container>
+          <Grid item xs container direction='column' spacing={2}>
+            <Link
+              onClick={() =>
+                routerPush(this.props.router, {
+                  pathname: `/pdp/[sku]`,
+                  query: {
+                    sku: cartItem.detail?.ec_product_id,
+                    model: cartItem.detail?.ec_item_group_id,
+                  },
+                })
+              }>
+              {cartItem.detail.ec_name || cartItem.sku}
+            </Link>
+            <Typography gutterBottom variant='subtitle1'>
+              {colorLabel && <span>Color: {colorLabel}</span>}
+              {colorSwatch && (
+                <div
+                  className='cart-item__swatch facet-color-swatch'
+                  style={{
+                    backgroundImage: `url(${colorSwatch})`,
+                  }}
+                  data-src={colorSwatch}></div>
+              )}
+            </Typography>
+            <Typography gutterBottom variant='body2'>
+              {cartItem.detail.ec_item_group_id} {cartItem.sku}
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid item style={{ textAlign: 'right' }}>
+          <Price product={cartItem.detail} />
+          <AddRemoveProduct product={cartItem.detail} sku={cartItem.sku} label='Quantity:' />
+          <Button className='cart-item-remove' startIcon={<RemoveShoppingCartIcon />} onClick={() => this.handleRemoveProduct(cartItem)}>
+            Remove
+          </Button>
         </Grid>
       </Grid>
-      <Grid item style={{ textAlign: 'right' }}>
-        <Price product={cartItem.detail} />
-        <AddRemoveProduct product={cartItem.detail} sku={cartItem.sku} label="Quantity:" />
-        <Button className="cart-item-remove" startIcon={<RemoveShoppingCartIcon />} onClick={() => this.handleRemoveProduct(cartItem)}>Remove</Button>
-      </Grid>
-    </Grid>;
-
+    );
   }
 
   render() {
-    const items = this.state.items.map(item => this.renderItem(item));
+    const items = this.state.items.map((item) => this.renderItem(item));
     return (
-      <div id="cart-list">
+      <div id='cart-list' className='cart-list'>
         <h1>Your Cart items</h1>
-        <Grid container>
-          {items}
-        </Grid>
+        <Grid container>{items}</Grid>
         {this.total()}
       </div>
     );
   }
 
   total() {
-    const { classes } = this.props as any;
-
     let total = 0;
-    this.state.items.forEach(item => {
+    this.state.items.forEach((item) => {
       let price = item.detail.ec_promo_price;
       if (price === undefined) {
         price = item.detail.ec_price;
       }
-      total += (item.quantity * price) || 0;
+      total += item.quantity * price || 0;
     });
     return (
-      <div className={classes.total}>
-        TOTAL: <span className={classes.price}>{formatPrice(total)}</span>
-      </div >
+      <div className='cart-total__container'>
+        <div className='cart-total__row'>
+          <div className='cart-total-label'>Subtotal: </div>
+          <div className='cart-total-price'>{formatPrice(total)}</div>
+        </div>
+        <div className='cart-total__row'>
+          <div className='cart-total-label'>Shipping: </div>
+          <div className='cart-total-price'>Free</div>
+        </div>
+        <div className='cart-total__row'>
+          <div className='cart-total-label'>Tax: </div>
+          <div className='cart-total-price'>{formatPrice(total * 0.05)}</div>
+        </div>
+        <div className='cart-total__row'>
+          <div className='cart-total-label'>TOTAL: </div>
+          <div className='cart-total-price'>{formatPrice(total * 1.05)}</div>
+        </div>
+      </div>
     );
   }
 }
-export default withStyles(styles as any)(withRouter(CartList));
+export default withRouter(CartList);

@@ -1,0 +1,15 @@
+.store-selector {
+  color: $white !important;
+
+  .store__form-control {
+    margin: 8px;
+    min-width: 120;
+    color: $white !important;
+  }
+  .store__labels {
+    color: $white !important;
+  }
+  .store__icon {
+    fill: $white !important;
+  }
+}

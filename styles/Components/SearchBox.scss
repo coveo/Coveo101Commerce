@@ -4,3 +4,19 @@
     background: $white;
   }
 }
+.redirection-div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .querySuggestionImage {
+    background-position: left;
+    background-size: 40px 25px;
+    background-repeat: no-repeat;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+    display: inline;
+    line-height: 30px;
+  }
+}

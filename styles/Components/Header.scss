@@ -62,7 +62,7 @@
     cursor: pointer;
   }
   .header-sub-tl {
-    margin-left: 20px;
+    margin-left: 65px;
     color: $white;
     font-size: 14px;
     display: block;
@@ -73,6 +73,8 @@
   .logo {
     cursor: pointer;
     padding: 0;
+    width: 50px;
+    height: auto;
     vertical-align: bottom;
   }
 

@@ -33,8 +33,10 @@ export function normalizeProduct(props): IProduct {
     childResults = product.childResults;
   }
   if (product.raw) {
-    product = product.raw;
-
+    product = {
+      uri: product.uri,
+      ...product.raw
+    };
   }
 
   // product = {

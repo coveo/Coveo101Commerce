@@ -26,6 +26,7 @@ export default class RelevanceInspector extends React.Component {
   state: RelevanceInspectorState & {
     executeQueryOnChange: true;
     openModal: false;
+    readyToRender: false;
   };
 
   constructor(props: any) {
@@ -34,12 +35,16 @@ export default class RelevanceInspector extends React.Component {
     this.state = {
       ...this.headlessRelevanceInspector.state,
       executeQueryOnChange: true,
-      openModal: false
+      openModal: false,
+      readyToRender: false,
     };
   }
 
   componentDidMount() {
     this.unsubscribe = this.headlessRelevanceInspector.subscribe(() => this.updateState());
+    // ok. not ideal to delay the render like this, but I just to clear an error by Material-UI on render
+    // will revisit this later. 
+    setTimeout(() => { this.setState({ readyToRender: true }); }, 1000);
   }
 
   componentWillUnmount() {
@@ -91,6 +96,9 @@ export default class RelevanceInspector extends React.Component {
   }
 
   render() {
+    if (!this.state.readyToRender) {
+      return <></>;
+    }
     return (<FormGroup row>
       <FormControlLabel
         control={<Switch

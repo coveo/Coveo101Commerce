@@ -103,7 +103,7 @@ class CategoryFacet extends React.PureComponent<IFacetProps> {
         className={valueClasses}
         onClick={() => this.facet.toggleSelect(item)}>
         <ListItemText>
-          <span className="facet-value">{item.value} </span>
+          <span className="facet-value">{item.value}</span>
           <span className="facet-count">({item.numberOfResults})</span>
         </ListItemText>
       </ListItem>

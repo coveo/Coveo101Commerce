@@ -144,7 +144,7 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
     }
 
     if (!currentStructureLevel[categoryArr[index]]) {
-      const urlValue = categoryArr.map(c => c.toLowerCase().replace(/[^A-Z]+/gi, "-")).join('/');
+      const urlValue = categoryArr.map(c => c.replace(/[^\w]+/g, '-')).join('/').toLocaleLowerCase();
 
       currentStructureLevel[categoryArr[index]] = {
         displayValue: categoryArr[index],
@@ -170,6 +170,10 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
     });
   }
 
+  private goToCategory(categories: string[]) {
+    routerPush(this.props.router, { pathname: '/plp/[...category]', query: { category: categories } });
+  }
+
   private listElement_tl(menuElement, listElementClass = "", isMainListElement = false) {
 
     const isActive = this.state.activeMenu === menuElement.displayValue ? " active-menu-el" : "";
@@ -180,7 +184,7 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
         className={"megamenu__item-title " + listElementClass + isActive}
         onClick={() => {
           this.props.closeMegaMenu();
-          routerPush(this.props.router, { pathname: '/plp/[category]', query: { category: menuElement.urlValue } });
+          this.goToCategory(menuElement.urlValue.split('/'));
         }}
         onMouseEnter={() => {
           if (isMainListElement)
@@ -244,7 +248,10 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
 
     return <div className={"megamenu__sublist-container"}>
       <Link
-        onClick={() => routerPush(this.props.router, { pathname: '/plp/[category]', query: { category: this.menuStructure[this.state.activeMenu].urlValue } })}
+        onClick={() => {
+          this.props.closeMegaMenu();
+          this.goToCategory(this.menuStructure[this.state.activeMenu].urlValue.split('/'));
+        }}
         className="megamenu__sublist-header"
       >
         <h4 className="megamenu__sublist-title">{this.state.activeMenu}</h4>

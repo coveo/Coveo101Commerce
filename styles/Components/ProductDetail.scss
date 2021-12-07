@@ -1,0 +1,150 @@
+.pdp__sku-id-model {
+  margin: 4px 0px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-slider__container {
+  display: inline-block;
+  text-align: center;
+
+  .selected-img {
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .img-thumbnails {
+    border: 1px solid #e4eaed;
+    margin-bottom: 10px;
+  }
+  .img-thumbnail {
+    display: inline-block;
+    margin: 5px 10px;
+    height: 60px;
+    width: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+  }
+}
+
+.product-detail__accordian {
+  margin: 10px auto;
+
+  .features {
+    & > div {
+      margin-bottom: 10px;
+    }
+  }
+
+  .details {
+    & tr > * {
+      padding: 5px;
+      margin: 0;
+      border: 0;
+    }
+    & tr:nth-child(odd) {
+      background-color: #f7f8f9;
+    }
+    & th {
+      white-space: pre;
+      text-align: left;
+    }
+    & td {
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.product-detail__subheader {
+  margin: 10px 0;
+  & > * {
+    margin-right: 30px;
+  }
+}
+
+.product-detail--sale {
+  font-weight: bold;
+  color: #ed731a;
+}
+
+.related-products {
+  .related-product__label {
+    font-style: normal;
+  }
+  .related-product__swatch {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 0;
+    background-position: center;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.6em;
+  }
+}
+
+.carousel {
+  display: none;
+}
+//----------Image Carousel Component--------
+.carousel_container {
+  font-family: sans-serif;
+  text-align: center;
+  width: 830px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel_container ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  max-width: 100%;
+
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  &::-webkit-scrollbar {
+    background: transparent;
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+  }
+}
+.carousel-btn__container {
+  width: 50px;
+}
+
+.carousel-btn-prev {
+  margin-left: 5px;
+}
+.carousel-btn-next {
+  margin-left: -55px;
+}
+
+.carousel__btn {
+  cursor: pointer;
+  font-size: 50px;
+  opacity: 0.4;
+  position: absolute;
+  margin-top: -25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel_container {
+    width: 380px;
+    img {
+      width: 380px !important;
+    }
+  }
+}

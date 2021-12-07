@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import store from '../reducers/cartStore';
 
 const formatter = new Intl.NumberFormat('en-US', {
@@ -13,7 +13,11 @@ export function formatPrice(price: number, promo: string = '') {
   const formattedPrice = formatter.format(price);
   const [dollars, cents] = formattedPrice.split('.');
 
-  return <span className="price-money">{promo} {dollars}.<sup>{cents}</sup></span>;
+  return (
+    <>
+      {promo} {dollars}.<sup>{cents}</sup>
+    </>
+  );
 }
 
 export default function Price(props) {
@@ -41,35 +45,29 @@ export default function Price(props) {
 
   if (saleprice === undefined) {
     displayPrice = formatPrice(regularprice);
-  }
-  else if (saleprice !== undefined && saleprice < regularprice) {
+  } else if (saleprice !== undefined && saleprice < regularprice) {
     origPrice = formatPrice(regularprice);
     displayPrice = formatPrice(saleprice);
-    withPromo = formatPrice(regularprice - saleprice, "save ");
-  }
-  else if (saleprice !== undefined && saleprice > regularprice) {
+    withPromo = formatPrice(regularprice - saleprice, 'save ');
+  } else if (saleprice !== undefined && saleprice > regularprice) {
     displayPrice = formatPrice(regularprice);
-  }
-  else {
+  } else {
     displayPrice = formatPrice(saleprice);
   }
 
-
-  return <div className="widget-price">
-    <span className="display-orig-price">
-      {origPrice}
-    </span>
-    <span className="display-price">
-      {displayPrice}
-    </span>
-    <span className="display-promo">
-      {withPromo}
-    </span>
-    <span className="display-price store">
-      {displaystorePrice && storePriceAvailable && <>In Store: {displaystorePrice}</>}
-      {!displaystorePrice && storePriceAvailable && <span className="store-na">Not available in selected store</span>}
-    </span>
-  </div>;
-
+  return (
+    <div className='widget-price widget-price-color'>
+      {origPrice && <span className='display-orig-price'>{origPrice}</span>}
+      <span className='display-price'>{displayPrice}</span>
+      <span className='display-promo'>{withPromo}</span>
+      <span className='display-price store'>
+        {displaystorePrice && storePriceAvailable && (
+          <>In Store: {displaystorePrice}</>
+        )}
+        {!displaystorePrice && storePriceAvailable && (
+          <span className='store-na'>Not available in selected store</span>
+        )}
+      </span>
+    </div>
+  );
 }
-
