@@ -18,6 +18,8 @@ import { headlessEngine, headlessEngineQS } from '../../helpers/Engine';
 import router, { withRouter, NextRouter } from 'next/router';
 import getConfig from 'next/config';
 import store from '../../reducers/cartStore';
+import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { formatPrice } from '../Price';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -87,10 +89,11 @@ class SearchBox extends React.Component<SearchBoxProps> {
           let title = HighlightUtils.highlightString({ content: product.title, highlights: product.titleHighlights, openingDelimiter: '<strong>', closingDelimiter: '</strong>' });
 
           this.otherSuggestions.push({
-            highlightedValue: '<div class="querySuggestionImage" style="background-image: url(' + img + ')">' + title + '</div>',
+            highlightedValue: title,
+            img,
             group: 'Products',
             rawValue: product.title,
-            info: { url: product.clickUri, pid: product.raw['permanentid'] },
+            info: { url: product.clickUri, pid: product.raw['permanentid'], price: product.raw['ec_promo_price'] || product.raw['ec_price'] },
           });
         });
       }
@@ -177,6 +180,7 @@ class SearchBox extends React.Component<SearchBoxProps> {
     return (
       <div className='searchBox'>
         <Autocomplete
+          disableCloseOnSelect={false}
           filterOptions={(options) => options}
           id='search-box'
           inputValue={this.state.value}
@@ -203,7 +207,25 @@ class SearchBox extends React.Component<SearchBoxProps> {
             }
           }}
           renderOption={(option) => {
-            return <div className='redirection-div' dangerouslySetInnerHTML={{ __html: option.highlightedValue }}></div>;
+            if (option.group === 'Products') {
+              return (
+                <div className={'productSuggestion_card'}>
+                  <Card style={{ width: '200px', height: '230px' }} variant='outlined'>
+                    <CardMedia component='img' height='150' width='150' image={option.img} alt={option.rawValue} />
+                    <CardContent>
+                      <Typography gutterBottom variant='body1' component='div' noWrap={false}>
+                        {option.rawValue}
+                      </Typography>
+                      <Typography gutterBottom variant='body1' component='div' noWrap={false}>
+                        <strong>{formatPrice(option.info?.price)}</strong>
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </div>
+              );
+            } else {
+              return <div className='redirection-div' dangerouslySetInnerHTML={{ __html: option.highlightedValue }}></div>;
+            }
           }}
           freeSolo
           renderInput={(params) => <TextField {...params} id='filled-secondary' placeholder='Search' variant='outlined' size='small' />}></Autocomplete>

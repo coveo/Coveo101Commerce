@@ -4,19 +4,52 @@
     background: $white;
   }
 }
-.redirection-div {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 
-  .querySuggestionImage {
-    background-position: left;
-    background-size: 40px 25px;
-    background-repeat: no-repeat;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 55px;
-    display: inline;
-    line-height: 30px;
+.MuiAutocomplete-popper {
+  min-width: fit-content;
+
+  .MuiAutocomplete-listbox {
+    display: flex;
+    flex-direction: row-reverse;
+    width: max-content;
+
+    .MuiAutocomplete-groupLabel {
+      display: none;
+    }
+
+    & li:nth-child(1) ul {
+      width: 250px;
+    }
+
+    & li:nth-child(2) ul {
+      width: fit-content;
+      display: flex;
+      align-items: flex-start;
+      padding-left: 5px;
+
+      .MuiAutocomplete-option {
+        padding: 0;
+      }
+
+      .productSuggestion_card {
+        padding: 2px;
+
+        .MuiCardMedia-img {
+          object-fit: contain;
+        }
+
+        .MuiCardContent-root {
+          padding: 8px;
+        }
+
+        .MuiTypography-root {
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          margin-bottom: 0px;
+        }
+      }
+    }
   }
 }
