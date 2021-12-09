@@ -29,7 +29,7 @@ export interface IProductCardState {
 
 export class ProductCard extends Component<ProductCardProps, IProductCardState> {
   state: IProductCardState;
-  private unsubscribe: Unsubscribe = () => {};
+  private unsubscribe: Unsubscribe = () => { };
   constructor(props) {
     super(props);
     let product: IProduct = this.props.product;
@@ -171,10 +171,10 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
           </Typography>
           <div className='card__rating'>
             <Rating value={product.ec_rating} />
-            <RelevanceInspectorResult result={product} index={product.index} />
           </div>
           <div className='card__price'>
             <Price product={product as any} />
+            <RelevanceInspectorResult result={product} index={product.index} />
           </div>
           {product.ec_fit_size && <Typography className={'card__model'}>Fit: {product.ec_fit_size}</Typography>}
           {product.permanentid != product.ec_item_group_id && <Typography className={'card__model'}>Model: {product.ec_item_group_id}</Typography>}

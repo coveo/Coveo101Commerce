@@ -42,9 +42,7 @@ export default class RelevanceInspector extends React.Component {
 
   componentDidMount() {
     this.unsubscribe = this.headlessRelevanceInspector.subscribe(() => this.updateState());
-    // ok. not ideal to delay the render like this, but I just to clear an error by Material-UI on render
-    // will revisit this later. 
-    setTimeout(() => { this.setState({ readyToRender: true }); }, 1000);
+    setTimeout(() => { this.setState({ readyToRender: true }); }, 100); // little delay for Material-UI's Switch - the rendering is wrong otherwise. ¯\_(ツ)_/¯
   }
 
   componentWillUnmount() {
