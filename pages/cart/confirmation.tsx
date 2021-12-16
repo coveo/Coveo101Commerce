@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import { withRouter, NextRouter } from 'next/router';
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@material-ui/core';
-import { emitBasket, emitUser, emitUV } from '../../helpers/CoveoAnalytics';
 import PopularViewed from '../../Components/Recommendations/PopularViewed';
 import getConfig from 'next/config';
 
