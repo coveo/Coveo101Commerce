@@ -7,6 +7,7 @@ const { publicRuntimeConfig } = getConfig();
 export interface IProductGroupingProps {
   relatedProducts: any[];
   onClick: any;
+  changeImage: any;
 }
 
 export interface IProductGroupingState {
@@ -26,6 +27,7 @@ class ProductGrouping extends Component<IProductGroupingProps, IProductGroupingS
 
     const relatedProductsRendered = relatedProducts.map((i, idx) => {
       const image = i.raw[publicRuntimeConfig.features?.colorSwatchField] || (i.raw.ec_images?.length && i.raw.ec_images[0]) || i.raw.ec_images || '/missing.svg';
+      const imageOnHover = i.raw.ec_images?.length ? i.raw.ec_images[0] : i.raw.ec_images || '/missing.svg';
 
       return (
         <div
@@ -36,7 +38,9 @@ class ProductGrouping extends Component<IProductGroupingProps, IProductGroupingS
           className='grouping__thumbnail'
           onClick={() => {
             this.props.onClick(i);
-          }}></div>
+          }}
+          onMouseEnter={() => this.props.changeImage(imageOnHover)}
+          onMouseLeave={() => this.props.changeImage()}></div>
       );
     });
 

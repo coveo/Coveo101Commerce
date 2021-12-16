@@ -56,12 +56,9 @@ body .card-product .CoveoResultLink:hover {
 
 body .card-product .card__media {
   cursor: pointer;
-  height: 480px;
+  height: 420px;
   background-size: cover, 0;
   margin: 0px;
-}
-body .card-product .card__media:hover {
-  background-size: 0, cover;
 }
 
 body .card-product .card__brand {
@@ -93,9 +90,9 @@ body .card-product .card__brand:empty {
 
 .card-product .product-grouping .grouping__thumbnail {
   display: inline-block;
-  margin: 0.9% 0.9% 0 0;
-  height: 15px;
-  width: 15px;
+  margin: 3px 6px 0 0;
+  height: 24px;
+  width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;

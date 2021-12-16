@@ -25,15 +25,18 @@ export interface ProductCardProps {
 
 export interface IProductCardState {
   product: IProduct;
+  currentImage: string;
 }
 
 export class ProductCard extends Component<ProductCardProps, IProductCardState> {
   state: IProductCardState;
-  private unsubscribe: Unsubscribe = () => { };
+  private unsubscribe: Unsubscribe = () => {};
+  private image: string;
   constructor(props) {
     super(props);
     let product: IProduct = this.props.product;
-
+    let images: Array<string> = typeof product.ec_images === 'string' ? [product.ec_images] : product.ec_images;
+    this.image = images[0] || '/missing.svg';
     // normalize Recommendations.
     if ((product as any).additionalFields) {
       product = {
@@ -43,6 +46,7 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
     }
     this.state = {
       product,
+      currentImage: this.image,
     };
   }
 
@@ -131,9 +135,13 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
     }
   }
 
-  changeToRelatedProduct = (product: IProduct) => {
+  clickRelatedProduct = (product: IProduct) => {
     product = normalizeProduct(product);
-    this.setState({ product: product });
+    this.handleProductClick(product);
+  };
+
+  changeImage = (imageonOnHover: string) => {
+    this.setState({ currentImage: imageonOnHover ? imageonOnHover : this.image });
   };
 
   render() {
@@ -146,22 +154,13 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
       });
     }
 
-    let images: Array<string> = typeof product.ec_images === 'string' ? [product.ec_images] : product.ec_images;
-    let image: string;
-    let imgOnHover: string;
-
-    if (images?.length) {
-      image = images[0] || '/missing.svg';
-      imgOnHover = images[1] || images[0] || '/missing.svg';
-    }
-
     return (
       <Card className='card-product'>
         <CardMedia
           className={'card__media'}
-          image={image}
+          image={this.state.currentImage}
           style={{
-            backgroundImage: `url(${image}), url(${imgOnHover})`,
+            backgroundImage: `url(${this.state.currentImage})`,
           }}
           onClick={() => this.handleProductClick(product)}
         />
@@ -179,7 +178,7 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
           </div>
           {product.ec_fit_size && <Typography className={'card__model'}>Fit: {product.ec_fit_size}</Typography>}
           {product.permanentid != product.ec_item_group_id && <Typography className={'card__model'}>Model: {product.ec_item_group_id}</Typography>}
-          <ProductGrouping relatedProducts={relatedProducts} onClick={(e) => this.changeToRelatedProduct(e)} />
+          <ProductGrouping relatedProducts={relatedProducts} onClick={(e) => this.clickRelatedProduct(e)} changeImage={(e) => this.changeImage(e)} />
           <div className={'card__add-to-cart'}>
             <AddRemoveProduct sku={product.permanentid} product={product} label='In cart:' />
           </div>
