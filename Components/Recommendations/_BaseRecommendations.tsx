@@ -8,6 +8,7 @@ import { Grid, Container, Typography } from '@material-ui/core';
 import { IProduct } from '../ProductCard/Product.spec';
 
 interface IRecommendationProps {
+  searchHub: string,
   skus?: string[],
   title: string,
   maxNumberOfRecommendations?: number,
@@ -23,12 +24,10 @@ export default class BaseRecommendations extends React.Component<IRecommendation
   private unsubscribe: Unsubscribe;
   state: IRecommendationState;
   private engine: ProductRecommendationEngine;
-  private searchHub: string;
   private builder: any;
 
-  constructor(props, searchHub: string, builder) {
+  constructor(props, builder) {
     super(props);
-    this.searchHub = searchHub;
     this.builder = builder;
     this.state = {
       skus: [],
@@ -49,7 +48,7 @@ export default class BaseRecommendations extends React.Component<IRecommendation
       rec_options.options.sku = this.props.skus[0]; // some controllers use 'sku' instead of 'skus'
     }
 
-    this.engine = headlessEngine_Recommendations(this.searchHub) as ProductRecommendationEngine;
+    this.engine = headlessEngine_Recommendations(this.props.searchHub) as ProductRecommendationEngine;
 
     this.RecommendationsList = this.builder(this.engine, rec_options);
 

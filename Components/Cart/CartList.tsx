@@ -76,7 +76,7 @@ class CartList extends Component<{ router?: NextRouter; }> {
             </Link>
             <Typography gutterBottom variant='subtitle1'>
               {colorLabel && <span>Color: {colorLabel}</span>}
-              {colorSwatch && (
+              {colorLabel && colorSwatch && (
                 <div
                   className='cart-item__swatch facet-color-swatch'
                   style={{
@@ -90,7 +90,7 @@ class CartList extends Component<{ router?: NextRouter; }> {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item style={{ textAlign: 'right' }}>
+        <Grid item style={{ textAlign: 'right' }} id='cartlist-price-qty-grid'>
           <Price product={cartItem.detail} />
           <AddRemoveProduct product={cartItem.detail} sku={cartItem.sku} label='Quantity:' />
           <Button className='cart-item-remove' startIcon={<RemoveShoppingCartIcon />} onClick={() => this.handleRemoveProduct(cartItem)}>

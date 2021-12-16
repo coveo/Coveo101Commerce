@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { withRouter, NextRouter } from 'next/router';
 import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@material-ui/core';
+import { emitBasket, emitUser, emitUV } from '../../helpers/CoveoAnalytics';
 import PopularViewed from '../../Components/Recommendations/PopularViewed';
 import getConfig from 'next/config';
 
@@ -55,10 +56,16 @@ class Confirmation extends React.Component<IConfirmationProps, IConfirmationStat
           <Dialog open={this.state.open} scroll={'paper'}>
             <DialogTitle>Return Policy</DialogTitle>
             <DialogContent dividers={true}>
-              <DialogContentText tabIndex={-1}>
-                {
-                  'We offer a 30-day return policy in-store and online. Some store locations may be temporarily closed due to COVID-19, so for your convenience we have a 30-day return policy from the date our stores reopen for the regions affected by closures. PLEASE NOTE: Refunds are issued on the original method of payment. Online orders returned in-store are refunded on a gift card. See below for full details.Please see our return eligibility criteria below before returning or exchanging any items.'
-                }
+              <DialogContentText tabIndex={-1} className='return-policy-text'>
+                {`We offer a 30-day return policy in-store and online.
+Some store locations may be temporarily closed due to COVID-19, so for your convenience we have a 30-day return policy from the date our stores reopen for the regions affected by closures.
+
+PLEASE NOTE:
+Refunds are issued on the original method of payment.
+Online orders returned in-store are refunded on a gift card.
+See below for full details.
+
+Please see our return eligibility criteria below before returning or exchanging any items.`}
               </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -72,7 +79,7 @@ class Confirmation extends React.Component<IConfirmationProps, IConfirmationStat
           </Dialog>
         </Container>
         <div className='confirmation-popular-viewed'>
-          <PopularViewed title={'Top viewed'} />
+          <PopularViewed title='Top viewed' searchHub='Checkout' />
         </div>
       </>
     );

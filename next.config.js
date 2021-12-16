@@ -16,10 +16,10 @@ module.exports = {
   images: { domains: ['fashion.coveodemo.com'] },
 
   publicRuntimeConfig: {
-    // logo: 'https://fashion.coveodemo.com/images/152216_cn10607893.jpg',
+    logo: '/logos/coveo_logo_white.png',
     title: 'Coveo Fashion Store',
 
-    extraCSS: "/fashionStyles.css",
+    extraCSS: "/fashionStyles.css",   //from "public" folder
 
     features: {
       searchAsYouType: true,
@@ -36,16 +36,6 @@ module.exports = {
     pipelineRecommendations: 'Recommendations',
     searchhubPDP: 'PDP',
     searchhubPLP: 'Listing',
-
-    // Search hub for Recommendations
-    recommendations: {
-      CartRecommendations: 'REC - Cart Recommendations',
-      FrequentlyBoughtTogether: 'REC - Also Bought',
-      FrequentlyViewedTogether: 'REC - Also Viewed',
-      PopularBought: 'REC - Popular Bought',
-      PopularViewed: 'REC - Popular Viewed',
-      UserRecommender: 'REC - User Recommender',
-    },
 
     // Extra fields to return with search
     fields: [

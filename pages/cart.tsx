@@ -31,7 +31,7 @@ interface ICartProps {
 
 class Cart extends React.Component<ICartProps> {
   state: CartState;
-  private unsubscribe: Unsubscribe = () => {};
+  private unsubscribe: Unsubscribe = () => { };
 
   constructor(props) {
     super(props);
@@ -111,7 +111,7 @@ class Cart extends React.Component<ICartProps> {
         </Grid>
         <br />
         <br />
-        {skus.length > 0 && <CartRecommendations title='Products you may want to see based on your cart' skus={skus} />}
+        {skus.length > 0 && <CartRecommendations title='Products you may want to see based on your cart' skus={skus} searchHub='Checkout' />}
       </Container>
     );
   }

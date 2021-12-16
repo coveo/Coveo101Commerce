@@ -14,10 +14,11 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
-    "@reduxjs/toolkit": "^1.6.2",
+    "@reduxjs/toolkit": "^1.7.0",
     "body-scroll-lock": "^3.1.5",
     "cross-env": "^7.0.3",
     "next": "11.1.2",
+    "qubit-react": "^1.5.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-json-view": "^1.21.3",
@@ -26,10 +27,10 @@
     "sass": "^1.44.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.10",
+    "@types/node": "^16.11.12",
     "eslint": "^7.32.0",
     "eslint-config-next": "^12.0.7",
     "pino-pretty": "^7.2.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.3"
   }
 }

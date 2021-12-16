@@ -216,8 +216,8 @@ class ProductDetailPage extends React.Component<IProductDetailPage, IProductDeta
           </Grid>
         </Grid>
 
-        <FrequentlyViewedTogether title={'Products frequently seen together'} skus={[product.permanentid]} />
-        <FrequentlyBoughtTogether title={'Products frequently bought together'} skus={[product.permanentid]} />
+        <FrequentlyViewedTogether title='Products frequently seen together' skus={[product.permanentid]} searchHub='PDP' />
+        <FrequentlyBoughtTogether title='Products frequently bought together' skus={[product.permanentid]} searchHub='PDP' />
       </Container>
     );
   }

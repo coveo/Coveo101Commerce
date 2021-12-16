@@ -101,6 +101,30 @@
     font-size: 15px;
   }
 }
+
 .confirmation-popular-viewed {
   margin-top: 60px;
+}
+
+.return-policy-text {
+  white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  #generic-store-cart {
+    width: calc(100% - 40px);
+    padding-left: 10px;
+  }
+
+  #cart-remove-items {
+    white-space: nowrap;
+  }
+
+  #cartlist-price-qty-grid {
+    text-align: left !important;
+  }
+
+  .cart-item__thumbnail {
+    margin-bottom: 8px;
+  }
 }

@@ -102,7 +102,8 @@ class SearchBox extends React.Component<SearchBoxProps> {
   }
 
   updateState() {
-    let suggestions = [...this.headlessSearchBox.state.suggestions];
+    //new object added explicitly for styling purpose
+    let suggestions = [...this.headlessSearchBox.state.suggestions, { hideValue: true }];
     if (searchAsYouTypeEnabled && this.otherSuggestions && this.otherSuggestions.length > 0) {
       suggestions = suggestions.concat(this.otherSuggestions);
     }

@@ -44,7 +44,7 @@ const registerFields = (engine: SearchEngine | ProductRecommendationEngine) => {
 
 const analyticsClientMiddleware = (eventName, eventData) => {
   if (!eventData.originLevel2 || eventData.originLevel2 === 'default') {
-    eventData.originLevel2 = sessionStorage.getItem('pageType') || 'default';
+    eventData.originLevel2 = eventData?.customData?.recommendation || sessionStorage.getItem('pageType') || 'default';
   }
 
   if (!eventData.originLevel3 || eventData.originLevel3 === 'default') {
@@ -62,7 +62,7 @@ const analyticsClientMiddleware = (eventName, eventData) => {
   return eventData;
 };
 
-const buildConfig = (pipeline, searchHub, analyticsEnabled: boolean = true): SearchEngineOptions => ({
+const buildConfig = (pipeline: string, searchHub: string, analyticsEnabled: boolean = true): SearchEngineOptions => ({
   configuration: {
     organizationId: process.env.ORG_ID,
     accessToken: process.env.API_KEY,
@@ -105,17 +105,18 @@ export const headlessEngine_PLP = createSearchEngine(process.env.SEARCH_PIPELINE
 
 
 // Recommendations Engine
-export const headlessEngine_Recommendations = (searchHub): ProductRecommendationEngine => {
+export const headlessEngine_Recommendations = (searchHub: string): ProductRecommendationEngine => {
   const config = buildConfig(process.env.SEARCH_PIPELINE, searchHub) as any;
 
   // TODO: config for recommendations is slightly different - should test it with the same config too...
-  delete config.configuration.search; // 
+  delete config.configuration.search;
   config.configuration.searchHub = searchHub;
 
   config.configuration.analytics.analyticsClientMiddleware = (eventName, eventData) => {
     if (!eventData.searchQueryUid) {
       eventData.searchQueryUid = sessionStorage.getItem('_r_searchQueryUid');
     }
+    eventData.originLevel2 = sessionStorage.getItem('_r_originLevel2');
 
     return analyticsClientMiddleware(eventName, eventData);
   };

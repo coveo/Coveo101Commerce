@@ -119,6 +119,7 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
         // Because of inconsistency in Headless with ProductRecommendations, Recommendations, and Search engines/responses,
         // we store the searchUid in the session to be reused in the Analytics middleware for the Recommendation Engine.
         sessionStorage.setItem('_r_searchQueryUid', searchUid);
+        sessionStorage.setItem('_r_originLevel2', engineState.productRecommendations.id);
 
         const { logRecommendationOpen } = logRecommendationClickActions(this.props.engine as any);
         this.props.engine.dispatch(logRecommendationOpen(result) as any);

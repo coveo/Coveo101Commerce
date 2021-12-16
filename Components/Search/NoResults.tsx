@@ -33,8 +33,8 @@ export default class NoResults extends React.Component {
           Try using different or more general keyword or you could check out some of our recommendations below.
         </Typography>
         <div className='recommendations-box'>
-          <UserRecommender title={'Recommended Styles'} />
-          <PopularBought title={'Popularly Bought'} />
+          <UserRecommender title='Recommended Styles' searchHub='NoResults' />
+          <PopularBought title='Popularly Bought' searchHub='NoResults' />
         </div>
       </Container>
     );
