@@ -1,15 +1,5 @@
-import React from "react";
-import {
-  SortState,
-  SortInitialState,
-  buildRelevanceSortCriterion,
-  buildFieldSortCriterion,
-  Unsubscribe,
-  buildSort,
-  SearchEngine,
-  Sort as headlessSort,
-  SortOrder
-} from '@coveo/headless';
+import React from 'react';
+import { SortState, SortInitialState, buildRelevanceSortCriterion, buildFieldSortCriterion, Unsubscribe, buildSort, SearchEngine, Sort as headlessSort, SortOrder } from '@coveo/headless';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -30,12 +20,12 @@ enum SortOptionValues {
 /* eslint-enable no-unused-vars */
 
 export interface ISortByProps {
-  engine: SearchEngine,
+  engine: SearchEngine;
 }
 
 export default class SortBy extends React.Component<ISortByProps> {
   private headlessSort: headlessSort;
-  private unsubscribe: Unsubscribe = () => { };
+  private unsubscribe: Unsubscribe = () => {};
   state: SortState;
 
   constructor(props: any) {
@@ -83,11 +73,11 @@ export default class SortBy extends React.Component<ISortByProps> {
   }
 
   private get highest() {
-    return buildFieldSortCriterion('regularprice', SortOrder.Descending);
+    return buildFieldSortCriterion('ec_promo_price', SortOrder.Descending);
   }
 
   private get lowest() {
-    return buildFieldSortCriterion('regularprice', SortOrder.Ascending);
+    return buildFieldSortCriterion('ec_promo_price', SortOrder.Ascending);
   }
 
   private get currentSelectedValue() {
@@ -111,13 +101,9 @@ export default class SortBy extends React.Component<ISortByProps> {
 
   render() {
     return (
-      <FormControl className="CoveoSortBy">
-        <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
-        <Select
-          labelId="sort-by-label"
-          id="sort-by-select"
-          value={this.currentSelectedValue}
-          onChange={(e: any) => this.select(e)}>
+      <FormControl className='CoveoSortBy'>
+        <InputLabel id='demo-simple-select-label'>Sort By</InputLabel>
+        <Select labelId='sort-by-label' id='sort-by-select' value={this.currentSelectedValue} onChange={(e: any) => this.select(e)}>
           <MenuItem value={SortOptionLabel.Relevance}>Relevance</MenuItem>
           <MenuItem value={SortOptionLabel.Highest}>Highest Price</MenuItem>
           <MenuItem value={SortOptionLabel.Lowest}>Lowest Price</MenuItem>

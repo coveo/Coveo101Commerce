@@ -1,0 +1,16 @@
+.available-color {
+  .available-color__label {
+    font-style: normal;
+  }
+  .available-color__swatch {
+    display: inline-block;
+    height: 40px;
+    width: 30px;
+    margin: 8px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.6em;
+  }
+}

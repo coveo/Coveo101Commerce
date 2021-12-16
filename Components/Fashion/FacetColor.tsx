@@ -1,28 +1,20 @@
-import React from "react";
-import {
-  buildFacet,
-  Facet,
-  FacetState,
-  FacetValue,
-  Unsubscribe,
-  SearchEngine
-} from '@coveo/headless';
+import React from 'react';
+import { buildFacet, Facet, FacetState, FacetValue, Unsubscribe, SearchEngine } from '@coveo/headless';
 import { Grid, Typography, Button, FormControlLabel, ListItem, List, ListItemText } from '@material-ui/core';
 import COLORS from './colors.json';
 
 export interface IFacetColorProps {
-  facetId: string,
-  field: string,
-  label: string,
-  engine: SearchEngine,
+  facetId: string;
+  field: string;
+  label: string;
+  engine: SearchEngine;
   id: string;
 }
 
 class FacetColor extends React.Component<IFacetColorProps> {
-
   private facet: Facet;
   state: FacetState;
-  private numberOfValues = 5;
+  private numberOfValues = 6;
   private unsubscribe: Unsubscribe = () => { };
 
   constructor(props: any) {
@@ -33,7 +25,7 @@ class FacetColor extends React.Component<IFacetColorProps> {
         facetId: this.props.facetId,
         field: this.props.field,
         numberOfValues: this.numberOfValues,
-        sortCriteria: "occurrences",
+        sortCriteria: 'occurrences',
       },
     });
     this.state = this.facet.state;
@@ -60,24 +52,15 @@ class FacetColor extends React.Component<IFacetColorProps> {
     }
 
     return (
-      <ListItem
-        data-facet-value={item.value}
-        disableGutters key={item.value} className={facetItemCssClasses}
-        onClick={() => this.facet.toggleSelect(item)}>
+      <ListItem data-facet-value={item.value} disableGutters key={item.value} className={facetItemCssClasses} onClick={() => this.facet.toggleSelect(item)}>
         <FormControlLabel
-          className={'checkbox--padding'}
-          control={
-            <div className="facet-color-swatch"
-              style={{ backgroundImage: 'url(' + COLORS[item.value].swatch + ')' }}
-            />
-          }
+          className={'checkbox--padding facet-form-control-label'}
+          control={<div className='facet-color-swatch' style={{ backgroundImage: 'url(' + COLORS[item.value].swatch + ')' }} />}
           label={
-            (
-              <ListItemText>
-                <span className="facet-value"> {item.value} </span>
-                <span className="facet-count">({item.numberOfResults})</span>
-              </ListItemText>
-            )
+            <ListItemText>
+              <span className='facet-value'>{item.value}</span>
+              <span className='facet-count'>({item.numberOfResults})</span>
+            </ListItemText>
           }
         />
       </ListItem>
@@ -90,10 +73,7 @@ class FacetColor extends React.Component<IFacetColorProps> {
     }
 
     return (
-      <Button
-        color="primary"
-        className={'btn-control--primary CoveoFacetShowMore'}
-        onClick={() => this.facet.showMoreValues()}>
+      <Button color='primary' className={'btn-control--primary CoveoFacetShowMore'} onClick={() => this.facet.showMoreValues()}>
         Show more
       </Button>
     );
@@ -105,10 +85,7 @@ class FacetColor extends React.Component<IFacetColorProps> {
     }
 
     return (
-      <Button
-        color="inherit"
-        className={'btn-control--secondary CoveoFacetShowLess'}
-        onClick={() => this.facet.showLessValues()}>
+      <Button color='inherit' className={'btn-control--secondary CoveoFacetShowLess'} onClick={() => this.facet.showLessValues()}>
         Show Less
       </Button>
     );
@@ -116,30 +93,29 @@ class FacetColor extends React.Component<IFacetColorProps> {
 
   private get resetButton() {
     return (
-      <Button color="primary" onClick={() => this.facet.deselectAll()}>clear X</Button>
+      <Button color='primary' onClick={() => this.facet.deselectAll()}>
+        clear X
+      </Button>
     );
   }
 
   private get facetTemplate() {
-
     return (
-      <div id={this.props.id} className="CoveoFacet">
+      <div id={this.props.id} className='CoveoFacet'>
         <Grid container justifyContent={'space-between'} alignItems={'center'}>
           <Grid item>
-            <Typography noWrap className="facet-title">
+            <Typography noWrap className='facet-title'>
               {this.props.label}
             </Typography>
           </Grid>
-          <Grid item>
-            {this.state.hasActiveValues && this.resetButton}
-          </Grid>
+          <Grid item>{this.state.hasActiveValues && this.resetButton}</Grid>
         </Grid>
 
-        <List className="MuiListFacet">
-          {this.values.map((listItem) => this.listItem(listItem))}
-        </List>
-        {this.showMoreButton}
-        {this.showLessButton}
+        <List className='MuiListFacet facet-color-container'>{this.values.map((listItem) => this.listItem(listItem))}</List>
+        <div className={'facet-more-less-btn'}>
+          {this.showMoreButton}
+          {this.showLessButton}
+        </div>
       </div>
     );
   }

@@ -4,3 +4,108 @@
     background: $white;
   }
 }
+
+.MuiAutocomplete-popper {
+  min-width: fit-content;
+
+  .MuiAutocomplete-listbox {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+
+    .MuiAutocomplete-groupLabel {
+      display: none;
+    }
+
+    & li:nth-child(1) {
+      width: 100%;
+      ul {
+        min-width: 250px;
+        li {
+          width: 100%;
+        }
+        li:nth-last-child(1) {
+          display: none;
+        }
+      }
+    }
+
+    & li:nth-child(2) ul {
+      width: fit-content;
+      display: flex;
+      align-items: flex-start;
+      padding-left: 5px;
+
+      .MuiAutocomplete-option {
+        padding: 0;
+      }
+
+      .productSuggestion_card {
+        padding: 2px;
+
+        .MuiCardMedia-img {
+          object-fit: contain;
+        }
+
+        .MuiCardContent-root {
+          padding: 8px;
+        }
+
+        .MuiTypography-root {
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-sm) {
+  .MuiAutocomplete-popper {
+    width: 300px;
+
+    .MuiAutocomplete-listbox {
+      flex-direction: column !important;
+      max-height: 380px;
+
+      & li:nth-child(1) {
+        width: 280px !important;
+        .MuiAutocomplete-groupLabel {
+          display: block !important;
+        }
+
+        & ul {
+          .MuiAutocomplete-option {
+            min-height: 35px;
+          }
+        }
+      }
+
+      & li:nth-child(2) ul {
+        flex-direction: column;
+        width: 100% !important;
+        align-items: center !important;
+
+        .MuiAutocomplete-option {
+          justify-content: center;
+        }
+
+        li {
+          width: 100%;
+          border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+          .productSuggestion_card {
+            margin-top: 8px;
+          }
+
+          .MuiPaper-outlined {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}

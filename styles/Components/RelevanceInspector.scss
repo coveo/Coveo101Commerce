@@ -1,0 +1,12 @@
+.relevance-inspector__modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .background-paper {
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+    border: 2px solid $black;
+  }
+}

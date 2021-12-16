@@ -33,7 +33,6 @@ Here you can specify the following:
 | --- | ----------- |
 | env > ORG_ID | The Organization Id |
 | env > API_KEY | The Seach API Key (should also have write access to Analytics events) |
-| env > SEARCH_HUB | Hub for Search |
 | env > SEARCH_PIPELINE | Pipeline for search |
 | publicRuntimeConfig > logo | Logo to display in the Header |
 | publicRuntimeConfig > title | Title to display in the Header |

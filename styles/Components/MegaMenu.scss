@@ -1,23 +1,23 @@
 .megamenu__container {
-  width: 780px;
+  width: 700px;
   position: fixed;
-  top: 80px;
-  left: 0;
+  top: 5px !important;
+  right: 10px !important;
   background: $white;
   overflow-y: scroll;
   z-index: 10;
   max-width: unset;
   padding: 0;
-  height: calc(100vh - 80px);
+  max-height: calc(100vh - 200px);
   display: none;
+  overflow: hidden;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  border-bottom: 4px solid $blue-dark;
 
   .megamenu__backdrop {
     position: fixed;
     top: 80px;
-    height: inherit;
-    width: 100vw;
     background: rgba(100, 100, 100, 0.3);
     z-index: -1;
   }
@@ -51,6 +51,7 @@
   height: inherit;
   position: static;
   z-index: 1;
+  overflow: scroll;
 
   .megamenu__root-list {
     background: $grey-light;
@@ -101,6 +102,11 @@
     font-size: 22px;
     color: #000;
   }
+
+  .megamenu__sublist-btn {
+    padding-bottom: 3px !important;
+  }
+
   .megamenu__sublist-subtitle {
     color: #000;
   }
@@ -213,4 +219,20 @@
     color: #0046be;
     text-decoration: underline;
   }
+}
+
+//Drawer backdrop
+.MuiBackdrop-root,
+.MuiDrawer-modal {
+  top: 80px !important;
+}
+
+//Drawer
+.MuiDrawer-paper {
+  top: 80px;
+  width: fit-content;
+}
+
+.hidePanel {
+  display: none;
 }

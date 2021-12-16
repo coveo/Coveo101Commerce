@@ -86,8 +86,8 @@ class HomePage extends React.Component<{}, IHomepageState> {
         <div id="generic-store-home">
           <Container maxWidth="xl" disableGutters>
             <HeroBanner />
-            <PopularViewed title={"Top viewed"} />
-            <PopularBought title={"Top Bought"} />
+            <PopularViewed title="Top viewed" searchHub='Home' />
+            <PopularBought title="Top Bought" searchHub='Home' />
           </Container>
         </div>
       </>

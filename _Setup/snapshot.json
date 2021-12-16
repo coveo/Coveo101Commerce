@@ -1,0 +1,1530 @@
+{
+  "metadata": {
+    "schemaVersion": "v1"
+  },
+  "resources": {
+    "FIELD": [
+      {
+        "resourceName": "availableskus_cdRypC",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": true,
+          "name": "availableskus",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_attributes_Zu3Omh",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_attributes",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_available_size_types_mmQVHB",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_available_size_types",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_available_sizes_TiEF8r",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_available_sizes",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_brand_A9BQrz",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": true,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_brand",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_categories_KTsmLc",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_categories",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_color_XULFdI",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": true,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_color",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_color_code_21iUPM",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_color_code",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_color_swatch_WEj9IU",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_color_swatch",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_discount_9J0wzs",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "DOUBLE",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_discount",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_gender_qrCQNl",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_gender",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_mrp_g5cAmj",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "DOUBLE",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_mrp",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_rating_count_0h84cW",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "LONG",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_rating_count",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_retailer_VsoYQf",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_retailer",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_retailer_category_NGSB3H",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_retailer_category",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_retailer_categoryh_JhZP7G",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_retailer_categoryh",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_size_H2s0XL",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_size",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_size_type_IvATAs",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_size_type",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_slug_0bJWrQ",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_slug",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "cat_total_sizes_ayvlWw",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "cat_total_sizes",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_brand_Ev7D7e",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": true,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_brand",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_category_tnPosC",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": true,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_category",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_cogs_t268nJ",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "Cost price of the product",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "DOUBLE",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_cogs",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_description_xhgC8R",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_description",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_images_KYjrBF",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_images",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_in_stock_cqSlRK",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "If the product is in stock or not",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_in_stock",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_item_group_id_HthCAv",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": true,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": true,
+          "name": "ec_item_group_id",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_name_6R0JAu",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_name",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_parent_id_9VOoZc",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "Id of the parent product",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_parent_id",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_price_oVKyy9",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "DOUBLE",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_price",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_product_id_bmZITr",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": true,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": true,
+          "name": "ec_product_id",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_promo_price_xntKEX",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "DOUBLE",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_promo_price",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_rating_ohDH0u",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "DOUBLE",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_rating",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_shortdesc_puh457",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "Short description of the product",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_shortdesc",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_skus_AK6Mbg",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "SKUs of the product",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": true,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_skus",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_thumbnails_6k72r6",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": false,
+          "description": "Lower resolution product image(s) used for faster page load time (URL format)",
+          "useCacheForComputedFacet": false,
+          "sort": true,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "name": "ec_thumbnails",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": false,
+          "useCacheForNumericQuery": false
+        }
+      },
+      {
+        "resourceName": "ec_variant_sku_xf57pU",
+        "parents": {},
+        "model": {
+          "dateFormat": "",
+          "includeInQuery": true,
+          "hierarchicalFacet": false,
+          "mergeWithLexicon": true,
+          "description": "",
+          "useCacheForComputedFacet": false,
+          "sort": false,
+          "type": "STRING",
+          "smartDateFacet": false,
+          "multiValueFacet": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": true,
+          "name": "ec_variant_sku",
+          "stemming": false,
+          "includeInResults": true,
+          "ranking": false,
+          "useCacheForSort": false,
+          "facet": true,
+          "useCacheForNumericQuery": false
+        }
+      }
+    ],
+    "FILTER": [
+      {
+        "resourceName": "filter_cq_`@objectType==Product`_1hTdbu",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Recommendations_h11Con }}"
+        },
+        "model": {
+          "parent": {},
+          "condition": {},
+          "feature": "filter",
+          "detailed": {
+            "expressions": [
+              "@objectType==Product"
+            ]
+          },
+          "ready": false,
+          "description": "",
+          "definition": "filter cq `@objectType==Product`",
+          "position": 1,
+          "childrenCount": 0
+        }
+      },
+      {
+        "resourceName": "filter_cq_`@objectType==Product`_hr7BNg",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.PDP_a9yZwh }}"
+        },
+        "model": {
+          "parent": {},
+          "condition": {},
+          "feature": "filter",
+          "detailed": {
+            "expressions": [
+              "@objectType==Product"
+            ]
+          },
+          "ready": false,
+          "description": "",
+          "definition": "filter cq `@objectType==Product`",
+          "position": 1,
+          "childrenCount": 0
+        }
+      }
+    ],
+    "ML_MODEL": [
+      {
+        "resourceName": "ART_OZqnzo",
+        "parents": {},
+        "model": {
+          "commonFilter": "",
+          "intervalUnit": "DAY",
+          "modelActivenessState": "ACTIVE",
+          "modelDisplayName": "ART",
+          "customEventFilter": "",
+          "intervalTime": 1,
+          "commandLineParameters": [],
+          "exportOffset": "PT0S",
+          "viewEventFilter": "",
+          "exportPeriod": "P3M",
+          "searchEventFilter": "(originLevel1=~'MainSearch')",
+          "engineId": "topclicks"
+        }
+      },
+      {
+        "resourceName": "ProductRecommendations_ioV4So",
+        "parents": {},
+        "model": {
+          "commonFilter": "",
+          "intervalUnit": "DAY",
+          "modelActivenessState": "ACTIVE",
+          "modelDisplayName": "ProductRecommendations",
+          "customEventFilter": "",
+          "intervalTime": 1,
+          "commandLineParameters": [],
+          "exportOffset": "PT0S",
+          "viewEventFilter": "",
+          "exportPeriod": "P3M",
+          "searchEventFilter": "",
+          "engineId": "ecommerce"
+        }
+      },
+      {
+        "resourceName": "QuerySuggest_Z8b3z5",
+        "parents": {},
+        "model": {
+          "commonFilter": "",
+          "intervalUnit": "DAY",
+          "modelActivenessState": "ACTIVE",
+          "modelDisplayName": "QuerySuggest",
+          "customEventFilter": "",
+          "intervalTime": 1,
+          "commandLineParameters": [],
+          "exportOffset": "PT0S",
+          "viewEventFilter": "",
+          "exportPeriod": "P3M",
+          "searchEventFilter": "",
+          "engineId": "querysuggest"
+        }
+      }
+    ],
+    "ML_MODEL_ASSOCIATION": [
+      {
+        "resourceName": "ART_1Ax5E4",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Search_ZVZujz }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": true,
+          "modelId": "{{ ML_MODEL.ART_OZqnzo }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 5,
+          "matchBasicExpression": true,
+          "rankingModifier": 250,
+          "exclusive": false,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false
+        }
+      },
+      {
+        "resourceName": "ProductRecommendations_5jFILt",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Recommendations_h11Con }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": false,
+          "modelId": "{{ ML_MODEL.ProductRecommendations_ioV4So }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 0,
+          "condition": "{{ QUERY_PIPELINE_CONDITION.when_recommendation_is_popularBought_la83xO }}",
+          "matchBasicExpression": false,
+          "rankingModifier": 1000,
+          "exclusive": true,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false,
+          "customQueryParameters": {
+            "submodel": "popularBought"
+          }
+        }
+      },
+      {
+        "resourceName": "ProductRecommendations_Ct46PA",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Recommendations_h11Con }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": false,
+          "modelId": "{{ ML_MODEL.ProductRecommendations_ioV4So }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 0,
+          "condition": "{{ QUERY_PIPELINE_CONDITION.when_recommendation_is_frequentViewed_EGAjFZ }}",
+          "matchBasicExpression": false,
+          "rankingModifier": 1000,
+          "exclusive": true,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false,
+          "customQueryParameters": {
+            "submodel": "frequentViewed"
+          }
+        }
+      },
+      {
+        "resourceName": "ProductRecommendations_Jmk16G",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Recommendations_h11Con }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": false,
+          "modelId": "{{ ML_MODEL.ProductRecommendations_ioV4So }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 0,
+          "condition": "{{ QUERY_PIPELINE_CONDITION.when_recommendation_is_user_opzcaV }}",
+          "matchBasicExpression": false,
+          "rankingModifier": 1000,
+          "exclusive": true,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false,
+          "customQueryParameters": {
+            "submodel": "user"
+          }
+        }
+      },
+      {
+        "resourceName": "ProductRecommendations_aTbeVh",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Recommendations_h11Con }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": false,
+          "modelId": "{{ ML_MODEL.ProductRecommendations_ioV4So }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 0,
+          "condition": "{{ QUERY_PIPELINE_CONDITION.when_recommendation_is_cart_KbMXUr }}",
+          "matchBasicExpression": false,
+          "rankingModifier": 1000,
+          "exclusive": true,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false,
+          "customQueryParameters": {
+            "submodel": "cart"
+          }
+        }
+      },
+      {
+        "resourceName": "ProductRecommendations_brFZpe",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Recommendations_h11Con }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": false,
+          "modelId": "{{ ML_MODEL.ProductRecommendations_ioV4So }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 0,
+          "condition": "{{ QUERY_PIPELINE_CONDITION.when_recommendation_is_frequentBought_OoK8ls }}",
+          "matchBasicExpression": false,
+          "rankingModifier": 1000,
+          "exclusive": true,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false,
+          "customQueryParameters": {
+            "submodel": "frequentBought"
+          }
+        }
+      },
+      {
+        "resourceName": "ProductRecommendations_upoJp8",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Recommendations_h11Con }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": false,
+          "modelId": "{{ ML_MODEL.ProductRecommendations_ioV4So }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 0,
+          "condition": "{{ QUERY_PIPELINE_CONDITION.when_recommendation_is_popularViewed_XmXp27 }}",
+          "matchBasicExpression": false,
+          "rankingModifier": 1000,
+          "exclusive": true,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false,
+          "customQueryParameters": {
+            "submodel": "popularViewed"
+          }
+        }
+      },
+      {
+        "resourceName": "QuerySuggest_C477ur",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Search_ZVZujz }}"
+        },
+        "model": {
+          "enableWordCompletion": false,
+          "matchAdvancedExpression": false,
+          "modelId": "{{ ML_MODEL.QuerySuggest_Z8b3z5 }}",
+          "useAdvancedConfiguration": false,
+          "maxRecommendations": 10,
+          "matchBasicExpression": false,
+          "rankingModifier": 0,
+          "exclusive": false,
+          "cacheMaximumAge": "PT10S",
+          "intelligentTermDetection": false
+        }
+      }
+    ],
+    "QUERY_PARAMETER": [
+      {
+        "resourceName": "override_query_commerce.catalogId:Omni-Channel_U1Gkmx",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Search_ZVZujz }}"
+        },
+        "model": {
+          "parent": {},
+          "condition": {},
+          "feature": "queryParamOverride",
+          "detailed": {
+            "commerce.catalogId": "Omni-Channel"
+          },
+          "ready": false,
+          "definition": "override query commerce.catalogId:\"Omni-Channel\"",
+          "position": 1,
+          "childrenCount": 0
+        }
+      },
+      {
+        "resourceName": "override_query_filterField:ec_item_group_id_F4ktfB",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Search_ZVZujz }}"
+        },
+        "model": {
+          "parent": {},
+          "condition": {},
+          "feature": "queryParamOverride",
+          "detailed": {
+            "filterField": "ec_item_group_id"
+          },
+          "ready": false,
+          "definition": "override query filterField:\"ec_item_group_id\"",
+          "position": 2,
+          "childrenCount": 0
+        }
+      },
+      {
+        "resourceName": "override_query_filterField:ec_item_group_id_NKAkZw",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.PDP_a9yZwh }}"
+        },
+        "model": {
+          "parent": {},
+          "condition": {},
+          "feature": "queryParamOverride",
+          "detailed": {
+            "filterField": "ec_item_group_id"
+          },
+          "ready": false,
+          "description": "",
+          "definition": "override query filterField:\"ec_item_group_id\"",
+          "position": 3,
+          "childrenCount": 0
+        }
+      },
+      {
+        "resourceName": "override_query_filterFieldRange:10_wvV1vP",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Search_ZVZujz }}"
+        },
+        "model": {
+          "parent": {},
+          "condition": {},
+          "feature": "queryParamOverride",
+          "detailed": {
+            "filterFieldRange": 10
+          },
+          "ready": false,
+          "definition": "override query filterFieldRange:10",
+          "position": 3,
+          "childrenCount": 0
+        }
+      },
+      {
+        "resourceName": "override_query_filterFieldRange:20_NDVOut",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.PDP_a9yZwh }}"
+        },
+        "model": {
+          "parent": {},
+          "condition": {},
+          "feature": "queryParamOverride",
+          "detailed": {
+            "filterFieldRange": 20
+          },
+          "ready": false,
+          "description": "",
+          "definition": "override query filterFieldRange:20",
+          "position": 2,
+          "childrenCount": 0
+        }
+      }
+    ],
+    "QUERY_PIPELINE": [
+      {
+        "resourceName": "PDP_a9yZwh",
+        "parents": {},
+        "model": {
+          "splitTestEnabled": false,
+          "condition": {},
+          "isDefault": false,
+          "name": "PDP",
+          "description": ""
+        }
+      },
+      {
+        "resourceName": "Recommendations_h11Con",
+        "parents": {},
+        "model": {
+          "splitTestEnabled": false,
+          "isDefault": false,
+          "condition": {
+            "id": "{{ QUERY_PIPELINE_CONDITION.when_recommendation_isPopulated_IhAIQt }}",
+            "definition": "when $recommendation isPopulated",
+            "detailed": {
+              "condition": {
+                "operator": "isPopulated",
+                "left": {
+                  "object": "recommendation"
+                }
+              }
+            }
+          },
+          "name": "Recommendations",
+          "description": ""
+        }
+      },
+      {
+        "resourceName": "Search_ZVZujz",
+        "parents": {},
+        "model": {
+          "splitTestEnabled": false,
+          "condition": {},
+          "isDefault": true,
+          "name": "Search"
+        }
+      }
+    ],
+    "QUERY_PIPELINE_CONDITION": [
+      {
+        "resourceName": "when_recommendation_isPopulated_IhAIQt",
+        "parents": {},
+        "model": {
+          "definition": "when $recommendation isPopulated"
+        }
+      },
+      {
+        "resourceName": "when_recommendation_is_cart_KbMXUr",
+        "parents": {},
+        "model": {
+          "definition": "when $recommendation is \"cart\""
+        }
+      },
+      {
+        "resourceName": "when_recommendation_is_frequentBought_OoK8ls",
+        "parents": {},
+        "model": {
+          "definition": "when $recommendation is \"frequentBought\""
+        }
+      },
+      {
+        "resourceName": "when_recommendation_is_frequentViewed_EGAjFZ",
+        "parents": {},
+        "model": {
+          "definition": "when $recommendation is \"frequentViewed\""
+        }
+      },
+      {
+        "resourceName": "when_recommendation_is_popularBought_la83xO",
+        "parents": {},
+        "model": {
+          "definition": "when $recommendation is \"popularBought\""
+        }
+      },
+      {
+        "resourceName": "when_recommendation_is_popularViewed_XmXp27",
+        "parents": {},
+        "model": {
+          "definition": "when $recommendation is \"popularViewed\""
+        }
+      },
+      {
+        "resourceName": "when_recommendation_is_user_opzcaV",
+        "parents": {},
+        "model": {
+          "definition": "when $recommendation is \"user\""
+        }
+      }
+    ],
+    "RANKING_EXPRESSION": [
+      {
+        "resourceName": "@cat_color=splitValues(text:query,_separator:'s')_eP8ZYX",
+        "parents": {
+          "queryPipelineId": "{{ QUERY_PIPELINE.Search_ZVZujz }}"
+        },
+        "model": {
+          "defaultMatchOperator": {
+            "kind": "is"
+          },
+          "predicates": [],
+          "kind": "ranking_expression",
+          "rankingModifier": 100,
+          "name": "@cat_color=$splitValues(text:$query, separator:'\\\\s')",
+          "description": "",
+          "targets": [
+            {
+              "queryExpression": "@cat_color=$splitValues(text:$query, separator:'\\\\s')"
+            },
+            {
+              "queryExpression": "@cat_color=$valuesOfField(field:'@cat_color', resultSet:$facetsFilter)"
+            }
+          ],
+          "enabled": true
+        }
+      }
+    ],
+    "CATALOG_CONFIGURATION": [
+      {
+        "name": "Omni-Channel",
+        "product": {
+          "objectType": "Product",
+          "idField": "ec_product_id"
+        },
+        "variant": {
+          "objectType": "Variant",
+          "idField": "ec_variant_sku"
+        },
+        "fieldsMapping": {
+          "ec_brand": "ec_brand",
+          "ec_shortdesc": "ec_shortdesc",
+          "ec_item_group_id": "ec_item_group_id",
+          "ec_price": "ec_price",
+          "ec_category": "ec_category",
+          "ec_thumbnails": "ec_thumbnails",
+          "ec_description": "ec_description",
+          "ec_images": "ec_images",
+          "ec_rating": "ec_rating",
+          "ec_name": "ec_name",
+          "ec_promo_price": "ec_promo_price"
+        }
+      }
+    ],
+    "CATALOG": [
+      {
+        "name": "Omni-Channel",
+        "description": "",
+        "scope": {
+          "sourceIds": [
+            "--PRODUCTS--to-replace-with-sourceId--"
+          ]
+        },
+        "product": {
+          "objectType": "Product",
+          "idField": "ec_product_id",
+          "fields": [
+            "date",
+            "filetype",
+            "year",
+            "cat_discount",
+            "ec_rating",
+            "cat_slug",
+            "language",
+            "source",
+            "cat_color_code",
+            "transactionid",
+            "rowid",
+            "orderingid",
+            "ec_promo_price",
+            "cat_retailer_categoryh",
+            "cat_total_sizes",
+            "ec_product_id",
+            "cat_attributes",
+            "validityscore",
+            "ec_description",
+            "cat_gender",
+            "cat_rating_count",
+            "cat_mrp",
+            "ec_item_group_id",
+            "cat_retailer",
+            "cat_color",
+            "ec_images",
+            "collection",
+            "cat_categories",
+            "cat_available_sizes",
+            "cat_available_size_types",
+            "ec_brand",
+            "ec_price",
+            "size",
+            "month",
+            "ec_category",
+            "cat_retailer_category",
+            "indexeddate",
+            "cat_color_swatch",
+            "ec_name"
+          ]
+        },
+        "variant": {
+          "objectType": "Variant",
+          "idField": "ec_variant_sku",
+          "fields": [
+            "date",
+            "filetype",
+            "year",
+            "language",
+            "collection",
+            "source",
+            "transactionid",
+            "ec_variant_sku",
+            "rowid",
+            "orderingid",
+            "ec_product_id",
+            "size",
+            "month",
+            "validityscore",
+            "cat_size_type",
+            "cat_size",
+            "indexeddate",
+            "ec_name"
+          ]
+        },
+        "catalogConfigurationId": "--to-replace-with-catalogConfigurationId--",
+        "configuration": {},
+        "sourceId": "--PRODUCTS--to-replace-with-sourceId--"
+      }
+    ]
+  }
+}

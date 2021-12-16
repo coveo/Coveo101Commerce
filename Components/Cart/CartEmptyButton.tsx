@@ -19,10 +19,10 @@ export default function CartEmptyButton() {
     setOpen(false);
 
     const allProducts = store.getState().items.map(item => {
-      const product = getAnalyticsProductData(item.detail, 0);
+      const product = getAnalyticsProductData(item.detail, item.sku, 0);
       return {
         ...product
-      }
+      };
     });
 
     CoveoUA.removeFromCart(allProducts);
@@ -32,10 +32,10 @@ export default function CartEmptyButton() {
 
   return (
     <div>
-      <Button id="cart-remove-items" variant="contained" color="secondary" startIcon={<RemoveShoppingCartIcon />} onClick={() => { setOpen(true) }}>Clear cart</Button>
+      <Button id="cart-remove-items" variant="contained" color="secondary" startIcon={<RemoveShoppingCartIcon />} onClick={() => { setOpen(true); }}>Clear cart</Button>
       <Dialog
         open={open}
-        onClose={() => { setOpen(false) }}
+        onClose={() => { setOpen(false); }}
         aria-labelledby="cart-empty-dialog-title"
         aria-describedby="cart-empty-dialog-description"
       >
@@ -46,7 +46,7 @@ export default function CartEmptyButton() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => { setOpen(false) }} color="primary">
+          <Button onClick={() => { setOpen(false); }} color="primary">
             Cancel
           </Button>
           <Button onClick={handleEmptyCart} color="primary" autoFocus>

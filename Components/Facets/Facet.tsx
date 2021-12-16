@@ -76,7 +76,7 @@ class ReactFacet extends React.Component<IFacetProps> {
                 // Label clicks are not registered under ListItem so have to keep this one too
                 onClick={() => this.onSelect(item)}
               >
-                <span className="facet-value">{item.value} </span>
+                <span className="facet-value">{item.value}</span>
                 <span className="facet-count">({item.numberOfResults})</span>
               </ListItemText>
             )

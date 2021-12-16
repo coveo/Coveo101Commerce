@@ -13,6 +13,14 @@ import cartStore from '../reducers/cartStore'; // used in <Provider>
 import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 
+const getBotParamFromUrl = () => {
+  if (typeof window === "object" && (/\b(bot|isBot|fromTest|fromTester)=(true|false|0|1)\b/i).test(window.location.href)) {
+    const isBotValue = (RegExp.$2).toLowerCase();
+    return (isBotValue === 'true' || isBotValue === '1');
+  }
+  return null;
+};
+
 export default function MyApp(props) {
   const { Component, pageProps } = props;
 
@@ -21,6 +29,16 @@ export default function MyApp(props) {
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
+    }
+
+    const isBot = getBotParamFromUrl();
+    if (isBot !== null) {
+      if (isBot) {
+        sessionStorage.setItem('isBot', isBot);
+        // eslint-disable-next-line no-undef
+        coveoua('set', 'custom', { isBot: true, fromTester: true });
+      }
+      else { sessionStorage.removeItem('isBot'); }
     }
   }, []);
 

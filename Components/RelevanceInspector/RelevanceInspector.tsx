@@ -26,6 +26,7 @@ export default class RelevanceInspector extends React.Component {
   state: RelevanceInspectorState & {
     executeQueryOnChange: true;
     openModal: false;
+    readyToRender: false;
   };
 
   constructor(props: any) {
@@ -34,12 +35,14 @@ export default class RelevanceInspector extends React.Component {
     this.state = {
       ...this.headlessRelevanceInspector.state,
       executeQueryOnChange: true,
-      openModal: false
+      openModal: false,
+      readyToRender: false,
     };
   }
 
   componentDidMount() {
     this.unsubscribe = this.headlessRelevanceInspector.subscribe(() => this.updateState());
+    setTimeout(() => { this.setState({ readyToRender: true }); }, 100); // little delay for Material-UI's Switch - the rendering is wrong otherwise. ¯\_(ツ)_/¯
   }
 
   componentWillUnmount() {
@@ -91,6 +94,9 @@ export default class RelevanceInspector extends React.Component {
   }
 
   render() {
+    if (!this.state.readyToRender) {
+      return <></>;
+    }
     return (<FormGroup row>
       <FormControlLabel
         control={<Switch

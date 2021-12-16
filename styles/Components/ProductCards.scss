@@ -97,3 +97,21 @@
     );
   }
 }
+
+.product-grouping {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5px;
+
+  .grouping__thumbnail {
+    display: inline-block;
+    margin: 5px 10px;
+    height: 40px;
+    width: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.6em;
+  }
+}

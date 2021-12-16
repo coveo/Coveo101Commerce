@@ -4,6 +4,10 @@ import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import { getEndpoint } from '../helpers/Endpoints';
+
+import getConfig from 'next/config';
+const { publicRuntimeConfig } = getConfig();
 
 const COVEOUA_script = () => {
   return (
@@ -13,7 +17,7 @@ const COVEOUA_script = () => {
         c[a].t=Date.now();u=o.createElement(v);u.async=1;u.src=e;
         O=o.getElementsByTagName(v)[0];O.parentNode.insertBefore(u,O)
         })(window,document,'script','https://static.cloud.coveo.com/coveo.analytics.js/2/coveoua.js')
-        coveoua('init', '${process.env.API_KEY}');`,
+        coveoua('init', '${process.env.API_KEY}','${getEndpoint('analytics')}');`,
     }}>
     </script>
   );
@@ -25,6 +29,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300&display=swap" />
+          {publicRuntimeConfig.extraCSS && <link rel="stylesheet" type="text/css" href={publicRuntimeConfig.extraCSS} />}
           <COVEOUA_script />
         </Head>
         <body>
@@ -46,6 +51,7 @@ MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
 
   ctx.renderPage = () => originalRenderPage({
+    // eslint-disable-next-line react/display-name
     enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
   });
 

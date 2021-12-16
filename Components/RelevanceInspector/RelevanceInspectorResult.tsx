@@ -2,6 +2,7 @@
 import React from "react";
 import {
   buildRelevanceInspector,
+  RankingInformation,
   RelevanceInspector as RelevanceInspectorType,
   RelevanceInspectorState,
   Unsubscribe,
@@ -17,10 +18,7 @@ interface IDebugProps {
   index: number;
 }
 
-export default class RelevanceInspectorResult extends React.Component<
-  IDebugProps,
-  {}
-> {
+export default class RelevanceInspectorResult extends React.Component<IDebugProps, {}> {
   private headlessRelevanceInspector: RelevanceInspectorType;
   private unsubscribe: Unsubscribe = () => { };
 
@@ -66,8 +64,8 @@ export default class RelevanceInspectorResult extends React.Component<
   }
 
   getJson = () => {
-    let json = {};
-    if (this.headlessRelevanceInspector.state.rankingInformation[this.index] != undefined) {
+    let json: RankingInformation | { message: string; } = { message: 'missing info' };
+    if (this.headlessRelevanceInspector.state.rankingInformation[this.index]?.ranking) {
       json = this.headlessRelevanceInspector.state.rankingInformation[this.index].ranking;
     }
     return json;

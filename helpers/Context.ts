@@ -2,13 +2,6 @@ import { buildContext, loadConfigurationActions, SearchEngine } from '@coveo/hea
 import { NextRouter, } from 'next/router';
 import { UrlObject } from 'url';
 
-export function setContext(
-  engine: SearchEngine
-) {
-  buildContext(engine!).add("fromTester", "true");
-}
-
-
 export function setStoreContext(
   engine: SearchEngine,
   storeId: string
@@ -24,25 +17,11 @@ export function setTabContext(
   engine.dispatch(configurationActions.setOriginLevel2({ originLevel2: tab }));
 }
 
-export function routerOptions(router: NextRouter, options: UrlObject): UrlObject {
-  const fromTest = router.query['fromTest'];
-  if (fromTest) {
-    if (!options?.query) {
-      options.query = {};
-    }
-    options.query['fromTest'] = true;
-  }
-  return options;
-}
-
 export function routerPush(router: NextRouter, options: UrlObject) {
-  return router.push(routerOptions(router, options));
+  return router.push(options);
 }
-
 
 const Context = {
-  setContext,
-  routerOptions,
   routerPush,
 };
 

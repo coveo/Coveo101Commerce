@@ -1,25 +1,41 @@
 import React from 'react';
 import { headlessEngine_Recommendations } from '../../helpers/Engine';
 import { Unsubscribe } from '@coveo/headless';
+import { FrequentlyBoughtTogetherList, FrequentlyViewedTogetherList, ProductRecommendationEngine } from '@coveo/headless/product-recommendation';
+
 import RecommendationCard from '../Recommendations/RecommendationCard';
 import { Grid, Container, Typography } from '@material-ui/core';
+import { IProduct } from '../ProductCard/Product.spec';
 
 interface IRecommendationProps {
-  sku?: string,
+  searchHub: string,
   skus?: string[],
   title: string,
   maxNumberOfRecommendations?: number,
 }
 
+interface IRecommendationState {
+  skus?: string[],
+  recommendations: IProduct[],
+}
+
 export default class BaseRecommendations extends React.Component<IRecommendationProps> {
-  private RecommendationsList: any;
+  private RecommendationsList: FrequentlyBoughtTogetherList | FrequentlyViewedTogetherList;
   private unsubscribe: Unsubscribe;
-  state: any;
-  private engine;
+  state: IRecommendationState;
+  private engine: ProductRecommendationEngine;
+  private builder: any;
 
-  constructor(props, searchHub, builder) {
+  constructor(props, builder) {
     super(props);
+    this.builder = builder;
+    this.state = {
+      skus: [],
+      recommendations: [],
+    };
+  }
 
+  componentDidMount() {
     const rec_options: { options; } = {
       options: {
         maxNumberOfRecommendations: this.props.maxNumberOfRecommendations || 3,
@@ -27,75 +43,88 @@ export default class BaseRecommendations extends React.Component<IRecommendation
       }
     };
 
-    if (this.props.sku) {
-      rec_options.options.sku = this.props.sku;
-    }
-
-    if (this.props.skus && this.props.skus.length) {
+    if (this.props.skus?.length) {
       rec_options.options.skus = this.props.skus;
+      rec_options.options.sku = this.props.skus[0]; // some controllers use 'sku' instead of 'skus'
     }
 
-    this.engine = headlessEngine_Recommendations(searchHub);
+    this.engine = headlessEngine_Recommendations(this.props.searchHub) as ProductRecommendationEngine;
 
-    this.RecommendationsList = builder(this.engine, rec_options);
+    this.RecommendationsList = this.builder(this.engine, rec_options);
 
-    this.state = this.RecommendationsList.state;
-    this.RecommendationsList.refresh();
+    this.unsubscribe = this.RecommendationsList.subscribe(() => this.updateState());
+
+    this.setState({ skus: this.props.skus }, () => {
+      this.updateRecommendations();
+    });
   }
 
-  componentDidMount() {
-    this.unsubscribe = this.RecommendationsList.subscribe(() => this.updateState());
+  componentDidUpdate(prevProps) {
+    const skus = (this.props.skus || []).join();
+    const prevSkus = (prevProps.skus || []).join();
+    if (skus !== prevSkus) {
+      this.setState({ skus: this.props.skus }, () => {
+        this.updateRecommendations();
+      });
+      return true;
+    }
+
+    return false;
   }
 
   componentWillUnmount() {
     this.unsubscribe();
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.skus && nextProps.skus.length && nextProps.skus !== this.state.skus) {
-      this.setState({ skus: nextProps.skus });
-      this.RecommendationsList.setSkus(nextProps.skus);
+  updateRecommendations() {
+    if (this.RecommendationsList) {
+      const skus: string[] = this.state.skus;
+
+      // this is for TypeScript validation
+      const viewedList = (this.RecommendationsList as FrequentlyViewedTogetherList);
+      const boughtList = (this.RecommendationsList as FrequentlyBoughtTogetherList);
+      // some controller are using 'setSkus' and some other 'setSku', we are abstracting that with this class.
+      // but here, we need to use the proper action for the controller. 
+      if (viewedList.setSkus) {
+        (this.RecommendationsList as FrequentlyViewedTogetherList).setSkus(skus);
+      }
+      else if (boughtList.setSku) {
+        (this.RecommendationsList as FrequentlyBoughtTogetherList).setSku(skus[0]);
+      }
       this.RecommendationsList.refresh();
     }
-
-    if (nextProps.sku && nextProps.sku !== this.state.sku) {
-      this.setState({ sku: nextProps.sku });
-      this.RecommendationsList.setSku(nextProps.sku);
-      this.RecommendationsList.refresh();
-    }
-
-    return true;
   }
 
   private updateState() {
+    if (!(this.RecommendationsList?.state?.recommendations)) {
+      return false;
+    }
+
     let recommendations = this.RecommendationsList.state.recommendations;
     recommendations = recommendations.map((r, index) => {
       // merge additionalFields into product. 
       return { ...r, ...r.additionalFields, index };
     });
-
-    if (!this._areSameArrays(recommendations, this.state.recommendations)) {
-      this.setState({ recommendations });
-    }
+    this.setState({ recommendations });
 
     return true;
   }
 
   public render() {
-    if (this.state.recommendations.length < 1) {
+    if ((this.state?.recommendations?.length || 0) < 1) {
       return (null);
     }
 
     return (
       <Container>
         <Grid item className="recommendations-component">
-          <Typography variant="h3">{this.props.title}</Typography>
+          <Typography variant="h4">{this.props.title}</Typography>
           <Grid container spacing={2}>
             {
               this.state.recommendations.map((product, index) => {
                 return (
                   <Grid key={product.permanentid} item xs={4}>
-                    <RecommendationCard searchUid={this.engine.state.productRecommendations.searchUid} product={product} index={index} />
+                    <RecommendationCard engine={this.engine} product={product} index={index} />
                   </Grid>
                 );
               })
@@ -104,12 +133,6 @@ export default class BaseRecommendations extends React.Component<IRecommendation
         </Grid>
       </Container>
     );
-  }
-
-  private _areSameArrays(arr1: string[], arr2: string[]): boolean {
-    const str1 = (arr1 || []).slice().sort().join();
-    const str2 = (arr2 || []).slice().sort().join(); // using slice() in case array is 'frozen', need to copy it before sorting
-    return (str1 === str2);
   }
 
 }

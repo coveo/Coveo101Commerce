@@ -1,37 +1,13 @@
-import { Component } from "react";
-import { withStyles } from '@material-ui/core/styles';
-import { IProduct } from "./Product.spec";
+import { Component } from 'react';
+import { IProduct } from './Product.spec';
+import getConfig from 'next/config';
 
-const styles = () => ({
-  root: {
-    display: 'inline-block',
-    width: '100%',
-    marginBottom: '10px',
-  },
-  main: {
-    height: '60px',
-    width: '60px',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-  },
-  thumbnail: {
-    display: 'inline-block',
-    margin: '5px 10px',
-    height: '40px',
-    width: '30px',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPositionY: '10px',
-    cursor: 'pointer',
-    textAlign: 'center',
-    fontSize: '0.6em',
-  }
-});
+const { publicRuntimeConfig } = getConfig();
 
 export interface IProductGroupingProps {
   relatedProducts: any[];
   onClick: any;
+  changeImage: any;
 }
 
 export interface IProductGroupingState {
@@ -47,27 +23,38 @@ class ProductGrouping extends Component<IProductGroupingProps, IProductGroupingS
   }
 
   render() {
-    const { classes } = this.props as any;
     const { relatedProducts } = this.state;
 
-    const relatedProductsRendered = relatedProducts.map((i, idx) => <div
-      key={`thumbnail-${idx}`}
-      title={i.raw.cat_color || i.raw.ec_name}
-      style={{ backgroundImage: `url(${i.raw.cat_color_swatch || i.raw.ec_images[0]})` }} data-src={i.raw.cat_color_swatch || i.raw.ec_images[0]}
-      className={classes.thumbnail} onClick={() => { this.props.onClick(i); }}></div>
-    );
+    const relatedProductsRendered = relatedProducts.map((i, idx) => {
+      const image = i.raw[publicRuntimeConfig.features?.colorSwatchField] || (i.raw.ec_images?.length && i.raw.ec_images[0]) || i.raw.ec_images || '/missing.svg';
+      const imageOnHover = i.raw.ec_images?.length ? i.raw.ec_images[0] : i.raw.ec_images || '/missing.svg';
+
+      return (
+        <div
+          key={`thumbnail-${idx}`}
+          title={i.raw[publicRuntimeConfig.features?.colorField] || i.raw.ec_name}
+          style={{ backgroundImage: `url(${image})` }}
+          data-src={image}
+          className='grouping__thumbnail'
+          onClick={() => {
+            this.props.onClick(i);
+          }}
+          onMouseEnter={() => this.props.changeImage(imageOnHover)}
+          onMouseLeave={() => this.props.changeImage()}></div>
+      );
+    });
 
     if (relatedProducts.length > 0) {
-      return <div className={classes.root}>
-        Also available in:<br />
-        {relatedProductsRendered}
-      </div>;
+      return (
+        <div className='product-grouping'>
+          <div className='product-grouping__label'>Also available in:</div>
+          {relatedProductsRendered}
+        </div>
+      );
     } else {
       return <></>;
     }
   }
-
 }
 
-export default withStyles(styles as any)(ProductGrouping);
-
+export default ProductGrouping;
