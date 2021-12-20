@@ -34,7 +34,7 @@ Your data should use the standard Coveo commerce fields.
 
 There are tools to help pushing data, here's one of the them:
 
-### PushApi cli
+### Push API cli
 
 To install the [pushapi tool](https://www.npmjs.com/package/coveo-pushapi-cli) :
 
@@ -50,3 +50,11 @@ Then in a terminal, from the folder `_Setup/data`, run:
 
 The tool will ask for the proper ids (org, source, apikey) you need to do a successful Push.
 If asked about the source being a Catalog source, say "yes".
+
+### Push API key
+
+To push content to the Coveo index, you need an API key to authenticate your Push requests.
+In the Coveo Administration console, go in `Organization / API keys` and create a new API key for Push, with these privileges:
+
+- Under **Organization**, set `Organization` to _View_
+- Under **Content**, using `Custom`, set your source to _Edit_

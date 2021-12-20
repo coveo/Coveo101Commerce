@@ -36,13 +36,22 @@ Here you can specify the following:
 | Key | Description |
 | --- | ----------- |
 | env > ORG_ID | The Organization Id |
-| env > API_KEY | The Seach API Key (should also have write access to Analytics events) |
+| env > API_KEY | The Seach API Key (should also have write access to Analytics events, see below) |
 | env > SEARCH_PIPELINE | Pipeline for search |
 | publicRuntimeConfig > logo | Logo to display in the Header |
 | publicRuntimeConfig > title | Title to display in the Header |
 | publicRuntimeConfig > searchhubPDP | Search hub for the Product Detail Page |
 | publicRuntimeConfig > fields | Extra fields to return with the search response |
 | publicRuntimeConfig > facetFields | Additional facets to show for this store array of: `{ field: 'ec_processor_model_number', label: 'Processor Model' }` |
+
+### Search API key
+
+To perform Search against the Coveo index, you need an API key to authenticate the requests from the storefront.
+In the Coveo Administration console, go in `Organization / API keys` and create a new API key for search, with these privileges:
+
+- Under **Analytics**, set `Analytics Data` to _Push_
+- Under **Analytics**, set `Impersonate` to _Allowed_
+- Under **Search**, set `Execute Queries` to _Allowed_
 
 ## Learn More
 
