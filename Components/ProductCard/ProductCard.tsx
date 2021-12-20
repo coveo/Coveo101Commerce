@@ -155,7 +155,7 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
     }
 
     return (
-      <Card className='card-product'>
+      <Card className='card-product' data-product-id={product.permanentid}>
         <CardMedia
           className={'card__media'}
           image={this.state.currentImage}

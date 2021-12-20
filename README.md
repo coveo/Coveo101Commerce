@@ -11,6 +11,10 @@
 
 This project relies on [Node.js](https://nodejs.org/) to build and run. It has been tested with version 16.
 
+## Before starting the storefront UI (Initial configuration)
+
+Under [\_Setup](_Setup/README.md), we are providing instructions to help set up a Coveo org to be used with this storefront UI.
+
 ## Start the storefront UI
 
 To run the development server:
