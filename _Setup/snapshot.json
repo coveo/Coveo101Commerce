@@ -928,6 +928,32 @@
           "facet": true,
           "useCacheForNumericQuery": false
         }
+      },
+      {
+        "resourceName": "permanentid_abc123",
+        "parents": {},
+        "model": {
+          "name": "permanentid",
+          "description": "",
+          "type": "STRING",
+          "includeInQuery": true,
+          "includeInResults": true,
+          "mergeWithLexicon": true,
+          "smartDateFacet": false,
+          "facet": false,
+          "multiValueFacet": false,
+          "hierarchicalFacet": false,
+          "sort": false,
+          "ranking": false,
+          "stemming": false,
+          "multiValueFacetTokenizers": ";",
+          "useCacheForNestedQuery": false,
+          "useCacheForSort": false,
+          "useCacheForNumericQuery": false,
+          "useCacheForComputedFacet": false,
+          "dateFormat": "",
+          "system": false
+        }
       }
     ],
     "FILTER": [
@@ -1439,7 +1465,8 @@
           "ec_images": "ec_images",
           "ec_rating": "ec_rating",
           "ec_name": "ec_name",
-          "ec_promo_price": "ec_promo_price"
+          "ec_promo_price": "ec_promo_price",
+          "permanentid": "permanentid"
         }
       }
     ],
