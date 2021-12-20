@@ -51,11 +51,13 @@ class FacetColor extends React.Component<IFacetColorProps> {
       facetItemCssClasses += ' coveo-selected';
     }
 
+    let swatch = COLORS[item.value]?.swatch || 'https://fashion.coveodemo.com/images/no_color.png';
+
     return (
       <ListItem data-facet-value={item.value} disableGutters key={item.value} className={facetItemCssClasses} onClick={() => this.facet.toggleSelect(item)}>
         <FormControlLabel
           className={'checkbox--padding facet-form-control-label'}
-          control={<div className='facet-color-swatch' style={{ backgroundImage: 'url(' + COLORS[item.value].swatch + ')' }} />}
+          control={<div className='facet-color-swatch' style={{ backgroundImage: `url(${swatch})` }} />}
           label={
             <ListItemText>
               <span className='facet-value'>{item.value}</span>

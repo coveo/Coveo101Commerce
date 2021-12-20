@@ -61,19 +61,19 @@ class AvailableColors extends Component<ProductCardProps, IAvailableColorsState>
 
     let products = [product, ...product.childResults.map(normalizeProduct)];
 
-    const imageField = publicRuntimeConfig.features?.colorSwatchField || (typeof product?.ec_images === 'string' && product?.ec_images) || product?.ec_images[0];
-    const relatedProducts = products.map((i, idx) => (
-      <div
+    const relatedProducts = products.map((i, idx) => {
+      const imageUrl = (publicRuntimeConfig.features?.colorSwatchField && i[publicRuntimeConfig.features?.colorSwatchField]) || (typeof i?.ec_images === 'string' && i?.ec_images) || i?.ec_images[0] || '';
+      return <div
         key={`thumbnail-${idx}`}
-        style={{ backgroundImage: `url(${i[imageField]})` }}
-        data-src={i[imageField]}
+        style={{ backgroundImage: `url(${imageUrl})` }}
+        data-src={imageUrl}
         className='available-color__swatch'
         onClick={() => {
           this.handleClick(i);
         }}
         onMouseOver={() => this.setColorLabels(i)}
-        onMouseOut={() => this.setColorLabels()}></div>
-    ));
+        onMouseOut={() => this.setColorLabels()}></div>;
+    });
 
     return (
       <div className='available-color'>

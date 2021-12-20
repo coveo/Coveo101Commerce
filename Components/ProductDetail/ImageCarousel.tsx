@@ -5,11 +5,10 @@ import NavigateBefore from '@material-ui/icons/NavigateBefore';
 export interface IImageCarouselProps {
   images: string[];
   shiftLength: number;
-  height: number;
   width: number;
 }
 
-export default function ImageCarousel({ images, shiftLength, height, width }: IImageCarouselProps) {
+export default function ImageCarousel({ images, shiftLength, width }: IImageCarouselProps) {
   let scrl = useRef(null);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [isScrollEnd, setScrollEnd] = useState(false);
@@ -32,7 +31,7 @@ export default function ImageCarousel({ images, shiftLength, height, width }: II
         {images.map((image, idx) => (
           <li key={`image-carousel-${idx}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img style={{ height: `${height}px`, width: `${width}px` }} src={image} alt={image} />
+            <img style={{ width: `${width}px` }} src={image} alt={image} />
           </li>
         ))}
       </ul>

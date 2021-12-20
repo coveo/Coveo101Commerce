@@ -1,10 +1,10 @@
-# Commerce Setup - Creating resource
+# Commerce Setup - Creating resources
 
 This folder contains the script to help set up and configure a new org for a Commerce scenario.
 
 ### Dependencies
 
-From the `_setup_commerce_scenario` folder, run this:
+From the `_Setup` folder, run this:
 
 ```bash
 > npm install
@@ -12,12 +12,12 @@ From the `_setup_commerce_scenario` folder, run this:
 
 ## How to run
 
-In a terminal, go in the `_setup_commerce_scenario` folder
+In a terminal, go in the `_Setup` folder
 
 Then execute this script to set up your Coveo organization with the sample pipelines and catalog configuration:
 
 ```bash
-node _create_resources_in_Coveo.js <myOrgName>
+node create_resources_in_Coveo.js <myOrgName>
 ```
 
 Replace `<myOrgName>` with the name of your organization.

@@ -57,7 +57,7 @@ body .card-product .CoveoResultLink:hover {
 body .card-product .card__media {
   cursor: pointer;
   height: 420px;
-  background-size: cover, 0;
+  background-size: cover, auto;
   margin: 0px;
 }
 
