@@ -34,7 +34,7 @@ class Config {
         response = await this.validateAccessTokenAndOrg();
       }
       catch (err) {
-        console.log(err);
+        console.log('[ERR-001] Login failed.', err);
         response = err;
       }
     }
@@ -47,15 +47,26 @@ class Config {
   }
 
   async validateAccessTokenAndOrg() {
-    this.client = new PlatformClient({ accessToken: this.config.accessToken, });
-    return await getOrganization(this.client, this.config.orgName);
+    this.client = new PlatformClient({ accessToken: this.config.accessToken, environment: PLATFORM });
+    let res = null;
+    try {
+      res = await getOrganization(this.client, this.config.orgName);
+    }
+    catch (err) {
+      console.log('[ERR-002] Token validation failed.', err);
+    }
+    return res;
   }
 
 
   async loginGetAccessToken() {
+    const envMap = {
+      'staging': 'qa',
+    };
+
     const { accessToken } = await new OAuth({
-      environment: 'prod', //Environment.prod, // flags.environment as PlatformEnvironment,
-      region: 'us', // flags.region as Region,
+      environment: envMap[process.env.PLATFORM] || 'prod', //Environment.prod, // flags.environment as PlatformEnvironment,
+      region: process.env.REGION || 'us', // flags.region as Region,
     }).getToken();
 
     this.config.accessToken = accessToken;
@@ -100,7 +111,7 @@ class SnapshotHelper {
 }
 
 
-const PLATFORM = 'production';
+const PLATFORM = process.env.PLATFORM || 'prod';
 
 // Extracts the arguments from the command line
 function readArguments() {

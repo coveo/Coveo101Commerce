@@ -26,6 +26,12 @@ When required, the script will open a browser window for you to authenticate in 
 
 After a successful run, you will have a few Pipelines and ML models created for you.
 
+You can change the target environment using a _PLATFORM_ variable (with `prod`, `staging`, `dev`, or `hipaa`). For example:
+
+```bash
+PLATFORM=dev node create_resources_in_Coveo.js myDevOrg
+```
+
 ## Data
 
 Then you can push your data in the Catalog source called `Products` using the stream API.
