@@ -111,7 +111,7 @@ class SnapshotHelper {
 }
 
 
-const PLATFORM = process.env.PLATFORM || 'prod';
+const PLATFORM = process.env.PLATFORM || 'production';
 
 // Extracts the arguments from the command line
 function readArguments() {
