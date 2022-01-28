@@ -216,6 +216,21 @@ async function createFields() {
   else {
     console.log('All fields exists already.');
   }
+
+  // validate multi-value fields
+  let fieldsToValidate = CONFIG.snapshot?.resources?.FIELD || [];
+  fieldsToValidate = fieldsToValidate.map(i => i.model).filter(field => field.multiValueFacet);
+
+  for (let i = 0; i < fieldsToValidate.length; i++) {
+    const fieldToValidate = fieldsToValidate[i];
+    // find related field 
+    const fieldToUpdate = existingFields.items.filter(f => f.name === fieldToValidate.name)[0];
+    if (fieldToUpdate && !fieldToUpdate.multiValueFacet) {
+      fieldToUpdate.multiValueFacet = true;
+      await client.field.update(fieldToUpdate.name, fieldToUpdate).catch(handleError.bind(null, 'field.update()'));
+      console.log('Set multivalue on field: ', fieldToUpdate.name);
+    }
+  }
 }
 
 
