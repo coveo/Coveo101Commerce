@@ -1,29 +1,100 @@
-.recommendations-component {
-  max-width: 1000px;
-  width: 100%;
-  margin: 30px auto;
+.recommendations-slider {
+  margin-bottom: 3%;
 
-  h4 {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 1;
-    margin-bottom: 12px;
+  .recommendations-title {
+    font-family: Alegreya Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 54px;
+    line-height: 72px;
+    letter-spacing: 0.011em;
+    color: #282829;
+    margin-bottom: 22px;
+    text-align: left;
+    padding-left: 12px;
+  }
+
+  .slick-dots {
+    bottom: unset !important;
+    position: unset !important;
+    padding: 0;
+    display: none !important;
+
+    li button:before {
+      font-size: 10px !important;
+    }
+  }
+
+  .hideArrows {
+    display: none;
+    pointer-events: none;
+  }
+
+  .nextArrow,
+  .prevArrow {
+    position: absolute;
+    top: 40%;
+    cursor: pointer;
+    z-index: 100;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nextArrow {
+    right: 16px;
+  }
+
+  .prevArrow {
+    left: 16px;
   }
 }
 
 .recommendations-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 0;
-  box-shadow: none;
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+  margin: auto;
+  height: 440px;
+  width: 280px;
+
+  .MuiCardContent-root {
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .widget-price {
+    margin-top: 3px;
+    font-size: 18px !important;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 24px;
+    letter-spacing: 0.011em;
+    color: #282829;
+
+    .price-regular,
+    .price-promo {
+      color: #fc622b;
+      font-weight: bold;
+    }
+  }
 }
 
 .recommendations-card__link {
   cursor: pointer;
   overflow: hidden;
-  display: -webkit-box;
-  color: #000;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px !important; /* MUI v5 fix */
+  line-height: 24px;
+  letter-spacing: 0.011em;
+  color: #282829;
   &:hover {
     text-decoration: underline;
   }
@@ -33,14 +104,26 @@
   background-size: contain;
   cursor: pointer;
   width: 100%;
-  padding-bottom: 50%;
+  height: 350px;
 }
 
-.recommendations-card__priceAndRating {
-  cursor: default;
-  display: flex;
-  flex-wrap: wrap;
-  & > *:first-child {
-    flex: 1;
+@media only screen and (max-width: 750px) {
+  .recommendations-slider {
+    width: 85%;
+    margin-bottom: 5% !important;
+
+    .slick-dots {
+      display: block !important;
+    }
+
+    .nextArrow,
+    .prevArrow {
+      display: none;
+      pointer-events: none;
+    }
+  }
+
+  .recommendations-title {
+    padding-left: 0px !important;
   }
 }

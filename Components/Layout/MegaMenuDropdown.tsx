@@ -1,14 +1,16 @@
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import React from 'react';
 import { CategoryFacetState, CategoryFacet, buildCategoryFacet, Unsubscribe, loadSearchAnalyticsActions, loadSearchActions } from '@coveo/headless';
 import { headlessEngine_MegaMenu } from '../../helpers/Engine';
-import { List, ListItem, IconButton, Link, Popper, Drawer } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { List, ListItem, IconButton, Link, Popper, Drawer } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { routerPush } from '../../helpers/Context';
 import { NextRouter, withRouter } from 'next/router';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 interface MegaMenuDropdownProps {
   closeMegaMenu: () => void;
@@ -39,13 +41,13 @@ export interface IMegaMenuDropdownState {
   showSecondPanel: boolean;
 }
 
-class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuDropdownState> {
+export class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuDropdownState> {
   private categoryFacet: CategoryFacet;
   state: IMegaMenuDropdownState;
   private numberOfValues = 10000;
   private levelOfDepth = 3;
-  private unsubscribe: Unsubscribe = () => {};
-  private menuStructure: IMenuStructure = {};
+  private unsubscribe: Unsubscribe = () => { };
+  protected menuStructure: IMenuStructure = {};
 
   constructor(props) {
     super(props);
@@ -77,19 +79,13 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
   }
 
   componentDidUpdate() {
-    if (this.state.isMenuOpen) {
-      const target = document.querySelector('.megamenu__container');
-
-      if (!this.state.initialSearchDone) {
-        this.executeSearchForMenu();
-      }
-      disableBodyScroll(target);
+    if ((this.state.isMenuOpen || !this.state.isMobileSize) && !this.state.initialSearchDone) {
+      this.executeSearchForMenu();
     }
   }
 
   componentWillUnmount() {
     this.unsubscribe();
-    clearAllBodyScrollLocks();
     window.removeEventListener('resize', this.setWindowSize);
   }
 
@@ -173,10 +169,16 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
   }
 
   private goToCategory(categories: string[]) {
-    routerPush(this.props.router, { pathname: '/plp/[...category]', query: { category: categories } });
+    if (!categories.join('')) {
+      // empty categories
+      routerPush(this.props.router, { pathname: '/' });
+    }
+    else {
+      routerPush(this.props.router, { pathname: '/plp/[...category]', query: { category: categories } });
+    }
   }
 
-  private listElement_tl(menuElement, listElementClass = '', isMainListElement = false) {
+  protected listElement_tl(menuElement, listElementClass = '', isMainListElement = false) {
     const isActive = this.state.activeMenu === menuElement.displayValue ? ' active-menu-el' : '';
 
     return (
@@ -184,7 +186,7 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
         key={'menuItemText-' + menuElement.urlValue}
         className={'megamenu__item-title ' + listElementClass + isActive}
         onClick={() => {
-          if (!this.state.isMobileSize) {
+          if (!this.state.isMobileSize && publicRuntimeConfig.extraCSS) {
             this.closeMegaMenu();
             this.goToCategory(menuElement.urlValue.split('/'));
           } else {
@@ -197,9 +199,7 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
             this.setState({ showSecondPanel: true });
           }
         }}
-        onMouseEnter={() => {
-          if (!this.state.isMobileSize && isMainListElement) this.setState({ activeMenu: menuElement.displayValue });
-        }}>
+        onMouseEnter={(e) => this.onMouseEnter(e, menuElement, isMainListElement)}>
         <span data-item-value={menuElement.urlValue} data-item-category={menuElement.value}>
           {menuElement.displayValue}
         </span>
@@ -226,6 +226,9 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
   }
 
   private buildSubList(menuLevel) {
+    if (!menuLevel.subCategories) {
+      return null;
+    }
     // Make the number of subcategories = 5
     const menuLevelSliced = Object.values(menuLevel.subCategories).slice(0, 5);
 
@@ -245,8 +248,11 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
       return null;
     }
 
-    const subCategoriesObj = this.menuStructure[this.state.activeMenu].subCategories;
-    const subcategories = Object.values(subCategoriesObj).slice(0, 4);
+    const subCategoriesObj = this.menuStructure[this.state.activeMenu]?.subCategories;
+    if (!subCategoriesObj) {
+      return null;
+    }
+    const subcategories = Object.values(subCategoriesObj).slice(0, 8);
 
     const list = subcategories.map((menuItem: IMenuStructureCategory) => {
       return (
@@ -299,6 +305,12 @@ class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMegaMenuD
 
   closeMegaMenu() {
     this.setState({ isMenuOpen: false });
+  }
+
+  protected onMouseEnter(e, menuElement: any, isMainListElement: boolean) {
+    if (!this.state.isMobileSize && isMainListElement) {
+      this.setState({ activeMenu: menuElement.displayValue });
+    }
   }
 
   render() {

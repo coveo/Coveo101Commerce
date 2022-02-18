@@ -14,8 +14,8 @@ import {
   FormControlLabel,
   FormGroup,
   Switch
-} from "@material-ui/core";
-import BugReportIcon from "@material-ui/icons/BugReport";
+} from "@mui/material";
+import BugReportIcon from "@mui/icons-material/BugReport";
 import RelevanceInspectorWindow from "./RelevanceInspectorWindow";
 
 export default class RelevanceInspector extends React.Component {

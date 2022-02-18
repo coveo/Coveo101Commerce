@@ -3,20 +3,25 @@ import Image from 'next/image';
 
 import SearchBox from '../Search/SearchBox';
 import CartIndicator from '../Cart/CartIndicator';
-import Grid from '@material-ui/core/Grid';
-import { AppBar, Toolbar, IconButton, Container } from '@material-ui/core';
+import Grid from '@mui/material/Grid';
+import { AppBar, Toolbar, IconButton, Container } from '@mui/material';
 
-import { withRouter, NextRouter } from 'next/router';
-import { routerPush } from '../../helpers/Context';
 import getConfig from 'next/config';
-import StoreSelector from '../Stores/StoreSelector';
+import { withRouter, NextRouter } from 'next/router';
+
+import { routerPush } from '../../helpers/Context';
+import CoveoUA from '../../helpers/CoveoAnalytics';
 import { headlessEngine } from '../../helpers/Engine';
-import { loadSearchAnalyticsActions, loadSearchActions, Unsubscribe } from '@coveo/headless';
+
+import StoreSelector from '../Stores/StoreSelector';
+import { loadSearchAnalyticsActions, loadSearchActions, Unsubscribe, loadBreadcrumbActions, loadQueryActions } from '@coveo/headless';
 import { setStoreId } from '../Cart/cart-actions';
 import store from '../../reducers/cartStore';
 
 import logo from '../../public/logos/coveo_logo.png';
 import MegaMenuDropdown from './MegaMenuDropdown';
+
+import { emitBasket, emitUser, emitUV } from '../../helpers/CoveoAnalytics';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -30,7 +35,7 @@ interface IHeaderProps {
   router?: NextRouter;
 }
 
-class Header extends React.Component<IHeaderProps, IHeaderState> {
+export class Header extends React.Component<IHeaderProps, IHeaderState> {
   private unsubscribe: Unsubscribe = () => { };
   private _last_url: string = '';
   constructor(props: any) {
@@ -50,21 +55,31 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
     this.unsubscribe = store.subscribe(() => this.updateState());
 
     this.props.router.events.on('routeChangeComplete', (url) => {
-      // using the first word on the path after / to identify the section of the site. 
-      const urlRoot = url.split(/\/|\?|#/)[1];
-      const pageType = {
-        'browse': 'Listing',
-        'cart': 'Checkout',
-        'pdp': 'PDP',
-        'plp': 'Listing',
-        'search': 'default',
-      }[urlRoot] || 'Home';
-      sessionStorage.setItem('pageType', pageType); // for UA events middlewares
-
-      // saving previous, to be used as referrer when sending UA view events
-      sessionStorage.setItem('path.previous', sessionStorage.getItem('path.current'));
-      sessionStorage.setItem('path.current', window.location.href);
+      this.setPathsForAnalytics(url);
+      CoveoUA.logPageView();
     });
+
+    // send the first one when it's the first render.
+    this.setPathsForAnalytics(this.props.router.asPath);
+    CoveoUA.logPageView();
+  }
+
+  private setPathsForAnalytics(url) {
+    // using the first word on the path after / to identify the section of the site. 
+    const urlRoot = url.split(/\/|\?|#/)[1];
+    const pageType = {
+      'browse': 'Listing',
+      'cart': 'Checkout',
+      'pdp': 'PDP',
+      'plp': 'Listing',
+      'search': 'MainSearch',
+    }[urlRoot] || 'Home';
+
+    sessionStorage.setItem('pageType', pageType); // for UA events middlewares
+
+    // saving previous, to be used as referrer when sending UA view events
+    sessionStorage.setItem('path.previous', sessionStorage.getItem('path.current'));
+    sessionStorage.setItem('path.current', window.location.href);
   }
 
   updateState() {
@@ -77,7 +92,7 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
     });
   }
 
-  private changeStoreId = (storeId) => {
+  protected changeStoreId = (storeId) => {
     store.dispatch(setStoreId({ storeId }));
     this.setState({ store: storeId });
 
@@ -103,6 +118,15 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
     this.setState((prevState) => ({ isStoreMenuActive: !prevState.isStoreMenuActive }));
   }
 
+  resetToHome() {
+    const breadcrumbActions = loadBreadcrumbActions(headlessEngine);
+    headlessEngine.dispatch(breadcrumbActions.deselectAllBreadcrumbs());
+    const queryActions = loadQueryActions(headlessEngine);
+    headlessEngine.dispatch(queryActions.updateQuery({ q: '' }));
+
+    routerPush(this.props.router, { pathname: '/' });
+  }
+
   render() {
     let storeSelector = null;
     if (publicRuntimeConfig.stores) {
@@ -114,7 +138,7 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
         <Container maxWidth='xl'>
           <Toolbar>
             <Grid container alignItems={'center'}>
-              <Grid item className='logo-container' style={{ height: '50px', position: 'relative' }} onClick={() => routerPush(this.props.router, { pathname: '/' })}>
+              <Grid item className='logo-container' style={{ height: '50px', position: 'relative' }} onClick={() => this.resetToHome()}>
                 <Image alt='' className='logo' src={publicRuntimeConfig?.logo || logo} layout='fill' objectFit='contain' objectPosition='left' />
                 <span className='header-sub-tl'>{publicRuntimeConfig.title}</span>
               </Grid>

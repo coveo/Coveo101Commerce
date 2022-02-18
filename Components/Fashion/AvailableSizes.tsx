@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { IProduct } from '../ProductCard/Product.spec';
-import { ListItem, List, ListItemText } from '@material-ui/core';
+import { ListItem, List, ListItemText } from '@mui/material';
 
 export interface AvailableSizesProps {
   product: IProduct;
@@ -12,10 +12,6 @@ export interface AvailableSizesProps {
 class AvailableSizes extends Component<AvailableSizesProps> {
   render() {
     const product: IProduct = this.props.product;
-
-    if (product.childResults.length < 1) {
-      return null;
-    }
 
     const totalSizes: string[] = product['cat_total_sizes'];
     const availableSizes: string[] = product['cat_available_sizes'];

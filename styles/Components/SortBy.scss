@@ -1,5 +1,5 @@
 .CoveoSortBy {
-  flex-direction: row;
+  flex-direction: row !important; /* MUI v5 fix */
   align-items: center;
 
   .MuiFormLabel-root {
@@ -10,5 +10,9 @@
 
   .MuiInputBase-root {
     margin: 0;
+  }
+
+  .MuiSelect-select {
+    padding: 3px;
   }
 }

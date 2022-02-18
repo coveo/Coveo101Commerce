@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import Image from 'next/image';
-import { Container, Grid, Typography, Box } from "@material-ui/core";
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { withRouter, NextRouter } from 'next/router';
 import { routerPush } from '../../helpers/Context';
 
@@ -11,15 +11,11 @@ interface IFooterProps {
 }
 
 class Footer extends React.Component<IFooterProps> {
-
   constructor(props) {
     super(props);
   }
 
   render() {
-
-
-
     return (
       <Container maxWidth="xl" className="footer__container">
         <Grid container alignItems={"center"}>

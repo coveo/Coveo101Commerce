@@ -1,7 +1,10 @@
 import React from 'react';
 import { buildFacet, Facet, FacetState, FacetValue, Unsubscribe, SearchEngine } from '@coveo/headless';
-import { Grid, Typography, Button, FormControlLabel, ListItem, List, ListItemText } from '@material-ui/core';
+import { Grid, Typography, Button, FormControlLabel, ListItem, List, ListItemText } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import COLORS from './colors.json';
+import COLORS_NTC_MAP from './colors_ntc_map.json'; // from Name That Color
 
 export interface IFacetColorProps {
   facetId: string;
@@ -51,13 +54,25 @@ class FacetColor extends React.Component<IFacetColorProps> {
       facetItemCssClasses += ' coveo-selected';
     }
 
-    let swatch = COLORS[item.value]?.swatch || 'https://fashion.coveodemo.com/images/no_color.png';
+    let swatch = COLORS[item.value]?.swatch || null;
+    let colorCode = !swatch && COLORS_NTC_MAP[item.value];
 
+    if (!(swatch || colorCode)) {
+      swatch = 'https://fashion.coveodemo.com/images/no_color.png';
+    }
+
+    const swatchStyle: any = {};
+    if (colorCode) {
+      swatchStyle.backgroundColor = colorCode;
+    }
+    if (swatch) {
+      swatchStyle.backgroundImage = `url(${swatch})`;
+    }
     return (
       <ListItem data-facet-value={item.value} disableGutters key={item.value} className={facetItemCssClasses} onClick={() => this.facet.toggleSelect(item)}>
         <FormControlLabel
           className={'checkbox--padding facet-form-control-label'}
-          control={<div className='facet-color-swatch' style={{ backgroundImage: `url(${swatch})` }} />}
+          control={<div className='facet-color-swatch' style={swatchStyle} />}
           label={
             <ListItemText>
               <span className='facet-value'>{item.value}</span>
@@ -75,7 +90,7 @@ class FacetColor extends React.Component<IFacetColorProps> {
     }
 
     return (
-      <Button color='primary' className={'btn-control--primary CoveoFacetShowMore'} onClick={() => this.facet.showMoreValues()}>
+      <Button color='primary' className={'btn-control--primary CoveoFacetShowMore'} onClick={() => this.facet.showMoreValues()} startIcon={<AddIcon fontSize={'small'} />} size='small'>
         Show more
       </Button>
     );
@@ -87,7 +102,7 @@ class FacetColor extends React.Component<IFacetColorProps> {
     }
 
     return (
-      <Button color='inherit' className={'btn-control--secondary CoveoFacetShowLess'} onClick={() => this.facet.showLessValues()}>
+      <Button color='inherit' className={'btn-control--secondary CoveoFacetShowLess'} onClick={() => this.facet.showLessValues()} startIcon={<RemoveIcon fontSize={'small'} />} size='small'>
         Show Less
       </Button>
     );
@@ -95,7 +110,7 @@ class FacetColor extends React.Component<IFacetColorProps> {
 
   private get resetButton() {
     return (
-      <Button color='primary' onClick={() => this.facet.deselectAll()}>
+      <Button color='primary' onClick={() => this.facet.deselectAll()} className={'facet-reset-btn'}>
         clear X
       </Button>
     );
@@ -105,7 +120,7 @@ class FacetColor extends React.Component<IFacetColorProps> {
     return (
       <div id={this.props.id} className='CoveoFacet'>
         <Grid container justifyContent={'space-between'} alignItems={'center'}>
-          <Grid item>
+          <Grid item className={'facet-title-grid'}>
             <Typography noWrap className='facet-title'>
               {this.props.label}
             </Typography>

@@ -1,24 +1,18 @@
-import React from "react";
-import {
-  buildFacet,
-  Facet,
-  FacetState,
-  FacetValue,
-  Unsubscribe,
-  SearchEngine,
-} from '@coveo/headless';
-import { Grid, Typography, Button, ListItem, List, ListItemText } from '@material-ui/core';
+import React from 'react';
+import { buildFacet, Facet, FacetState, FacetValue, Unsubscribe, SearchEngine } from '@coveo/headless';
+import { Grid, Typography, Button, ListItem, List, ListItemText } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 export interface IFacetSizeProps {
-  facetId: string,
-  field: string,
-  label: string,
-  engine: SearchEngine,
+  facetId: string;
+  field: string;
+  label: string;
+  engine: SearchEngine;
   id: string;
 }
 
 class FacetSize extends React.Component<IFacetSizeProps> {
-
   private facet: Facet;
   state: FacetState;
   private numberOfValues = 15;
@@ -27,7 +21,7 @@ class FacetSize extends React.Component<IFacetSizeProps> {
   constructor(props: any) {
     super(props);
 
-    this.facet = buildFacet(this.props.engine, { options: { facetId: this.props.facetId, field: this.props.field, numberOfValues: this.numberOfValues, sortCriteria: "alphanumeric" } });
+    this.facet = buildFacet(this.props.engine, { options: { facetId: this.props.facetId, field: this.props.field, numberOfValues: this.numberOfValues, sortCriteria: 'alphanumeric' } });
     this.state = this.facet.state;
   }
 
@@ -52,15 +46,10 @@ class FacetSize extends React.Component<IFacetSizeProps> {
     }
 
     return (
-      <ListItem
-        data-facet-value={item.value}
-        disableGutters key={item.value} className={facetItemCssClasses}
-        onClick={() => this.onSelect(item)}>
-        <ListItemText
-        >
+      <ListItem data-facet-value={item.value} disableGutters key={item.value} className={facetItemCssClasses} onClick={() => this.onSelect(item)}>
+        <ListItemText>
           {/*<span className={'facet-value item ' + (selected ? 'coveo-selected' : '')}>{item.value} <span className="facet-count-size">({item.numberOfResults})</span></span>*/}
           <span className={'facet-value item ' + (selected ? 'coveo-selected' : '')}>{item.value}</span>
-
         </ListItemText>
       </ListItem>
     );
@@ -72,13 +61,7 @@ class FacetSize extends React.Component<IFacetSizeProps> {
     }
 
     return (
-      <Button
-        color="primary"
-        className={'btn-control--primary CoveoFacetShowMore'}
-        onClick={
-          () => this.showMore()
-        }
-      >
+      <Button color='primary' className={'btn-control--primary CoveoFacetShowMore'} onClick={() => this.showMore()} startIcon={<AddIcon fontSize={'small'} />} size='small'>
         Show more
       </Button>
     );
@@ -90,13 +73,7 @@ class FacetSize extends React.Component<IFacetSizeProps> {
     }
 
     return (
-      <Button
-        color="inherit"
-        className={'btn-control--secondary CoveoFacetShowLess'}
-        onClick={
-          () => this.showLess()
-        }
-      >
+      <Button color='inherit' className={'btn-control--secondary CoveoFacetShowLess'} onClick={() => this.showLess()} startIcon={<RemoveIcon fontSize={'small'} />} size='small'>
         Show Less
       </Button>
     );
@@ -104,37 +81,29 @@ class FacetSize extends React.Component<IFacetSizeProps> {
 
   private get resetButton() {
     return (
-      <Button
-        color="primary"
-        onClick={
-          () => this.deselectAll()
-        }
-      >
+      <Button color='primary' onClick={() => this.deselectAll()} className={'facet-reset-btn'}>
         clear X
       </Button>
     );
   }
 
   private get facetTemplate() {
-
     return (
-      <div id={this.props.id} className="CoveoFacet">
+      <div id={this.props.id} className='CoveoFacet'>
         <Grid container justifyContent={'space-between'} alignItems={'center'}>
-          <Grid item>
-            <Typography noWrap className="facet-title">
+          <Grid item className={'facet-title-grid'}>
+            <Typography noWrap className='facet-title'>
               {this.props.label}
             </Typography>
           </Grid>
-          <Grid item>
-            {this.state.hasActiveValues && this.resetButton}
-          </Grid>
+          <Grid item>{this.state.hasActiveValues && this.resetButton}</Grid>
         </Grid>
 
-        <List className="MuiListFacetSize">
-          {this.values.map((listItem) => this.listItem(listItem))}
-        </List>
-        {this.showMoreButton}
-        {this.showLessButton}
+        <List className='MuiListFacetSize'>{this.values.map((listItem) => this.listItem(listItem))}</List>
+        <div className={'facet-more-less-btn'}>
+          {this.showMoreButton}
+          {this.showLessButton}
+        </div>
       </div>
     );
   }

@@ -3,16 +3,17 @@
 import React from 'react';
 import { buildResultList, buildResultTemplatesManager, ResultTemplatesManager, Result, ResultListState, ResultList as HeadlessResultList, SearchEngine, Unsubscribe } from '@coveo/headless';
 
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import ProductCard from '../ProductCard/ProductCard';
-import CoveoUA, { getAnalyticsProductData } from '../../helpers/CoveoAnalytics';
 import { normalizeProduct } from '../ProductCard/Product.spec';
+import CoveoUA from '../../helpers/CoveoAnalytics';
+
 export interface resultListProps {
   engine: SearchEngine;
   id: string;
 }
 
-export default class ResultList extends React.PureComponent<resultListProps> {
+export default class ResultList extends React.Component<resultListProps> {
   private headlessResultList: HeadlessResultList;
   private headlessResultTemplateManager: ResultTemplatesManager;
   private unsubscribe: Unsubscribe = () => { };
@@ -24,8 +25,6 @@ export default class ResultList extends React.PureComponent<resultListProps> {
     super(props);
 
     this.headlessResultList = buildResultList(this.props.engine);
-
-    this.state = this.headlessResultList.state;
 
     this.headlessResultTemplateManager = buildResultTemplatesManager(this.props.engine);
 
@@ -57,10 +56,15 @@ export default class ResultList extends React.PureComponent<resultListProps> {
   searchImpressions() {
     const searchUid = this.searchUid();
     this.props.engine.state.search.results.forEach((product, index) => {
-      const product_parsed = getAnalyticsProductData(product.raw, '', 0, false);
+      const product_parsed = CoveoUA.getAnalyticsProductData(product.raw, '', 0, false);
       CoveoUA.impressions({ ...product_parsed, position: index + 1 }, searchUid);
     });
-    coveoua('send', 'event');
+    coveoua('ec:setAction', 'impression');
+    coveoua('send', 'event', CoveoUA.getOriginsAndCustomData());
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return !nextState.isLoading && (this.state?.searchResponseId !== nextState.searchResponseId);
   }
 
   updateState() {
@@ -74,13 +78,13 @@ export default class ResultList extends React.PureComponent<resultListProps> {
   }
 
   hasResults() {
-    return this.state.results.length !== 0;
+    return (this.state?.results || []).length !== 0;
   }
 
   private get resultListTemplate() {
     return (
       <Grid id={this.props.id} className={'CoveoResultList result-grid'} container spacing={4} data-search-uid={this.searchUid()}>
-        {this.state.results.map((_result: Result, index: number) => {
+        {(this.state?.results || []).map((_result: Result, index: number) => {
           // Need to clone the Result to add the index, as it's readonly.
           const result = {
             ..._result,

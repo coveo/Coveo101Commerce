@@ -26,7 +26,7 @@
       text-decoration: underline;
     }
   }
-  div[class^="ChildImages-thumbnail-"] {
+  div[class^='ChildImages-thumbnail-'] {
     box-shadow: 0 4px 2px -2px grey;
   }
   .card__media {
@@ -35,6 +35,7 @@
     background-size: contain;
     padding-top: 56.25%;
     margin: 10px 10px 0;
+    position: relative;
   }
 
   .card__brand,
@@ -87,19 +88,17 @@
     color: $grey-dark;
     border-color: $grey-dark;
 
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent 0%,
-      transparent 48%,
-      $grey-dark 50%,
-      transparent 52%,
-      transparent 100%
-    );
+    background-image: repeating-linear-gradient(-45deg, transparent 0%, transparent 48%, $grey-dark 50%, transparent 52%, transparent 100%);
   }
 }
 
 .product-grouping {
-  display: inline-block;
+  &,
+  .grouping__thumbnail-container,
+  .grouping__thumbnail {
+    display: inline-block;
+  }
+
   width: 100%;
   margin-bottom: 5px;
 

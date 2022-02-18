@@ -1,10 +1,9 @@
-import red from "@material-ui/core/colors/red";
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 
 // A custom theme for this app
 const theme = createTheme({
   palette: {
-    type: "light",
+    // type: "light",
     primary: {
       main: "#333357"
     },
@@ -12,7 +11,7 @@ const theme = createTheme({
       main: "#04afff"
     },
     error: {
-      main: red.A400
+      main: "#ff1744"
     },
     background: {
       default: "#fff",
@@ -22,7 +21,16 @@ const theme = createTheme({
       900: '#98999b'
     }
   },
-  spacing: 4
+  spacing: 4,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
 });
 
 export default theme;

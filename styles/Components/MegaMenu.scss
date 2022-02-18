@@ -140,18 +140,18 @@
   }
 
   .megamenu__sublist {
-    display: flex;
+    display: flex !important; /* MUI v5 fix */
     flex-wrap: wrap;
     justify-content: space-between;
   }
 }
 
 .megamenu__sublist-item {
-  display: flex;
+  display: flex !important; /* MUI v5 fix */
   flex-direction: column;
-  width: calc(50% - 10px);
+  width: calc(50% - 10px) !important; /* MUI v5 fix */
   flex: unset;
-  padding: 0;
+  padding: 0 !important; /* MUI v5 fix */
   margin-bottom: 20px;
 
   > .megamenu__sublist-title {
@@ -195,15 +195,18 @@
 
 .megamenu__root-list {
   width: 100%;
-  padding: 0;
+  padding: 0 !important; /* MUI v5 fix */
   display: block;
 }
 
 .megamenu__list-item {
-  padding: 0;
-  margin: 0;
+  padding: 0 !important; /* MUI v5 fix */
+  margin: 0 !important; /* MUI v5 fix */
   flex: 1;
   width: 100%;
+  button {
+    padding: 12px;
+  }
 }
 
 .megamenu__item-title {
@@ -217,7 +220,13 @@
 
   &:hover {
     color: #0046be;
-    text-decoration: underline;
+  }
+}
+
+.megamenu__list-item,
+.megamenu__sublist-container {
+  a {
+    text-decoration: none;
   }
 }
 

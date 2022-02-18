@@ -1,16 +1,23 @@
 import React from 'react';
-import { Unsubscribe, buildResultList, ResultListState, ResultList as HeadlessResultList, loadSearchAnalyticsActions, loadSearchActions } from '@coveo/headless';
+import {
+  Unsubscribe,
+  buildResultList,
+  ResultListState,
+  ResultList as HeadlessResultList,
+  loadSearchAnalyticsActions,
+  loadSearchActions
+} from '@coveo/headless';
 import { headlessEngine_Banner } from '../../helpers/Engine';
-import { Grid, Card, CardMedia, Button, Typography } from '@material-ui/core';
+import { Grid, Card, CardMedia, Button, Typography } from '@mui/material';
 import { NextRouter, withRouter } from 'next/router';
 
 interface IHeroBannerProps {
   router?: NextRouter;
 }
 
-class HeroBanner extends React.PureComponent<IHeroBannerProps> {
+export class HeroBanner extends React.PureComponent<IHeroBannerProps> {
   private headlessResultList: HeadlessResultList;
-  private unsubscribe: Unsubscribe = () => {};
+  private unsubscribe: Unsubscribe = () => { };
   state: ResultListState;
 
   constructor(props) {
@@ -33,6 +40,10 @@ class HeroBanner extends React.PureComponent<IHeroBannerProps> {
 
   updateState() {
     this.setState(this.headlessResultList.state);
+  }
+
+  async goToSearchPage() {
+    this.props.router?.push('/search');
   }
 
   renderCard(result) {
@@ -60,7 +71,7 @@ class HeroBanner extends React.PureComponent<IHeroBannerProps> {
           </Typography>
           <p className='hero__subtl'>Browse, Search &amp; Shop.</p>
           <p className='hero__txt'>Check out our latest features and capabilities in the Commerce world. Don&apos;t miss out!</p>
-          <Button className='btn--hero' onClick={() => this.props.router?.push('/search')}>
+          <Button className='btn--hero' onClick={() => this.goToSearchPage()}>
             See our catalog
           </Button>
         </Grid>

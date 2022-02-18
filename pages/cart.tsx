@@ -4,26 +4,18 @@ import { withRouter, NextRouter } from 'next/router';
 
 import { Unsubscribe } from '@coveo/headless';
 
-import { Container, Button } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
-import CartList from '../Components/Cart/CartList';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import CartEmptyButton from '../Components/Cart/CartEmptyButton';
+import { Button, Container } from '@mui/material';
+import Grid from '@mui/material/Grid';
 
+import CartList from '../Components/Cart/CartList';
 import CartRecommendations from '../Components/Recommendations/CartRecommendations';
 import store from '../reducers/cartStore';
 import { CartState } from '../Components/Cart/cart-state';
-import CoveoUA, { getAnalyticsProductData, getVisitorId } from '../helpers/CoveoAnalytics';
 
-import { emptyCart } from '../Components/Cart/cart-actions';
-
-import { routerPush } from '../helpers/Context';
 import getConfig from 'next/config';
+import PopularViewed from '../Components/Recommendations/PopularViewed';
 
 const { publicRuntimeConfig } = getConfig();
-
-const styles = () => ({});
 
 interface ICartProps {
   router?: NextRouter;
@@ -55,32 +47,8 @@ class Cart extends React.Component<ICartProps> {
     this.updateState();
   }
 
-  handleCheckout() {
-    const products = store.getState().items.map((item) => {
-      return getAnalyticsProductData(item.detail, item.sku, item.quantity);
-    });
-
-    const subtotal = products.reduce((acc, cur) => {
-      acc += (cur.quantity || 1) * cur.price;
-      return acc;
-    }, 0);
-
-    const revenue = (subtotal * 1.05).toFixed(2);
-    const tax = (subtotal * 0.05).toFixed(2);
-
-    const transactionId = getVisitorId() + '-' + Date.now();
-
-    // DOC: https://docs.coveo.com/en/l39m0327/coveo-for-commerce/measure-a-purchase
-    CoveoUA.addProductForPurchase(products);
-    CoveoUA.setActionPurchase({
-      id: transactionId,
-      revenue,
-      shipping: 0,
-      tax,
-    });
-
-    store.dispatch(emptyCart());
-    routerPush(this.props.router, { pathname: '/cart/confirmation', query: { orderId: transactionId } });
+  async goToSearchPage() {
+    this.props.router?.push('/search');
   }
 
   render() {
@@ -94,27 +62,43 @@ class Cart extends React.Component<ICartProps> {
           <meta property='og:title' content='Search' key='title' />
         </Head>
 
-        <Grid id='generic-store-cart' container spacing={10}>
-          <Grid item xs={9} className={classes.facetColumn}>
-            <CartList></CartList>
-          </Grid>
-          <Grid item xs={3}>
-            <br />
-            <br />
-            <Button id='checkout' disabled={this.state.items.length == 0 ? true : false} onClick={() => this.handleCheckout()} variant='contained' color='primary' startIcon={<AddShoppingCartIcon />}>
-              Checkout
-            </Button>
-            <br />
-            <br />
-            {this.state.items.length > 0 && <CartEmptyButton />}
+        <Grid id='generic-store-cart' container>
+          <Grid item xs={12} className={classes?.facetColumn}>
+            {skus.length > 0 ? <CartList></CartList> : this.cartEmpty()}
           </Grid>
         </Grid>
-        <br />
-        <br />
-        {skus.length > 0 && <CartRecommendations title='Products you may want to see based on your cart' skus={skus} searchHub='Checkout' />}
+        {skus.length > 0 && (
+          <Grid item className='recommendations-grid cart-recommendations-grid'>
+            <CartRecommendations title='To Complement Your Cart' skus={skus} searchHub='Checkout' />
+          </Grid>
+        )}
       </Container>
+    );
+  }
+
+  cartEmpty() {
+    return (
+      <div className='cart-empty__container'>
+        <Grid item>
+          <h1 style={{ marginBottom: '20px' }} className='cart-list-title'>
+            Shopping Bag
+          </h1>
+          <hr />
+          <div className='cart-empty__text'>
+            <div>Whoops... Nothing in here.</div>
+            <div>Explore around to add items in your shopping bag.</div>
+          </div>
+          <Button className='cart-confirmation__btn' onClick={() => this.goToSearchPage()}>
+            Shop New Arrivals
+          </Button>
+          <hr />
+        </Grid>
+        <Grid item className='recommendations-grid cart-recommendations-grid'>
+          <PopularViewed title='Customers also viewed' searchHub='Checkout' />
+        </Grid>
+      </div>
     );
   }
 }
 
-export default withStyles(styles)(withRouter(Cart));
+export default withRouter(Cart);

@@ -1,9 +1,7 @@
 /* eslint-disable no-use-before-define */
-import React from "react";
-import { Pagination } from "@material-ui/lab";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import { buildPager, PagerState, Pager as HeadlessPager, Unsubscribe } from "@coveo/headless";
+import React from 'react';
+import { Box, Pagination, Typography } from '@mui/material';
+import { buildPager, PagerState, Pager as HeadlessPager, Unsubscribe } from '@coveo/headless';
 
 export interface pagerProps {
   engine: any;
@@ -18,7 +16,7 @@ export default class Pager extends React.Component<pagerProps> {
     super(props);
 
     this.headlessPager = buildPager(this.props.engine, {
-      options: { numberOfPages: 3 }
+      options: { numberOfPages: 3 },
     });
 
     this.state = this.headlessPager.state;
@@ -52,14 +50,7 @@ export default class Pager extends React.Component<pagerProps> {
     return (
       <Box>
         <Typography gutterBottom>Current page</Typography>
-        <Pagination
-          page={this.page}
-          count={this.count}
-          onChange={(e, page) => this.setPage(page)}
-          variant="outlined"
-          shape="rounded"
-          size="small"
-        />
+        <Pagination page={this.page} count={this.count} onChange={(e, page) => this.setPage(page)} shape='rounded' size='medium' />
       </Box>
     );
   }

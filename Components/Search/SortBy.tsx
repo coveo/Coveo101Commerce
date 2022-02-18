@@ -1,9 +1,9 @@
 import React from 'react';
 import { SortState, SortInitialState, buildRelevanceSortCriterion, buildFieldSortCriterion, Unsubscribe, buildSort, SearchEngine, Sort as headlessSort, SortOrder } from '@coveo/headless';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 /* eslint-disable no-unused-vars */
 enum SortOptionLabel {
@@ -25,7 +25,7 @@ export interface ISortByProps {
 
 export default class SortBy extends React.Component<ISortByProps> {
   private headlessSort: headlessSort;
-  private unsubscribe: Unsubscribe = () => {};
+  private unsubscribe: Unsubscribe = () => { };
   state: SortState;
 
   constructor(props: any) {
@@ -103,7 +103,12 @@ export default class SortBy extends React.Component<ISortByProps> {
     return (
       <FormControl className='CoveoSortBy'>
         <InputLabel id='demo-simple-select-label'>Sort By</InputLabel>
-        <Select labelId='sort-by-label' id='sort-by-select' value={this.currentSelectedValue} onChange={(e: any) => this.select(e)}>
+        <Select
+          labelId='sort-by-label'
+          id='sort-by-select'
+          value={this.currentSelectedValue}
+          onChange={(e: any) => this.select(e)}
+        >
           <MenuItem value={SortOptionLabel.Relevance}>Relevance</MenuItem>
           <MenuItem value={SortOptionLabel.Highest}>Highest Price</MenuItem>
           <MenuItem value={SortOptionLabel.Lowest}>Lowest Price</MenuItem>

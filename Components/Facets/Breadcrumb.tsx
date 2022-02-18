@@ -6,7 +6,7 @@ import {
   Unsubscribe,
   buildBreadcrumbManager
 } from '@coveo/headless';
-import { Grid, Chip } from "@material-ui/core";
+import { Grid, Chip } from "@mui/material";
 
 export interface IBreadcrumbsProps {
   engine: SearchEngine,
@@ -44,21 +44,22 @@ export default class Breadcrumbs extends React.Component<IBreadcrumbsProps> {
 
       if (breadcrumbType === 'categoryFacetBreadcrumbs') {
         const lastPath = facetBreadcrumbs.path[facetBreadcrumbs.path.length - 1];
-        breadcrumbValues.push({ value: lastPath.value, deselect: facetBreadcrumbs.deselect });
+        breadcrumbValues.push({ value: lastPath.value, path: lastPath.path.join('|'), deselect: facetBreadcrumbs.deselect });
       }
-
       else {
         breadcrumbValues.push(...facetBreadcrumbs.values);
       }
 
       breadcrumbValues.forEach(breadcrumbValue => {
         const value = breadcrumbValue.value?.value || breadcrumbValue.value;
+        const label = breadcrumbValue.path ? breadcrumbValue.path.replace(/\|/g, ' / ') : value;
         breadcrumbElements.push(
           <Grid item key={"breadcrumb--" + value}>
             <Chip
               className="breadcrumb__chip"
               key={value}
-              label={value}
+              label={label}
+              data-value={breadcrumbValue.path || value}
               onDelete={() => breadcrumbValue.deselect()}
               onClick={() => breadcrumbValue.deselect()}
             />

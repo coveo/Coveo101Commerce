@@ -37,7 +37,7 @@ class ImagesSlider extends Component<IImagesSliderProps, IImagesSliderState> {
     return (
       <>
         <div className='carousel'>
-          <ImageCarousel images={images} shiftLength={400} width={400} />
+          <ImageCarousel images={images} />
         </div>
         <div className='image-slider__container'>
           <div className='selected-img' style={{ backgroundImage: `url(${currentImage})` }} />

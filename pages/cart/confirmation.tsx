@@ -1,10 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import { withRouter, NextRouter } from 'next/router';
-import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@material-ui/core';
-import PopularViewed from '../../Components/Recommendations/PopularViewed';
-import getConfig from 'next/config';
+import { Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material';
 
+import UserRecommender from '../../Components/Recommendations/UserRecommender';
+
+import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 
 interface IConfirmationProps {
@@ -24,6 +25,10 @@ class Confirmation extends React.Component<IConfirmationProps, IConfirmationStat
     };
   }
 
+  async goToSearchPage() {
+    this.props.router?.push('/search');
+  }
+
   render() {
     return (
       <>
@@ -31,15 +36,15 @@ class Confirmation extends React.Component<IConfirmationProps, IConfirmationStat
           <title>Confirmation | {publicRuntimeConfig.title}</title>
           <meta property='og:title' content='Confirmation' key='title' />
         </Head>
-        <Container fixed maxWidth='sm' className='confirmation-container'>
-          <Typography variant='h2' align='center'>
-            THANK YOU!
+        <Container fixed className='confirmation-container'>
+          <Typography className='confirmation-header' align='center'>
+            Thank you, your order has been received.
           </Typography>
           <br />
-          <Typography variant='h6' align='center'>
+          <Typography className='confirmation-subheader1' align='center'>
             Your Order Number is <span className='confirmation-order-number'>{this.props.orderId.substring(0, 7)}</span>
           </Typography>
-          <Typography variant='h6' align='center'>
+          <Typography className='confirmation-subheader2' align='center'>
             We are getting started on your order right away. The estimated delivery time is 5-7 business days. In the meantime, keep exploring our new fashion additions and get inspired by the latest
             trends.
           </Typography>
@@ -52,6 +57,9 @@ class Confirmation extends React.Component<IConfirmationProps, IConfirmationStat
             }}>
             Read about our return policy
           </Typography>
+          <Button className='cart-confirmation__btn' onClick={() => this.goToSearchPage()}>
+            Shop New Arrivals
+          </Button>
           <Dialog open={this.state.open} scroll={'paper'}>
             <DialogTitle>Return Policy</DialogTitle>
             <DialogContent dividers={true}>
@@ -78,7 +86,7 @@ Please see our return eligibility criteria below before returning or exchanging 
           </Dialog>
         </Container>
         <div className='confirmation-popular-viewed'>
-          <PopularViewed title='Top viewed' searchHub='Checkout' />
+          <UserRecommender title='For your next visit' searchHub='Confirmation' />
         </div>
       </>
     );

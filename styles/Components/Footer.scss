@@ -1,6 +1,12 @@
 .footer__container {
   background: $blue-dark;
   color: $white;
+  max-width: inherit !important; /* MUI v5 fix */
+
+  & > div {
+    max-width: 1920px;
+    margin: auto;
+  }
 
   .footer-link {
     color: $white;
@@ -14,6 +20,57 @@
     max-width: 200px;
   }
 
+  .footer-email-subscription-grid {
+    padding-top: 10px;
+    height: 160px;
+    font-family: Roboto;
+    font-style: normal;
+    letter-spacing: 0.011em;
+
+    .email-sub-header {
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 40px;
+    }
+    .email-sub-text {
+      width: 580px;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 29px;
+      display: flex;
+      align-items: flex-end;
+    }
+    #email-sub-inputField {
+      margin-top: -4px;
+      width: 580px;
+      font-family: Gibson;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: #8e959d;
+    }
+    .MuiInputLabel-root {
+      font-size: 16px;
+      font-family: 'Gibson', sans-serif;
+      color: #8e959d;
+    }
+    .MuiSvgIcon-root {
+      fill: #8e959d;
+      height: 1.5em;
+      font-size: 2em;
+    }
+  }
+
+  .footer-options-grid {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 29px;
+    column-count: 3;
+  }
+
   @include breakpoint(sm) {
     .footer-content {
       text-align: left;
@@ -22,5 +79,23 @@
         margin-bottom: 10px;
       }
     }
+  }
+}
+
+body.fashion {
+  .footer__container {
+    height: fit-content;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer-email-subscription-grid {
+    display: none;
+  }
+
+  .footer-options-grid {
+    column-count: 2 !important;
+    padding: 8px;
   }
 }

@@ -3,22 +3,19 @@ import React from 'react';
 import { headlessEngine_PLP } from '../../helpers/Engine';
 import Head from 'next/head';
 import { loadAdvancedSearchQueryActions, loadSearchActions, loadSearchAnalyticsActions, Unsubscribe } from '@coveo/headless';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 import ResultPerPage from '../../Components/Search/ResultPerPage';
 import Pager from '../../Components/Search/Pager';
 import ResultList from '../../Components/Search/ResultList';
 import { withRouter, NextRouter } from 'next/router';
 import CategoryBreadcrumb from '../../Components/Categories/CategoryBreadcrumb';
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 import Breadcrumb from '../../Components/Facets/Breadcrumb';
 import SortBy from '../../Components/Search/SortBy';
-import ReactFacet from '../../Components/Facets/Facet';
-import FacetManager from '../../Components/Facets/FacetManager';
-import CategoryFacet from '../../Components/Categories/CategoryFacet';
 import { IProduct } from '../../Components/ProductCard/Product.spec';
 import { setTabContext } from '../../helpers/Context';
-import FacetColor from '../../Components/Fashion/FacetColor';
-import FacetSize from '../../Components/Fashion/FacetSize';
+import FacetsColumn from '../../Components/Facets/FacetsColumn';
+import NoResults from '../../Components/Categories/NoResults';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -30,11 +27,13 @@ interface IProductListingState {
   currentProductForCategory?: IProduct;
   currentPath: string[];
   openFacets: boolean;
+  searchUid: string;
 }
 
 class ProductListingPage extends React.Component<IProductListingPage> {
   state: IProductListingState;
-  private unsubscribe: Unsubscribe = () => {};
+  private last_searchuid_for_ecView; string = '';
+  private unsubscribe: Unsubscribe = () => { };
 
   constructor(props) {
     super(props);
@@ -42,10 +41,12 @@ class ProductListingPage extends React.Component<IProductListingPage> {
       currentProductForCategory: null,
       currentPath: [],
       openFacets: false,
+      searchUid: '',
     };
   }
 
   componentDidMount() {
+    this.last_searchuid_for_ecView = headlessEngine_PLP?.state?.search?.response?.searchUid;
     this.unsubscribe = headlessEngine_PLP.subscribe(() => this.updateState());
     this.dispatchNewAdvanceQuery();
   }
@@ -62,18 +63,19 @@ class ProductListingPage extends React.Component<IProductListingPage> {
     const category = this.props.router.query.category || [];
     const currentPath: string[] = typeof category === 'string' ? [category] : category;
 
-    if (currentPath.join('/') && this.state.currentPath !== currentPath) {
+    const currentPathAsString = currentPath.join('/');
+    if (currentPathAsString && this.state.currentPath !== currentPath) {
       // query only when currentPath is new.
       this.setState({ currentPath });
 
       const fieldCategory = 'cat_slug';
 
-      setTabContext(headlessEngine_PLP, currentPath.join('/'));
+      setTabContext(headlessEngine_PLP, currentPathAsString);
 
       const advancedSearchQueriesActions = loadAdvancedSearchQueryActions(headlessEngine_PLP);
       const analyticsActions = loadSearchAnalyticsActions(headlessEngine_PLP);
       const searchActions = loadSearchActions(headlessEngine_PLP);
-      headlessEngine_PLP.dispatch(advancedSearchQueriesActions.updateAdvancedSearchQueries({ aq: `@${fieldCategory}=="${currentPath.join('/')}"` }));
+      headlessEngine_PLP.dispatch(advancedSearchQueriesActions.updateAdvancedSearchQueries({ aq: `@${fieldCategory}=="${currentPathAsString}"` }));
       headlessEngine_PLP.dispatch(searchActions.executeSearch(analyticsActions.logInterfaceLoad()));
     }
   }
@@ -81,24 +83,34 @@ class ProductListingPage extends React.Component<IProductListingPage> {
   updateState() {
     const search: any = headlessEngine_PLP.state.search || {};
 
+    let newState: any = {};
+
+    if (search.response.searchUid !== this.state.searchUid) {
+      newState.searchUid = search.response.searchUid;
+    }
+
     let firstResult = (search.results && search.results.length && search.results[0]) || {};
     if (firstResult !== this.state.currentProductForCategory) {
-      this.setState({ currentProductForCategory: firstResult });
+      newState.currentProductForCategory = firstResult;
     }
 
     if (this.state.currentPath !== this.props.router.query.category) {
-      this.setState({
-        currentPath: this.props.router.query.category,
+      newState.currentPath = this.props.router.query.category;
+    }
+
+    // update state only if new values are set in the new state
+    if (Object.keys(newState).length) {
+      this.setState(newState, () => {
+        if (newState.searchUid && (newState.searchUid !== this.last_searchuid_for_ecView)) {
+          this.last_searchuid_for_ecView = newState.searchUid;
+        }
       });
     }
+
   }
 
-  openFacetsMobile() {
-    this.setState({ openFacets: true });
-  }
-
-  closeFacetsMobile() {
-    this.setState({ openFacets: false });
+  openFacetsMobile(openFacets: boolean = true) {
+    this.setState({ openFacets });
   }
 
   render() {
@@ -109,6 +121,9 @@ class ProductListingPage extends React.Component<IProductListingPage> {
     const firstResult: any = this.state.currentProductForCategory || {};
     const key = `${this.state.currentPath.join()}-${firstResult.uri}`;
 
+    const searchResponse = headlessEngine_PLP.state.search.response;
+    const hasNoResults = searchResponse.searchUid && searchResponse.results.length === 0;
+
     return (
       <>
         <Head>
@@ -116,32 +131,12 @@ class ProductListingPage extends React.Component<IProductListingPage> {
           <meta property='og:title' content='Browse Catalog Listing Page' key='title' />
         </Head>
 
-        <Grid container spacing={8} className='searchInterface' id='generic-store-plp'>
-          <div className={this.state.openFacets ? 'search-facets__container show-facets' : 'search-facets__container'}>
-            <div className='mobile-backdrop' onClick={() => this.closeFacetsMobile()}></div>
-            <Grid item className='search__facet-column'>
-              <Button onClick={() => this.closeFacetsMobile()} className='btn--close-facets'>
-                Close
-              </Button>
-              <CategoryFacet
-                currentPath={this.state.currentPath}
-                productForCategory={this.state.currentProductForCategory}
-                id='category-facet--ec_category'
-                engine={headlessEngine_PLP}
-                facetId='ec_category'
-                label='Category'
-                field='ec_category'
-              />
+        {hasNoResults && <NoResults displayValue={this.state.currentPath.join('/')} />}
 
-              {publicRuntimeConfig.features?.colorField && <FacetColor id='facet-color' engine={headlessEngine_PLP} facetId='f_color' label='Color' field={publicRuntimeConfig.features.colorField} />}
-              {publicRuntimeConfig.features?.sizeField && <FacetSize id='facet-size' engine={headlessEngine_PLP} facetId='f_size' label='Size' field={publicRuntimeConfig.features.sizeField} />}
+        <Grid container spacing={8} className='searchInterface' id='generic-store-plp' style={hasNoResults ? { display: 'none' } : {}}>
 
-              <FacetManager engine={headlessEngine_PLP} additionalFacets={publicRuntimeConfig.facetFields}>
-                <ReactFacet id='facet-brand' engine={headlessEngine_PLP} facetId='f_brand' label='Manufacturer' field='ec_brand' />
-                <ReactFacet id='facet-availability' engine={headlessEngine_PLP} facetId='f_availability' label='Availability' field='ec_in_stock' />
-              </FacetManager>
-            </Grid>
-          </div>
+          <FacetsColumn engine={headlessEngine_PLP} isOpen={this.state.openFacets} onClose={() => this.openFacetsMobile(false)} />
+
           <Grid item className={'search__result-section'}>
             <Grid item xs={12}>
               <Button onClick={() => this.openFacetsMobile()} className='btn--filters'>

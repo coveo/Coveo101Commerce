@@ -1,9 +1,12 @@
-.add-to-cart__btn {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+.add-to-cart__btn-container {
+  display: flex;
 }
+
+.add-to-cart__btn {
+  margin: 5px 12px 5px 0 !important; /* MUI v5 fix */
+  padding: 5px 15px !important; /* MUI v5 fix */
+}
+
 .add-remove-product {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -11,15 +14,19 @@
   padding-bottom: 5px;
   cursor: default;
 
+  .add-remove-product__label {
+    white-space: nowrap;
+  }
   .add-remove-count {
     display: inline-block;
     white-space: nowrap;
     font-size: 1.1rem;
+    text-align: center;
   }
 
   .add-remove-count__btn {
     margin: 0 5px;
-    vertical-align: bottom;
+    vertical-align: middle;
     cursor: pointer;
     &:hover {
       color: $color-primary-main;
@@ -28,6 +35,8 @@
 }
 
 .cart-list {
+  margin-left: 30px;
+  margin-bottom: 30px;
   .cart-item {
     padding-bottom: 15px;
     border-bottom: 1px solid silver;
@@ -36,15 +45,35 @@
     & a {
       cursor: pointer;
     }
+
+    .cartitem-add-remove-grid {
+      button {
+        display: none;
+      }
+    }
   }
 
   .cart-item__thumbnail {
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 250px;
     margin-right: 30px;
     & > img {
       object-fit: contain;
     }
+  }
+
+  .cart-item__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 16px;
+    margin-top: 12px;
+  }
+
+  .cart-item__remove-btn {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
   }
 
   .cart-item__swatch {
@@ -53,57 +82,172 @@
     vertical-align: bottom;
   }
 
-  .cart-total__container {
-    float: right;
-    text-align: right;
-    color: #98999b;
-
-    .cart-total__row {
+  .cart-item-details {
+    font-size: 16px;
+    line-height: 24px;
+    color: #282829;
+    .item-details-grid {
       display: flex;
-      justify-content: right;
-      margin-top: 10px;
-      font-size: 16px;
+      justify-content: space-between;
+    }
+    .item-detail-value {
+      width: 50%;
+    }
+  }
 
-      &:last-child {
-        border-top: 1px solid;
-        font-size: 20px;
-        font-weight: bold;
-        color: #000;
-        padding-top: 10px;
+  .cart-total__container {
+    margin-bottom: 30px;
+    .cart-total-grid {
+      display: flex;
+      justify-content: space-between;
+
+      .cart-total-label,
+      .cart-total-price {
+        line-height: 24px;
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      .cart-total,
+      .cart-price {
+        line-height: 40px;
+        font-size: 32px;
+        font-weight: 500;
+      }
+
+      .cart-total-price,
+      .cart-price {
+        text-align: right;
+        margin-bottom: 15px;
       }
     }
+  }
 
-    .cart-total-label,
-    .cart-total-price {
-      line-height: 20px;
-      display: inline-flex;
-      justify-content: right;
-    }
-    .cart-total-price {
-      min-width: 100px;
-      font-weight: bold;
+  .cart-checkout-btn {
+    background-color: #c3e745;
+    color: #282829;
+    width: 100%;
+    height: 40px;
+
+    .cart-checkout-label {
+      line-height: 24px;
+      font-size: 18px;
+      text-transform: capitalize;
+      font-family: 'Gibson', 'Times New Roman', serif;
     }
   }
 }
 
+.recommendations-grid {
+  background: linear-gradient(0deg, #f6f7f9, #f6f7f9);
+}
+.cart-recommendations-grid {
+  margin-top: 60px;
+  padding: 20px;
+
+  .recommendations-card {
+    background: linear-gradient(0deg, #f6f7f9, #f6f7f9);
+  }
+}
+
+.cart-list-title {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.cart-empty__container {
+  margin: 30px auto;
+  .cart-empty__text {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 32px;
+    font-family: 'Roboto', 'Times New Roman', serif;
+    text-align: center;
+  }
+  .MuiButton-root:hover {
+    background-color: #e1f88f;
+  }
+  .recommendations-card {
+    background: linear-gradient(0deg, #f6f7f9, #f6f7f9);
+  }
+}
+
+.cart-confirmation__btn {
+  display: flex !important; /* MUI v5 fix */
+  flex-direction: row;
+  justify-content: center !important; /* MUI v5 fix */
+  align-items: center !important; /* MUI v5 fix */
+  padding: 12px !important; /* MUI v5 fix */
+  width: fit-content;
+  height: 48px;
+  background: #c3e745 !important; /* MUI v5 fix */
+  border-radius: 4px !important; /* MUI v5 fix */
+  min-width: 300px !important; /* MUI v5 fix */
+  max-width: fit-content !important; /* MUI v5 fix */
+  font-size: 20px !important; /* MUI v5 fix */
+  line-height: 20px !important; /* MUI v5 fix */
+  margin: 40px auto !important; /* MUI v5 fix */
+}
+
 .confirmation-container {
   margin-top: 60px;
-  padding: 5px;
+  border-top: 1px solid #282829;
+  border-bottom: 1px solid #282829;
+
+  .confirmation-header {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 40px;
+    margin-top: 30px;
+  }
+
+  .confirmation-subheader1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+
+  .confirmation-subheader2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    width: 800px;
+    margin: auto;
+  }
 
   .confirmation-order-number {
-    font-weight: 700;
+    text-decoration: underline;
   }
 
   .confirmation-dialog__label {
     margin-top: 30px;
     cursor: pointer;
     text-decoration: underline;
-    font-size: 15px;
+    font-size: 24px;
+    font-family: Roboto;
+    color: darkgray;
+  }
+
+  .MuiButton-root:hover {
+    background-color: #e1f88f;
   }
 }
 
 .confirmation-popular-viewed {
   margin-top: 60px;
+  background: linear-gradient(0deg, #f6f7f9, #f6f7f9);
+
+  .recommendations-card {
+    background: linear-gradient(0deg, #f6f7f9, #f6f7f9);
+  }
 }
 
 .return-policy-text {
@@ -126,5 +270,9 @@
 
   .cart-item__thumbnail {
     margin-bottom: 8px;
+  }
+
+  .confirmation-subheader2 {
+    width: unset !important;
   }
 }

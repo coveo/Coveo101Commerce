@@ -62,28 +62,31 @@ class AvailableColors extends Component<ProductCardProps, IAvailableColorsState>
     let products = [product, ...product.childResults.map(normalizeProduct)];
 
     const relatedProducts = products.map((i, idx) => {
-      const imageUrl = (publicRuntimeConfig.features?.colorSwatchField && i[publicRuntimeConfig.features?.colorSwatchField]) || (typeof i?.ec_images === 'string' && i?.ec_images) || i?.ec_images[0] || '';
-      return <div
-        key={`thumbnail-${idx}`}
-        style={{ backgroundImage: `url(${imageUrl})` }}
-        data-src={imageUrl}
-        className='available-color__swatch'
-        onClick={() => {
-          this.handleClick(i);
-        }}
-        onMouseOver={() => this.setColorLabels(i)}
-        onMouseOut={() => this.setColorLabels()}></div>;
+      const imageUrl =
+        (publicRuntimeConfig.features?.colorSwatchField && i[publicRuntimeConfig.features?.colorSwatchField]) || (typeof i?.ec_images === 'string' && i?.ec_images) || i?.ec_images[0] || '';
+      return (
+        <div
+          key={`thumbnail-${idx}`}
+          className='available-color__swatch-container'
+          onClick={() => {
+            this.handleClick(i);
+          }}
+          onMouseOver={() => this.setColorLabels(i)}
+          onMouseOut={() => this.setColorLabels()}>
+          <div className='available-color__swatch' style={{ backgroundImage: `url(${imageUrl})` }} data-src={imageUrl}></div>
+        </div>
+      );
     });
 
     return (
       <div className='available-color'>
         <div>
-          <span className='available-color__label'>Colors: </span>
+          <span className='available-color__label'>Color: </span>
           <b className='available-color-name'>
             {this.state.label} {this.state.code ? `(${this.state.code})` : ''}
           </b>
         </div>
-        <div>{relatedProducts}</div>
+        <div className='available-color__relatedProducts'>{relatedProducts}</div>
       </div>
     );
   }

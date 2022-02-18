@@ -1,20 +1,12 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import CoveoUA from '../../helpers/CoveoAnalytics';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    CoveoUA.logPageView();
-  }
-  componentDidUpdate() {
-    CoveoUA.logPageView();
   }
 
   render() {
