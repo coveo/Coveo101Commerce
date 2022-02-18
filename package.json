@@ -1,6 +1,6 @@
 {
   "name": "coveo-101-commerce",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -19,22 +19,20 @@
     "@reduxjs/toolkit": "^1.7.2",
     "body-scroll-lock": "^3.1.5",
     "cross-env": "^7.0.3",
-    "next": "12.0.10",
-    "qubit-react": "^1.5.2",
+    "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-json-view": "^1.21.3",
     "react-redux": "^7.2.6",
     "react-slick": "^0.28.1",
     "redux-logger": "^3.0.6",
-    "sass": "^1.49.7",
+    "sass": "^1.49.8",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
     "eslint": "^8.9.0",
-    "eslint-config-next": "^12.0.10",
-    "pino-pretty": "^7.5.1",
+    "eslint-config-next": "^12.1.0",
     "typescript": "^4.5.5"
   }
 }
