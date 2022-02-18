@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {},
   "devDependencies": {
-    "@coveord/platform-client": "^28.5.0",
+    "@coveord/platform-client": "^28.7.1",
     "abortcontroller-polyfill": "^1.7.3",
     "coveo-pushapi-cli": "^1.1.0",
     "isomorphic-fetch": "^3.0.0"
   },
   "dependencies": {
-    "@coveo/cli": "^1.22.2"
+    "@coveo/cli": "^1.24.1"
   }
 }

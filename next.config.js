@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = {
-  target: 'serverless',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -16,13 +15,14 @@ module.exports = {
   images: { domains: ['fashion.coveodemo.com'] },
 
   publicRuntimeConfig: {
-    logo: '/logos/coveo_logo_white.png',
-    title: 'Coveo Fashion Store',
-
-    extraCSS: "/fashionStyles.css",   //from "public" folder
+    logo: '/logos/coveo_logo_black.svg',
+    title: 'The Closet',
+    scenario: 'fashion',
 
     features: {
       searchAsYouType: true,
+      facetColor: true,
+      facetSize: true,
       productRelatedByColorsAndSize: true,
       //map color and size fields (also sets color/size facet)
       colorField: "cat_color",
@@ -44,9 +44,10 @@ module.exports = {
       "cat_available_sizes",
       "cat_brand",
       "cat_categories",
+      "cat_color",
       "cat_color_code",
       "cat_color_swatch",
-      "cat_color",
+      "cat_colors_info",
       "cat_discount",
       "cat_gender",
       "cat_mrp",
@@ -62,8 +63,7 @@ module.exports = {
 
     // Facets to display
     facetFields: [
-      { field: 'cat_size_type', label: 'Fit' },
-      { field: 'cat_gender', label: 'Gender' }
+      { field: 'cat_size_type', label: 'Fit', showCounts: false }
     ]
   },
 };
