@@ -14,9 +14,6 @@ import ViewListIcon from '@mui/icons-material/ViewList';
 import RelevanceInspector from '../RelevanceInspector/RelevanceInspector';
 import { applyContextToEngines, headlessEngine, redoSearch, } from '../../helpers/Engine';
 
-import getConfig from 'next/config';
-const { publicRuntimeConfig } = getConfig();
-
 export interface IOverlayState {
   open: boolean;
   genderInContext: boolean;
@@ -231,18 +228,16 @@ export class Overlay extends React.Component<{}, IOverlayState> {
           <div className='debug-overlay--content'>
             <RelevanceInspector />
 
-            {publicRuntimeConfig.scenario === 'fashion' &&
-              <FormGroup>
-                <FormControlLabel sx={{ fontSize: '1.2rem', }} disableTypography
-                  control={<Switch
-                    checked={this.state.genderInContext}
-                    onChange={() => this.toggleGenderInContext()}
-                    name="ignoreGender"
-                  />}
-                  label="Use Gender in context"
-                />
-              </FormGroup>
-            }
+            <FormGroup>
+              <FormControlLabel sx={{ fontSize: '1.2rem', }} disableTypography
+                control={<Switch
+                  checked={this.state.genderInContext}
+                  onChange={() => this.toggleGenderInContext()}
+                  name="ignoreGender"
+                />}
+                label="Use Gender in context"
+              />
+            </FormGroup>
 
             {this.renderContext()}
           </div>

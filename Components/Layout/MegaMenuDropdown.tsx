@@ -162,7 +162,11 @@ export class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMe
   }
 
   makeValues() {
-    super.makeValues();
+    this.allValuesFromDepth.forEach((facetValue) => {
+      const categoryArr = facetValue.value.split('|');
+      this.populateCategoryStructure(this.menuStructure, categoryArr, 0);
+    });
+
     if (this.menuStructure && Object.keys(this.menuStructure).length) {
       this.menuStructure['Kids'] = {
         displayValue: 'Kids',

@@ -12,7 +12,7 @@ import AddRemoveProduct from './AddRemoveProduct';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { CartProduct } from '../../api/cart-api-client';
 import { deleteProduct, emptyCart } from './cart-actions';
-import CoveoUA, { getAnalyticsProductData, emitUV, getVisitorId } from '../../helpers/CoveoAnalytics';
+import CoveoUA, { getAnalyticsProductData, getVisitorId } from '../../helpers/CoveoAnalytics';
 import { routerPush } from '../../helpers/Context';
 
 const { publicRuntimeConfig } = getConfig();
@@ -46,17 +46,6 @@ class CartList extends Component<{ router?: NextRouter; }> {
 
     const product = getAnalyticsProductData(item.detail, item.sku, 0);
     CoveoUA.removeFromCart(product);
-
-    if (publicRuntimeConfig.features?.qubit) {
-      emitUV('ecBasketItemAction', {
-        product: {
-          productId: item.detail.permanentid,
-          sku: item.sku,
-        },
-        action: 'remove',
-        quantity: 0,
-      });
-    }
   }
 
   updateState() {

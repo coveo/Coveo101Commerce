@@ -8,7 +8,7 @@ import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import store from '../../reducers/cartStore';
 import { addToCart } from './cart-actions';
 import { CartProduct } from '../../api/cart-api-client';
-import CoveoUA, { getAnalyticsProductData, emitUV } from '../../helpers/CoveoAnalytics';
+import CoveoUA, { getAnalyticsProductData } from '../../helpers/CoveoAnalytics';
 
 export interface IAddRemoveProductProps {
   product?: any;
@@ -49,19 +49,20 @@ class AddRemoveProduct extends Component<IAddRemoveProductProps, IAddRemoveProdu
 
   addToCart() {
     const quantity: number = this.state.count + 1;
-    this.updateAndSendAnalytics(quantity, 'add');
+    this.updateAndSendAnalytics(quantity);
   }
 
   removeFromCart() {
     const quantity: number = Math.max(this.state.count - 1, 0);
-    this.updateAndSendAnalytics(quantity, 'remove');
+    this.updateAndSendAnalytics(quantity);
   }
 
-  private updateAndSendAnalytics(quantity: number, action: 'add' | 'remove') {
+  private updateAndSendAnalytics(quantity: number) {
     this.updateCart(quantity);
 
     const product = getAnalyticsProductData(this.props.product, this.props.sku, this.state.count);
     CoveoUA.removeFromCart(product);
+  }
 
   private updateCart(quantity: number) {
     let action = addToCart;

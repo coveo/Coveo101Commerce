@@ -14,7 +14,7 @@ import Breadcrumb from '../../Components/Facets/Breadcrumb';
 import SortBy from '../../Components/Search/SortBy';
 import { IProduct } from '../../Components/ProductCard/Product.spec';
 import { setTabContext } from '../../helpers/Context';
-import { emitBasket, emitUser, emitUV } from '../../helpers/CoveoAnalytics';
+
 import FacetsColumn from '../../Components/Facets/FacetsColumn';
 import NoResults from '../../Components/Categories/NoResults';
 
@@ -105,15 +105,6 @@ class ProductListingPage extends React.Component<IProductListingPage> {
       this.setState(newState, () => {
         if (newState.searchUid && (newState.searchUid !== this.last_searchuid_for_ecView)) {
           this.last_searchuid_for_ecView = newState.searchUid;
-          // Send an View event to Qubit to refresh badges in PLP
-          emitUV('ecView', {
-            type: 'category',
-            subtypes: this.state.currentPath,
-            language: 'en-us', country: 'US', currency: 'USD'
-          });
-
-          emitUser();
-          emitBasket();
         }
       });
     }

@@ -2,8 +2,6 @@
 import React from 'react';
 import { buildQuerySummary, QuerySummaryState, QuerySummary as HeadlessQuerySummary, SearchEngine, Unsubscribe } from '@coveo/headless';
 import { Box } from '@mui/material';
-import getConfig from 'next/config';
-const { publicRuntimeConfig } = getConfig();
 
 export interface IQuerySummaryProps {
   engine: SearchEngine;

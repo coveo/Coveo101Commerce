@@ -4,8 +4,6 @@ import { Grid, Typography, Button, Checkbox, FormControlLabel, ListItem, List, L
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import getConfig from 'next/config';
-const { publicRuntimeConfig } = getConfig();
 
 export interface IFacetProps {
   id: string;
