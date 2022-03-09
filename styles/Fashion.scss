@@ -22,16 +22,17 @@ body.fashion {
 
   #generic-store-home .q-recs__component {
     margin: auto;
-    background-color: #f6f7f9;
+    background-color: white;
 
     .q-recs-headline {
       max-width: 1280px;
       margin: 0 auto;
+      padding-bottom: 10px;
       text-align: left;
       font-family: Alegreya Sans;
       font-style: normal;
       font-weight: 500;
-      font-size: 64px;
+      font-size: 40px;
     }
     .q-recs__container {
       margin: auto auto 20px;

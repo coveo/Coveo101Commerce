@@ -18,7 +18,7 @@ interface IFacetsColumnProps {
 
 export default function FacetsColumn(props: IFacetsColumnProps) {
 
-  const categoryField = 'ec_category';
+  const categoryField = 'ec_category_no_gender';
 
   return (
     <div className={props.isOpen ? 'search-facets__container show-facets' : 'search-facets__container'}>

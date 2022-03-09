@@ -10,10 +10,6 @@ import { addToCart } from './cart-actions';
 import { CartProduct } from '../../api/cart-api-client';
 import CoveoUA, { getAnalyticsProductData, emitUV } from '../../helpers/CoveoAnalytics';
 
-import getConfig from 'next/config';
-import { addGenderToContext } from '../../helpers/Engine';
-const { publicRuntimeConfig } = getConfig();
-
 export interface IAddRemoveProductProps {
   product?: any;
   sku: string;
@@ -53,20 +49,19 @@ class AddRemoveProduct extends Component<IAddRemoveProductProps, IAddRemoveProdu
 
   addToCart() {
     const quantity: number = this.state.count + 1;
-    this.updateAndSendAnalytics(quantity);
+    this.updateAndSendAnalytics(quantity, 'add');
   }
 
   removeFromCart() {
     const quantity: number = Math.max(this.state.count - 1, 0);
-    this.updateAndSendAnalytics(quantity);
+    this.updateAndSendAnalytics(quantity, 'remove');
   }
 
-  private updateAndSendAnalytics(quantity: number) {
+  private updateAndSendAnalytics(quantity: number, action: 'add' | 'remove') {
     this.updateCart(quantity);
 
     const product = getAnalyticsProductData(this.props.product, this.props.sku, this.state.count);
     CoveoUA.removeFromCart(product);
-  }
 
   private updateCart(quantity: number) {
     let action = addToCart;

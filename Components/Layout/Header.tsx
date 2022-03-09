@@ -1,10 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
 
 import SearchBox from '../Search/SearchBox';
 import CartIndicator from '../Cart/CartIndicator';
 import Grid from '@mui/material/Grid';
 import { AppBar, Toolbar, IconButton, Container } from '@mui/material';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 import getConfig from 'next/config';
 import { withRouter, NextRouter } from 'next/router';
@@ -18,10 +18,7 @@ import { loadSearchAnalyticsActions, loadSearchActions, Unsubscribe, loadBreadcr
 import { setStoreId } from '../Cart/cart-actions';
 import store from '../../reducers/cartStore';
 
-import logo from '../../public/logos/coveo_logo.png';
 import MegaMenuDropdown from './MegaMenuDropdown';
-
-import { emitBasket, emitUser, emitUV } from '../../helpers/CoveoAnalytics';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -134,22 +131,31 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
     }
 
     return (
-      <AppBar position='sticky' className={'header'}>
+      <AppBar position='sticky' className={'header'} elevation={0}>
         <Container maxWidth='xl'>
-          <Toolbar>
-            <Grid container alignItems={'center'}>
-              <Grid item className='logo-container' style={{ height: '50px', position: 'relative' }} onClick={() => this.resetToHome()}>
-                <Image alt='' className='logo' src={publicRuntimeConfig?.logo || logo} layout='fill' objectFit='contain' objectPosition='left' />
+          <Toolbar style={{ display: 'block' }}>
+            <Grid container alignItems={'center'} className='header1-grid'>
+              <Grid item className='logo-container' style={{ marginTop: '10px' }} onClick={() => this.resetToHome()}>
                 <span className='header-sub-tl'>{publicRuntimeConfig.title}</span>
               </Grid>
-              <Grid container item xs alignItems={'center'} justifyContent={'flex-end'}>
-                <Grid item xs={6} className='header-el'>
-                  <SearchBox />
-                </Grid>
-                <MegaMenuDropdown />
-                <IconButton id='cart-header' className='header-el header-icon header-el__last'>
+              <Grid container item xs alignItems={'center'} justifyContent={'flex-end'} style={{ marginTop: '10px' }}>
+                <IconButton id='header-btn--sign-in' className='header-icon'>
+                  <span className='header-left-icon__container'>
+                    <AccountCircleOutlinedIcon className='header-left__icon' viewBox='0 -2 24 24' />
+                    <span className='header-left-icon__text'>Sign In</span>
+                  </span>
+                </IconButton>
+                <IconButton id='cart-header' className=' header-icon'>
                   <CartIndicator />
                 </IconButton>
+              </Grid>
+            </Grid>
+            <Grid container alignItems={'center'}>
+              <Grid item xs={6} sm={1} md={6}>
+                <MegaMenuDropdown />
+              </Grid>
+              <Grid item xs={6} sm={1} md={6} style={{ justifyContent: 'flex-end' }}>
+                <SearchBox />
               </Grid>
             </Grid>
 

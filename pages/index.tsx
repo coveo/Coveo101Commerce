@@ -5,12 +5,11 @@ import Head from 'next/head';
 import { Container } from '@mui/material';
 import { IProduct } from '../Components/ProductCard/Product.spec';
 import HeroBanner from '../Components/Layout/HeroBanner';
-import FrequentlyViewedSameCategory from '../Components/Recommendations/FrequentlyViewedSameCategory';
+
 import PopularBought from '../Components/Recommendations/PopularBought';
 import PopularViewed from '../Components/Recommendations/PopularViewed';
 
 import getConfig from 'next/config';
-import HeroBannerFashion from '../Components/Layout/HeroBanner.Fashion';
 const { publicRuntimeConfig } = getConfig();
 
 interface IHomepageState {
@@ -84,15 +83,9 @@ class HomePage extends React.Component<{}, IHomepageState> {
 
         <div id='generic-store-home'>
           <Container maxWidth='xl' disableGutters>
-            {publicRuntimeConfig.scenario === 'fashion' ? <HeroBannerFashion></HeroBannerFashion> : <HeroBanner></HeroBanner>}
-            {publicRuntimeConfig.scenario === 'fashion' ? (
-              <FrequentlyViewedSameCategory title='Top viewed in Hats' skus={['037145101_185']} searchHub='Home' />
-            ) : (
-              <>
-                <PopularViewed title='Customers also viewed' searchHub='Home' />
-                <PopularBought title='Customers also bought' searchHub='Home' />
-              </>
-            )}
+            <HeroBanner></HeroBanner>
+            <PopularViewed title='Customers also viewed' searchHub='Home' />
+            <PopularBought title='Customers also bought' searchHub='Home' />
           </Container>
         </div>
       </>

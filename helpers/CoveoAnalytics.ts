@@ -151,9 +151,6 @@ export const getVisitorId = () => {
   if (!visitorId) {
     visitorId = window['coveoanalytics']?.getCurrentClient()?.visitorId;
   }
-  if (!visitorId) {
-    visitorId = localStorage.getItem('visitorId');
-  }
 
   if (visitorId) {
     // save it for later

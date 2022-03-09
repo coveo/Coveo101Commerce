@@ -41,7 +41,7 @@ class ImagesSlider extends Component<IImagesSliderProps, IImagesSliderState> {
         </div>
         <div className='image-slider__container'>
           <div className='selected-img' style={{ backgroundImage: `url(${currentImage})` }} />
-          <div className='img-thumbnails'>{allImages}</div>
+          {allImages.length > 1 && <div className='img-thumbnails'>{allImages}</div>}
         </div>
       </>
     );

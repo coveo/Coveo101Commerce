@@ -1,5 +1,5 @@
 .searchInterface {
-  display: flex !important; /* MUI v5 fix */
+  display: flex;
   position: relative !important; /* MUI v5 fix */
   background: $white;
   margin: 0 !important; /* MUI v5 fix */

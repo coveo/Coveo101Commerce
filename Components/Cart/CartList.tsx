@@ -16,6 +16,8 @@ import CoveoUA, { getAnalyticsProductData, emitUV, getVisitorId } from '../../he
 import { routerPush } from '../../helpers/Context';
 
 const { publicRuntimeConfig } = getConfig();
+const FREE_SHIPPING_THRESHOLD_KEY = 'coveo-qb-free-shipping-threshold';
+const FREE_SHIPPING_THRESHOLD_DEFAULT = 100;
 
 class CartList extends Component<{ router?: NextRouter; }> {
   state: CartState;
@@ -187,31 +189,47 @@ class CartList extends Component<{ router?: NextRouter; }> {
   }
 
   total() {
-    let total = 0;
+    let subtotal = 0, deliveryCharges = 0, tax = 1.05;
     this.state.items.forEach((item) => {
       let price = item.detail.ec_promo_price;
       if (price === undefined) {
         price = item.detail.ec_price;
       }
-      total += item.quantity * price || 0;
+      subtotal += item.quantity * price || 0;
     });
+
+    let freeShippingThreshold: number = FREE_SHIPPING_THRESHOLD_DEFAULT;
+    try {
+      freeShippingThreshold = parseFloat(window.sessionStorage.getItem(FREE_SHIPPING_THRESHOLD_KEY));
+      if (isNaN(freeShippingThreshold)) {
+        freeShippingThreshold = FREE_SHIPPING_THRESHOLD_DEFAULT;
+      }
+    }
+    catch (e) { /* no-op */ }
+
+    if (subtotal < freeShippingThreshold) {
+      this.state.items.forEach((cartProduct) => {
+        deliveryCharges += cartProduct.quantity * 1.49;
+      });
+    }
+
     return (
       <Grid container direction='column' className='cart-total__container'>
         <Grid item className='cart-total-grid'>
           <span className='cart-total'>Total </span>
-          <span className='cart-price'>{formatPrice(total * 1.05)}</span>
+          <span className='cart-price'>{formatPrice((subtotal + deliveryCharges) * tax)}</span>
         </Grid>
         <Grid item className='cart-total-grid'>
           <span className='cart-total-label'>Subtotal </span>
-          <span className='cart-total-price'>{formatPrice(total)}</span>
+          <span className='cart-total-price'>{formatPrice(subtotal)}</span>
         </Grid>
         <Grid item className='cart-total-grid'>
           <span className='cart-total-label'>Tax </span>
-          <span className='cart-total-price'>{formatPrice(total * 0.05)}</span>
+          <span className='cart-total-price'>{formatPrice((subtotal + deliveryCharges) * 0.05)}</span>
         </Grid>
         <Grid item className='cart-total-grid'>
           <span className='cart-total-label'>Delivery </span>
-          <span className='cart-total-price'>Free</span>
+          <span className='cart-total-price'>{deliveryCharges ? formatPrice(deliveryCharges) : 'Free'}</span>
         </Grid>
         <Grid item>
           <Button id='checkout' className='cart-checkout-btn' disabled={this.state.items.length == 0 ? true : false} onClick={() => this.handleCheckout()} variant='contained' color='primary'>

@@ -68,7 +68,7 @@ class Cart extends React.Component<ICartProps> {
           </Grid>
         </Grid>
         {skus.length > 0 && (
-          <Grid item className='recommendations-grid cart-recommendations-grid'>
+          <Grid item className='recommendations-grid cart-recommendations-grid' id='cart-recommendations'>
             <CartRecommendations title='To Complement Your Cart' skus={skus} searchHub='Checkout' />
           </Grid>
         )}
@@ -93,7 +93,7 @@ class Cart extends React.Component<ICartProps> {
           </Button>
           <hr />
         </Grid>
-        <Grid item className='recommendations-grid cart-recommendations-grid'>
+        <Grid item className='recommendations-grid cart-recommendations-grid' id='cart-recommendations'>
           <PopularViewed title='Customers also viewed' searchHub='Checkout' />
         </Grid>
       </div>

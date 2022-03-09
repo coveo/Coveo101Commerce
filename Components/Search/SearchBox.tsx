@@ -33,10 +33,10 @@ class SearchBox extends React.Component<SearchBoxProps> {
   private headlessSearchBox: HeadlessSearchBox;
   state: SearchBoxState;
   private searchPagePath = '/search';
-  private unsubscribe: Unsubscribe = () => {};
+  private unsubscribe: Unsubscribe = () => { };
   private urlManager: UrlManager;
-  private unsubscribeUrlManager: Unsubscribe = () => {};
-  private otherSuggestions = [];
+  private unsubscribeUrlManager: Unsubscribe = () => { };
+  private productsSuggestions = [];
   private lastQSQueryString: string;
   private lastPath: string;
 
@@ -100,14 +100,14 @@ class SearchBox extends React.Component<SearchBoxProps> {
     }
 
     const results = (res?.payload as any)?.response?.results;
-    this.otherSuggestions = [];
+    this.productsSuggestions = [];
     if (results) {
       if (results?.length) {
         results.forEach((product) => {
           let img = product.raw['ec_images'][0] || product.raw['ec_images'];
           let title = HighlightUtils.highlightString({ content: product.title, highlights: product.titleHighlights, openingDelimiter: '<strong>', closingDelimiter: '</strong>' });
 
-          this.otherSuggestions.push({
+          this.productsSuggestions.push({
             highlightedValue: title,
             img,
             group: 'Products',
@@ -121,9 +121,12 @@ class SearchBox extends React.Component<SearchBoxProps> {
 
   updateState() {
     //new object added explicitly for styling purpose
-    let suggestions = [...this.headlessSearchBox.state.suggestions, { hideValue: true }];
-    if (searchAsYouTypeEnabled && this.otherSuggestions?.length > 0) {
-      suggestions = suggestions.concat(this.otherSuggestions);
+    let suggestions = [...this.headlessSearchBox.state.suggestions];
+    if (suggestions.length) {
+      (suggestions as any).push({ hideValue: true });
+      if (searchAsYouTypeEnabled && this.productsSuggestions?.length > 0) {
+        suggestions = suggestions.concat(this.productsSuggestions);
+      }
     }
     this.setState({ ...this.headlessSearchBox.state, suggestions: suggestions });
   }
@@ -188,15 +191,10 @@ class SearchBox extends React.Component<SearchBoxProps> {
     }
   }
 
-  handleKeyPress(event: any) {
-    if (event.key === 'Enter') {
-      this.handleRedirect();
-    }
-  }
-
-  async handleOnHighlightChange(event: any) {
-    if (event?.target.tagName === 'LI') {
-      await this.getResultForSuggestions(event?.target.innerText);
+  async handleOnHighlightChange(event: any, option) {
+    //for keydown events the tagname changes to 'INPUT'
+    if (event?.target.tagName === 'LI' || event?.target.tagName === 'INPUT') {
+      await this.getResultForSuggestions(option?.rawValue);
       this.updateState();
     }
   }
@@ -209,18 +207,26 @@ class SearchBox extends React.Component<SearchBoxProps> {
           filterOptions={(options) => options}
           id='search-box'
           inputValue={this.state.value}
-          onInputChange={(event, newInputValue) => {
+          onInputChange={(event: any, newInputValue: string, reason: string) => {
+            if (reason == 'reset' && !event) {
+              //else autocomplete will trigger update state with empty value
+              return;
+            }
             if (event?.type !== 'keydown') {
               this.headlessSearchBox.updateText(newInputValue);
             }
           }}
           groupBy={(option: any) => option.group || 'Suggestions'}
-          onChange={(event, value) => {
+          onChange={(event: any, value, reason: string) => {
+            //to handle the keypress on option explicitly
+            if (reason == 'selectOption' && event?.key == 'Enter') {
+              this.headlessSearchBox.updateText(value?.rawValue);
+            }
+
             this.headlessSearchBox.submit();
             this.handleRedirect(value);
           }}
-          onKeyPress={(e) => this.handleKeyPress(e)}
-          onHighlightChange={(e) => this.handleOnHighlightChange(e)}
+          onHighlightChange={(e, option) => this.handleOnHighlightChange(e, option)}
           options={this.state.suggestions}
           getOptionLabel={(option) => {
             return option?.rawValue || '';

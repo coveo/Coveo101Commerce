@@ -166,7 +166,16 @@ class ReactFacet extends React.Component<IFacetProps> {
   }
 
   render() {
-    return this.hasValues && this.facetTemplate;
+    return (
+      this.hasValues && (
+        <Accordion className='facet-accordion' elevation={0} defaultExpanded={this.props.defaultExpanded} data-facet={this.props.label}>
+          <AccordionSummary aria-controls='panel1a-content' id='panel1a-header' expandIcon={<ExpandMoreIcon />}>
+            <Typography className='facet-accordion-title'>{this.props.label}</Typography>
+          </AccordionSummary>
+          <AccordionDetails>{this.facetTemplate}</AccordionDetails>
+        </Accordion>
+      )
+    );
   }
 }
 

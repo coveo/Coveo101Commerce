@@ -1,30 +1,31 @@
-@import "./Lib/_responsive.scss";
-@import "./Lib/_colors.scss";
-@import "./Lib/_typography.scss";
+@import './Lib/_responsive.scss';
+@import './Lib/_colors.scss';
+@import './Lib/_typography.scss';
 
-@import "./Components/Header.scss";
-@import "./Components/Cart.scss";
-@import "./Components/ProductCards.scss";
-@import "./Components/ProductDetail.scss";
-@import "./Components/Breadcrumb.scss";
-@import "./Components/Divider.scss";
-@import "./Components/Facet.scss";
-@import "./Components/NoResults.scss";
-@import "./Components/SortBy.scss";
-@import "./Components/Stores.scss";
-@import "./Components/SearchBox.scss";
-@import "./Components/MegaMenu.scss";
-@import "./Components/Buttons.scss";
-@import "./Components/Price.scss";
-@import "./Components/Banner.scss";
-@import "./Components/RelevanceInspector.scss";
-@import "./Components/Recommendations.scss";
-@import "./Components/Footer.scss";
+@import './Components/Header.scss';
+@import './Components/AdBanner.scss';
+@import './Components/Cart.scss';
+@import './Components/ProductCards.scss';
+@import './Components/ProductDetail.scss';
+@import './Components/Breadcrumb.scss';
+@import './Components/Facet.scss';
+@import './Components/NoResults.scss';
+@import './Components/Overlay.scss';
+@import './Components/SortBy.scss';
+@import './Components/Stores.scss';
+@import './Components/SearchBox.scss';
+@import './Components/MegaMenu.scss';
+@import './Components/Buttons.scss';
+@import './Components/Price.scss';
+@import './Components/Banner.scss';
+@import './Components/RelevanceInspector.scss';
+@import './Components/Recommendations.scss';
+@import './Components/Footer.scss';
 
-@import "./Pages/SearchPage.scss";
-@import "./Pages/PDP.scss";
+@import './Pages/SearchPage.scss';
+@import './Pages/PDP.scss';
 
-@import "./Fashion.scss";
+@import './Fashion.scss';
 
 html,
 body {

@@ -2,6 +2,8 @@
 import React from 'react';
 import { buildQuerySummary, QuerySummaryState, QuerySummary as HeadlessQuerySummary, SearchEngine, Unsubscribe } from '@coveo/headless';
 import { Box } from '@mui/material';
+import getConfig from 'next/config';
+const { publicRuntimeConfig } = getConfig();
 
 export interface IQuerySummaryProps {
   engine: SearchEngine;
@@ -64,9 +66,8 @@ export default class QuerySummary extends React.Component<IQuerySummaryProps> {
 
   renderHasResults() {
     return (
-      <Box>
-        Results{this.renderRange()} of {this.renderTotal()}
-        {this.renderQuery()}
+      <Box className='query-summary'>
+        We found {this.renderTotal()} results {this.renderQuery()}
         {/* {this.renderDuration()} */}
       </Box>
     );

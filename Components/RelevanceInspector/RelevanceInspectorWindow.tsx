@@ -3,12 +3,14 @@ import { makeStyles } from '@mui/styles';
 import Modal from '@mui/material/Modal';
 import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
-//import ReactJson from "react-json-view";
 import dynamic from 'next/dynamic';
 const DynamicReactJson = dynamic(import('react-json-view'), { ssr: false });
 
 const useStyles = makeStyles(() => ({
   paper: {
+    // backgroundColor: theme.palette.secondary,
+    // boxShadow: theme.shadows[5],
+    // padding: theme.spacing(2, 4, 3),
   },
 }));
 

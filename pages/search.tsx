@@ -14,7 +14,6 @@ import QuerySummary from '../Components/Search/QuerySummary';
 import Breadcrumb from '../Components/Facets/Breadcrumb';
 
 import { withRouter, NextRouter } from 'next/router';
-import RelevanceInspector from '../Components/RelevanceInspector/RelevanceInspector';
 import NoResults from '../Components/Search/NoResults';
 import FacetsColumn from '../Components/Facets/FacetsColumn';
 
@@ -115,9 +114,6 @@ class SearchPage extends React.Component<SearchPageProps, SearchState> {
               <div className='result-per-page'>
                 <ResultPerPage engine={headlessEngine} />
               </div>
-            </Grid>
-            <Grid item xs={6}>
-              <RelevanceInspector />
             </Grid>
           </Grid>
         </Grid>

@@ -14,10 +14,8 @@ import Rating from '../ProductCard/Rating';
 import ImagesSlider from './ImagesSlider';
 import AddRemoveProduct from '../Cart/AddRemoveProduct';
 
-import FrequentlyBoughtTogether from '../Recommendations/FrequentlyBoughtTogether';
 import FrequentlyViewedDifferentCategory from '../../Components/Recommendations/FrequentlyViewedDifferentCategory';
 import FrequentlyViewedSameCategory from '../../Components/Recommendations/FrequentlyViewedSameCategory';
-import FrequentlyViewedTogether from '../Recommendations/FrequentlyViewedTogether';
 import AvailableColors from '../../Components/Fashion/AvailableColors';
 import AvailableSizes from '../../Components/Fashion/AvailableSizes';
 import RelatedProducts from './RelatedProducts';
@@ -235,17 +233,8 @@ class ProductDetailPage extends React.Component<IProductDetailPage, IProductDeta
           </Grid>
         </Grid>
         <Grid container className='pdp-recommendations-grid'>
-          {publicRuntimeConfig.scenario === 'fashion' ? (
-            <>
-              <FrequentlyViewedSameCategory title='Similar Products for You' skus={[product.permanentid]} searchHub='PDP' />
-              <FrequentlyViewedDifferentCategory title='Good Match With' skus={[product.permanentid]} searchHub='PDP' />
-            </>
-          ) : (
-            <>
-              <FrequentlyViewedTogether title='Products frequently seen together' skus={[product.permanentid]} searchHub='PDP' />
-              <FrequentlyBoughtTogether title='Products frequently bought together' skus={[product.permanentid]} searchHub='PDP' />
-            </>
-          )}
+          <FrequentlyViewedSameCategory title='Similar Products for You' skus={[product.permanentid]} product={product} searchHub='PDP' />
+          <FrequentlyViewedDifferentCategory title='Good Match With' skus={[product.permanentid]} product={product} searchHub='PDP' />
         </Grid>
       </Container>
     );

@@ -17,6 +17,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 
 interface IRecommendationProps {
+  product?: IProduct;
   searchHub: string;
   skus?: string[];
   title: string;
@@ -86,6 +87,33 @@ export default class BaseRecommendations extends React.Component<IRecommendation
   componentDidUpdate(prevProps) {
     const skus = (this.props.skus || []).join();
     const prevSkus = (prevProps.skus || []).join();
+
+    const context = buildContext(this.engine);
+    if (this.props.product) {
+      [
+        'cat_categories',
+        'ec_brand',
+        'ec_category',
+        'ec_item_group_id',
+        'ec_product_id',
+        'permanentid',
+      ].forEach(i => context.add(i, this.props.product[i]));
+
+      // add categories as category1, category2, category3.
+      const ec_category = this.props.product.ec_category;
+      (ec_category || []).forEach((cat, idx) => {
+        context.add(`category${idx + 1}`, cat);
+      });
+    }
+
+    try {
+      const customContext = JSON.parse(sessionStorage.getItem('debug_custom_context'));
+      Object.entries(customContext).forEach(([key, value]) => {
+        context.add(key, value as string);
+      });
+    }
+    catch (e) { /*no-op*/ }
+
     if (skus !== prevSkus) {
       this.setState({ skus: this.props.skus }, () => {
         this.updateRecommendations();

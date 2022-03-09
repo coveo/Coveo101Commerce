@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import '../styles/Index.scss';
 import cartStore from '../reducers/cartStore'; // used in <Provider>
 
+import { Overlay as DebugOverlay } from '../Components/Debug/Overlay';
+
 import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 
@@ -37,6 +39,7 @@ export default function MyApp(props) {
         <Provider store={cartStore}>
           <App>
             <Component {...pageProps} />
+            {typeof window === 'object' && <DebugOverlay></DebugOverlay>}
           </App>
         </Provider>
       </ThemeProvider>

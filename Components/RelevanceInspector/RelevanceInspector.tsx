@@ -104,7 +104,8 @@ export default class RelevanceInspector extends React.Component {
           onChange={() => this.switchDebug()}
           name="checkDebug"
         />}
-        label="Enable Debug"
+        label="Relevance Inspector"
+        sx={{ fontSize: '1.2rem', }} disableTypography
       />
 
       {!this.hideExecuteQuery && <FormControlLabel

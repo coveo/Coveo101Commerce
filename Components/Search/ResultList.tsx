@@ -8,6 +8,8 @@ import ProductCard from '../ProductCard/ProductCard';
 import { normalizeProduct } from '../ProductCard/Product.spec';
 import CoveoUA from '../../helpers/CoveoAnalytics';
 
+const CACHE_SEARCH_IDS = []; // to prevent multiple impressions requests when Reacts remount this component
+
 export interface resultListProps {
   engine: SearchEngine;
   id: string;
@@ -18,8 +20,6 @@ export default class ResultList extends React.Component<resultListProps> {
   private headlessResultTemplateManager: ResultTemplatesManager;
   private unsubscribe: Unsubscribe = () => { };
   state: ResultListState;
-
-  private prev_searchUid = '';
 
   constructor(props: any) {
     super(props);
@@ -55,12 +55,17 @@ export default class ResultList extends React.Component<resultListProps> {
 
   searchImpressions() {
     const searchUid = this.searchUid();
-    this.props.engine.state.search.results.forEach((product, index) => {
-      const product_parsed = CoveoUA.getAnalyticsProductData(product.raw, '', 0, false);
-      CoveoUA.impressions({ ...product_parsed, position: index + 1 }, searchUid);
-    });
-    coveoua('ec:setAction', 'impression');
-    coveoua('send', 'event', CoveoUA.getOriginsAndCustomData());
+    if (searchUid && !CACHE_SEARCH_IDS.includes(searchUid)) {
+      CACHE_SEARCH_IDS.push(searchUid);
+      CACHE_SEARCH_IDS.splice(0, CACHE_SEARCH_IDS.length - 100); // keep only the last 100 ids. 
+
+      this.props.engine.state.search.results.forEach((product, index) => {
+        const product_parsed = CoveoUA.getAnalyticsProductData(product.raw, '', 0, false);
+        CoveoUA.impressions({ ...product_parsed, position: index + 1 }, searchUid);
+      });
+      coveoua('ec:setAction', 'impression');
+      coveoua('send', 'event', CoveoUA.getOriginsAndCustomData());
+    }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -69,12 +74,7 @@ export default class ResultList extends React.Component<resultListProps> {
 
   updateState() {
     this.setState(this.headlessResultList.state);
-
-    const current_searchUid = this.props.engine.state.search.response.searchUid;
-    if (this.hasResults() && this.prev_searchUid !== current_searchUid) {
-      this.searchImpressions();
-      this.prev_searchUid = current_searchUid;
-    }
+    this.searchImpressions();
   }
 
   hasResults() {

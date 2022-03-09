@@ -2,10 +2,10 @@ import React from 'react';
 import { CategoryFacetState, CategoryFacet, buildCategoryFacet, Unsubscribe, loadSearchAnalyticsActions, loadSearchActions } from '@coveo/headless';
 import { headlessEngine_MegaMenu } from '../../helpers/Engine';
 import { List, ListItem, IconButton, Link, Popper, Drawer } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+
 import { routerPush } from '../../helpers/Context';
 import { NextRouter, withRouter } from 'next/router';
 import getConfig from 'next/config';
@@ -162,10 +162,31 @@ export class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMe
   }
 
   makeValues() {
-    this.allValuesFromDepth.forEach((facetValue) => {
-      const categoryArr = facetValue.value.split('|');
-      this.populateCategoryStructure(this.menuStructure, categoryArr, 0);
-    });
+    super.makeValues();
+    if (this.menuStructure && Object.keys(this.menuStructure).length) {
+      this.menuStructure['Kids'] = {
+        displayValue: 'Kids',
+        urlValue: 'kids',
+        value: 'Kids',
+        subCategories: {
+          Pyjamas: {
+            displayValue: 'Pyjamas',
+            urlValue: 'kids/pyjamas',
+            value: 'Kids|Pyjamas',
+            subCategories: {},
+            subCategoriesCount: 0,
+          }
+        },
+        subCategoriesCount: 1,
+      };
+      this.menuStructure['On Sale'] = {
+        displayValue: 'On Sale',
+        urlValue: 'on-sale',
+        value: 'On Sale',
+        subCategories: {},
+        subCategoriesCount: 0,
+      };
+    }
   }
 
   private goToCategory(categories: string[]) {
@@ -214,6 +235,39 @@ export class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMe
   }
 
   buildMainPanel() {
+    // check if the menuStructure is ready before adding Favorites
+    if (this.menuStructure && Object.keys(this.menuStructure).length) {
+      // try-catch to trap errors with JSON.parse()
+      try {
+        // get the categories set by Qubit placement in the local storage.
+        const categoryCache = JSON.parse(window.localStorage.getItem('coveo-qb-category-views'));
+        const sortedFavorites = Object.values(categoryCache).sort((a: any, b: any) => b.count - a.count);
+        const FavoritesSubCategories: IMenuStructure = {};
+
+        sortedFavorites.slice(0, 5).forEach((fav: any) => {
+          FavoritesSubCategories[fav.categoryDisplay] = {
+            displayValue: fav.categoryDisplay,
+            urlValue: fav.link.replace(/^\/plp\//, ''),
+            value: fav.categoryDisplay,
+            subCategories: {},
+            subCategoriesCount: 0,
+          };
+        });
+
+        this.menuStructure['Favorites'] = {
+          displayValue: 'Favorites',
+          urlValue: '',
+          value: 'Favorites',
+          subCategories: FavoritesSubCategories,
+          subCategoriesCount: Object.keys(FavoritesSubCategories).length,
+        };
+
+      }
+      catch (e) {
+        /* no-op */
+      }
+    }
+
     const list = Object.values(this.menuStructure).map((menuItem: IMenuStructureCategory) => {
       return (
         <ListItem className={'megamenu__list-item'} key={'menuItem-' + menuItem.urlValue}>
@@ -222,7 +276,10 @@ export class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMe
       );
     });
 
-    return <List className={'megamenu__root-list'}>{list}</List>;
+    return <List className={'megamenu__root-list'}>
+      {list}
+      <div id='header-btn--favorites'></div>
+    </List>;
   }
 
   private buildSubList(menuLevel) {
@@ -309,7 +366,7 @@ export class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMe
 
   protected onMouseEnter(e, menuElement: any, isMainListElement: boolean) {
     if (!this.state.isMobileSize && isMainListElement) {
-      this.setState({ activeMenu: menuElement.displayValue });
+      this.setState({ activeMenu: menuElement.displayValue, isMenuOpen: true, anchorElement: e.currentTarget });
     }
   }
 
@@ -318,20 +375,26 @@ export class MegaMenuDropdown extends React.Component<MegaMenuDropdownProps, IMe
 
     return (
       <>
-        <IconButton id='shop-mega-menu-button' disableRipple={true} onClick={(e) => this.handleMegaMenuClick(e)} className='header-el header-icon header-icon__no-hover'>
-          <span className='header-icon__txt' color={'primary'}>
-            Shop
-          </span>
-          {this.state.isMenuOpen ? <ExpandLessIcon color={'primary'} /> : <ExpandMoreIcon color={'primary'} />}
-        </IconButton>
         {!this.state.isMobileSize ? (
-          <Popper open={this.state.isMenuOpen} anchorEl={this.state.anchorElement} className={'MuiPaper-elevation20 megamenu__container ' + isMenuActive} placement='bottom-end'>
-            <div className='megamenu__backdrop' onClick={() => this.closeMegaMenu()}></div>
-            <div className='megamenu__left-panel'>{this.buildMainPanel()}</div>
-            <div className='megamenu__right-panel'>{this.buildSubcategoryPanel()}</div>
-          </Popper>
+          <>
+            {this.buildMainPanel()}
+            <Popper open={this.state.isMenuOpen} anchorEl={this.state.anchorElement} className={'megamenu__container ' + isMenuActive}>
+              <div className='megamenu__backdrop' onClick={() => this.closeMegaMenu()}></div>
+              <div
+                className='megamenu__right-panel'
+                onMouseEnter={() => {
+                  this.setState({ isMenuOpen: true });
+                }}
+                onMouseLeave={() => this.closeMegaMenu()}>
+                {this.buildSubcategoryPanel()}
+              </div>
+            </Popper>
+          </>
         ) : (
           <>
+            <IconButton id='shop-mega-menu-button' disableRipple={true} onClick={(e) => this.handleMegaMenuClick(e)} className='header-el header-icon header-icon__no-hover'>
+              <MenuOutlinedIcon viewBox='0 -5 24 24' style={{ paddingTop: '20px' }} />
+            </IconButton>
             <div className='megamenu__backdrop' onClick={() => this.closeMegaMenu()}></div>
             <Drawer style={{ overflow: 'hidden' }} open={this.state.isMenuOpen}>
               <div className={this.state.showSecondPanel ? 'hidePanel' : 'megamenu__left-panel'}>{this.buildMainPanel()}</div>
