@@ -1,6 +1,6 @@
 import getConfig from 'next/config';
 
-import { buildContext, buildSearchEngine, ContextValue, loadAdvancedSearchQueryActions, loadDidYouMeanActions, loadFieldActions, loadSearchActions, loadSearchAnalyticsActions, SearchEngine, SearchEngineOptions } from '@coveo/headless';
+import { buildContext, buildSearchEngine, ContextValue, loadDidYouMeanActions, loadFieldActions, loadSearchActions, loadSearchAnalyticsActions, SearchEngine, SearchEngineOptions } from '@coveo/headless';
 import { buildProductRecommendationEngine, ProductRecommendationEngine } from '@coveo/headless/product-recommendation';
 import { getEndpoint } from './Endpoints';
 
@@ -109,12 +109,6 @@ export const headlessEngine_Recommendations = (searchHub: string): ProductRecomm
 
   return registerFields(buildProductRecommendationEngine(config)) as ProductRecommendationEngine;
 };
-
-// For the Banner
-export const headlessEngine_Banner = createSearchEngine(process.env.SEARCH_PIPELINE, 'Banner', false);
-// make sure we only have products with images in the banner
-const searchActions_Banner = loadAdvancedSearchQueryActions(headlessEngine_Banner);
-headlessEngine_Banner.dispatch(searchActions_Banner.updateAdvancedSearchQueries({ aq: '@ec_images' }));
 
 export const applyContextToEngines = (context: Record<string, ContextValue>) => {
   const engines = [headlessEngine, headlessEngineQS, headlessEngine_PLP];

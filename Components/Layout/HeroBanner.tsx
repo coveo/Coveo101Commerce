@@ -1,63 +1,17 @@
 import React from 'react';
-import {
-  Unsubscribe,
-  buildResultList,
-  ResultListState,
-  ResultList as HeadlessResultList,
-  loadSearchAnalyticsActions,
-  loadSearchActions,
-  loadPaginationActions,
-  loadQueryActions,
-} from '@coveo/headless';
-import { headlessEngine_Banner } from '../../helpers/Engine';
 import { routerPush } from '../../helpers/Context';
 
 import { Grid, Card, CardMedia, Button } from '@mui/material';
 import { NextRouter, withRouter } from 'next/router';
 
 interface IHeroBannerProps {
-  router?: NextRouter;
+  router: NextRouter;
 }
 
 export class HeroBanner extends React.PureComponent<IHeroBannerProps> {
-  private headlessResultList: HeadlessResultList;
-  private unsubscribe: Unsubscribe = () => { };
-  state: ResultListState;
-
-  constructor(props) {
-    super(props);
-    this.headlessResultList = buildResultList(headlessEngine_Banner);
-    this.state = this.headlessResultList.state;
-  }
-
-  componentDidMount() {
-    const analyticActions = loadSearchAnalyticsActions(headlessEngine_Banner);
-    const searchActions = loadSearchActions(headlessEngine_Banner);
-    headlessEngine_Banner.dispatch(searchActions.executeSearch(analyticActions.logInterfaceLoad()));
-
-    this.unsubscribe = this.headlessResultList.subscribe(() => this.updateState());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  updateState() {
-    this.setState(this.headlessResultList.state);
-  }
 
   async goToSearchPage() {
-    this.props.router?.push('/search');
-  }
-
-  async getImageResult() {
-    const analyticActions = loadSearchAnalyticsActions(headlessEngine_Banner);
-    const searchActions = loadSearchActions(headlessEngine_Banner);
-    const searchParActions = loadPaginationActions(headlessEngine_Banner);
-    const queryActions = loadQueryActions(headlessEngine_Banner);
-    headlessEngine_Banner.dispatch(queryActions.updateQuery({ q: 'men tee' }));
-    headlessEngine_Banner.dispatch(searchParActions.registerNumberOfResults(1));
-    await headlessEngine_Banner.dispatch(searchActions.executeSearch(analyticActions.logInterfaceLoad()));
+    this.props.router.push('/search');
   }
 
   renderCard(result) {
