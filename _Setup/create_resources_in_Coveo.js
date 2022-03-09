@@ -197,6 +197,28 @@ async function createCatalogSource(sourceName) {
   console.log('Using source: ', catalogSource.name, ` [${catalogSource.id}]`);
 }
 
+async function createPushSource(sourceName) {
+  // Create a Catalog source
+  let sources = await getSource(CONFIG.client, sourceName);
+  if (sources.length < 1) {
+    const sourceCreationResponse = await CONFIG.client.source.create({
+      name: sourceName,
+      sourceType: SourceType.PUSH,
+      sourceVisibility: SourceVisibility.SHARED,
+      pushEnabled: true,
+    }).catch(handleError.bind(null, 'createPushSource()'));
+
+    console.log(JSON.stringify(sourceCreationResponse, null, 2));
+  }
+
+  // get sources again, to get the ID of the newly created source.
+  sources = await getSource(CONFIG.client, sourceName);
+
+  const storesSource = sources[0];
+  CONFIG.storesSourceId = storesSource.id;
+
+  console.log('Using source: ', storesSource.name, ` [${storesSource.id}]`);
+}
 
 // Validate (and create missing) fields
 async function createFields() {
@@ -461,6 +483,10 @@ async function createCatalogConfiguration() {
 
   if (configurationInSnapshot && catalogInSnapshot) {
     if (!existingConfigurations.items.map(i => i.name).includes(configurationInSnapshot.name)) {
+      // update references in catalog configuration
+      configurationInSnapshot.associatedCatalogs[0].availabilitySourceId = CONFIG.storesSourceId;
+      configurationInSnapshot.associatedCatalogs[0].sourceId = CONFIG.catalogSourceId;
+
       // create configuration
       await client.catalogConfiguration.create(configurationInSnapshot).catch(handleError.bind(null, 'catalogConfiguration.create()'));
       existingConfigurations = await client.catalogConfiguration.list({ perPage: 1000 }).catch(handleError.bind(null, 'catalogConfiguration.list()'));
@@ -471,11 +497,13 @@ async function createCatalogConfiguration() {
     }
     if (!existingCatalog.items.map(i => i.name).includes(catalogInSnapshot.name)) {
       const currentConfiguration = existingConfigurations.items.filter(i => i.name === configurationInSnapshot.name)[0];
-      // update catalog configuration references
+      // update references in catalog
       catalogInSnapshot.catalogConfigurationId = currentConfiguration.id;
       catalogInSnapshot.configuration = currentConfiguration;
       catalogInSnapshot.sourceId = CONFIG.catalogSourceId;
       catalogInSnapshot.scope.sourceIds = [CONFIG.catalogSourceId];
+      catalogInSnapshot.availabilitySourceId = CONFIG.storesSourceId;
+
       // create catalog
       await client.catalog.create(catalogInSnapshot).catch(handleError.bind(null, 'catalog.create()'));
       console.log('Created Catalog.');
@@ -497,6 +525,7 @@ async function main(ARGS) {
 
   await createOrganization(ARGS.ORG_NAME);
   await createCatalogSource('Products');
+  await createPushSource('Stores');
   await createFields();
   await createMappings();
   await createModels();
