@@ -120,7 +120,7 @@ class SearchBox extends React.Component<SearchBoxProps> {
   }
 
   updateState() {
-    //new object added explicitly for styling purpose
+    // new object added explicitly for styling purpose
     let suggestions = [...this.headlessSearchBox.state.suggestions];
     if (suggestions.length) {
       (suggestions as any).push({ hideValue: true });
@@ -163,7 +163,7 @@ class SearchBox extends React.Component<SearchBoxProps> {
 
   async getSearchAsYouTypeResults() {
     const firstSuggestion = this.headlessSearchBox.state?.suggestions[0]?.rawValue;
-    if (firstSuggestion !== this.lastQSQueryString && searchAsYouTypeEnabled) {
+    if (firstSuggestion !== this.lastQSQueryString && searchAsYouTypeEnabled && this.headlessSearchBox.state.isLoadingSuggestions) {
       let q = firstSuggestion;
       await this.getResultForSuggestions(q);
     }
@@ -218,13 +218,14 @@ class SearchBox extends React.Component<SearchBoxProps> {
           }}
           groupBy={(option: any) => option.group || 'Suggestions'}
           onChange={(event: any, value, reason: string) => {
+            const searchText = value?.rawValue || value;
             //to handle the keypress on option explicitly
             if (reason == 'selectOption' && event?.key == 'Enter') {
-              this.headlessSearchBox.updateText(value?.rawValue);
+              this.headlessSearchBox.updateText(searchText);
             }
 
             this.headlessSearchBox.submit();
-            this.handleRedirect(value);
+            this.handleRedirect(searchText);
           }}
           onHighlightChange={(e, option) => this.handleOnHighlightChange(e, option)}
           options={this.state.suggestions}
