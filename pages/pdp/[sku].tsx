@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import getConfig from 'next/config';
 import Head from 'next/head';
 
-import { Container } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { Container } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 
 import { loadAdvancedSearchQueryActions, loadSearchActions, loadSearchAnalyticsActions } from '@coveo/headless';
 import CategoryBreadcrumb from '../../Components/Categories/CategoryBreadcrumb';
@@ -15,6 +15,7 @@ import CoveoUA from '../../helpers/CoveoAnalytics';
 import { headlessEngineGetProductInfo } from '../../helpers/Engine';
 import theme from '../../helpers/theme';
 import ProductDetailPage from '../../Components/ProductDetail/ProductDetailPage';
+import { GetServerSideProps } from 'next';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -23,29 +24,38 @@ export interface IProductError {
   sku: string;
 }
 
+const sendDetailEvent = (product) => {
+  let category = '';
+
+  const ec_category = product.ec_category || product['cat_categories'];
+  if (ec_category?.length) {
+    let category_last = ec_category[ec_category.length - 1];
+    category = category_last.split('|').join('/');
+  }
+
+  CoveoUA.detailView({
+    brand: product.ec_brand,
+    category,
+    id: product.permanentid,
+    group: product.ec_item_group_id,
+    name: product.ec_name,
+    price: product.ec_price,
+  });
+};
+
 function ProductPage(_product: IProduct & IProductError) {
   const router = useRouter();
-
   const product: IProduct = normalizeProduct(_product);
 
   useEffect(() => {
-    let category = '';
+    const handleRouteChange = () => { sendDetailEvent(product); };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    // unsubscribe when the component is unmounted:
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
 
-    const ec_category = product.ec_category || product['cat_categories'];
-    if (ec_category?.length) {
-      let category_last = ec_category[ec_category.length - 1];
-      category = category_last.split('|').join('/');
-    }
-
-    CoveoUA.detailView({
-      brand: product.ec_brand,
-      category,
-      id: product.permanentid,
-      group: product.ec_item_group_id,
-      name: product.ec_name,
-      price: product.ec_price,
-    });
-  }, [product]);
+  }, [product, router.events]);
 
   if (router.isFallback) {
     return <div>Loading...</div>;
@@ -57,6 +67,13 @@ function ProductPage(_product: IProduct & IProductError) {
         Couldn&apos;t find product with sku <b>{_product.sku}</b>.
       </div>
     );
+  }
+
+  const routerComponents = (router as any).components || {};
+  const isInitialRender = routerComponents['/pdp/[sku]']?.initial || null;
+  if (isInitialRender) {
+    // when loading directly (using URL or Browser Refresh), the "routeChangeComplete" won't be triggered;
+    sendDetailEvent(product);
   }
 
   return (
@@ -83,11 +100,11 @@ function ProductPage(_product: IProduct & IProductError) {
   );
 }
 
-export async function getServerSideProps({ params, query }) {
+export const getServerSideProps: GetServerSideProps = async ({ params, query }) => {
   if (!params.sku || params.sku === 'undefined') {
     console.warn('Sku is undefined!');
     return {
-      props: { noResult: true, sku: params.sku }, // ??????
+      props: { noResult: true, sku: params.sku },
     };
   }
 
@@ -96,7 +113,7 @@ export async function getServerSideProps({ params, query }) {
   if (query.storeId == '-1' || query.storeId == '') {
     //Do nothing
   } else {
-    setStoreContext(headlessEngineGetProductInfo, query.storeId);
+    setStoreContext(headlessEngineGetProductInfo, '' + query.storeId);
   }
 
   const advancedSearchQueryActions = loadAdvancedSearchQueryActions(headlessEngineGetProductInfo);
@@ -122,6 +139,6 @@ export async function getServerSideProps({ params, query }) {
   return {
     props: firstResult,
   };
-}
+};
 
 export default ProductPage;

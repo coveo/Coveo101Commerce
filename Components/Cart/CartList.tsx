@@ -1,5 +1,5 @@
 import { Unsubscribe } from '@coveo/headless';
-import { Avatar, Button, Grid, Link, Typography } from '@material-ui/core';
+import { Avatar, Button, Grid, Link } from '@mui/material';
 import React, { Component } from 'react';
 import { NextRouter, withRouter } from 'next/router';
 import getConfig from 'next/config';
@@ -9,13 +9,15 @@ import Price, { formatPrice } from '../Price';
 import { CartState } from './cart-state';
 import AddRemoveProduct from './AddRemoveProduct';
 
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { CartProduct } from '../../api/cart-api-client';
-import { deleteProduct } from './cart-actions';
-import CoveoUA, { getAnalyticsProductData } from '../../helpers/CoveoAnalytics';
+import { deleteProduct, emptyCart } from './cart-actions';
+import CoveoUA, { getAnalyticsProductData, getVisitorId } from '../../helpers/CoveoAnalytics';
 import { routerPush } from '../../helpers/Context';
 
 const { publicRuntimeConfig } = getConfig();
+const FREE_SHIPPING_THRESHOLD_KEY = 'coveo-qb-free-shipping-threshold';
+const FREE_SHIPPING_THRESHOLD_DEFAULT = 100;
 
 class CartList extends Component<{ router?: NextRouter; }> {
   state: CartState;
@@ -50,10 +52,44 @@ class CartList extends Component<{ router?: NextRouter; }> {
     this.setState(store.getState());
   }
 
+  async handleCheckout() {
+    const products = store.getState().items.map((item) => {
+      return getAnalyticsProductData(item.detail, item.sku, item.quantity);
+    });
+
+    const subtotal = products.reduce((acc, cur) => {
+      acc += (cur.quantity || 1) * cur.price;
+      return acc;
+    }, 0);
+
+    const revenue = (subtotal * 1.05).toFixed(2);
+    const tax = (subtotal * 0.05).toFixed(2);
+
+    const transactionId = getVisitorId() + '-' + Date.now();
+
+    // DOC: https://docs.coveo.com/en/l39m0327/coveo-for-commerce/measure-a-purchase
+    CoveoUA.addProductForPurchase(products);
+    CoveoUA.setActionPurchase({
+      id: transactionId,
+      revenue,
+      shipping: 0,
+      tax,
+    });
+
+    await routerPush(this.props.router, { pathname: '/cart/confirmation', query: { orderId: transactionId } });
+    store.dispatch(emptyCart());
+  }
+
+  itemTotal(cartItem: CartProduct) {
+    const itemPrice = cartItem.detail.ec_promo_price || cartItem.detail.ec_price;
+    return formatPrice(itemPrice * cartItem.quantity);
+  }
+
   private renderItem(cartItem: CartProduct) {
     const image = (typeof cartItem.detail.ec_images === 'string' && cartItem.detail.ec_images) || cartItem.detail.ec_images[0];
     const colorLabel = cartItem.detail[publicRuntimeConfig.features?.colorField];
-    const colorSwatch = cartItem.detail[publicRuntimeConfig.features?.colorSwatchField] || image;
+    const size = (cartItem.detail.cat_total_sizes && (cartItem.sku.split('_')[2] || cartItem.productId.split('_')[2])) || undefined;
+    //const colorSwatch = cartItem.detail[publicRuntimeConfig.features?.colorSwatchField] || image;
 
     return (
       <Grid key={cartItem.sku} className='cart-item' container>
@@ -62,40 +98,52 @@ class CartList extends Component<{ router?: NextRouter; }> {
         </Grid>
         <Grid item sm container>
           <Grid item xs container direction='column' spacing={2}>
-            <Link
-              onClick={() =>
-                routerPush(this.props.router, {
-                  pathname: `/pdp/[sku]`,
-                  query: {
-                    sku: cartItem.detail?.ec_product_id,
-                    model: cartItem.detail?.ec_item_group_id,
-                  },
-                })
-              }>
-              {cartItem.detail.ec_name || cartItem.sku}
-            </Link>
-            <Typography gutterBottom variant='subtitle1'>
-              {colorLabel && <span>Color: {colorLabel}</span>}
-              {colorLabel && colorSwatch && (
-                <div
-                  className='cart-item__swatch facet-color-swatch'
-                  style={{
-                    backgroundImage: `url(${colorSwatch})`,
-                  }}
-                  data-src={colorSwatch}></div>
+            <Grid container>
+              <Grid className='cart-item__title' item xs={11}>
+                <Link
+                  onClick={() =>
+                    routerPush(this.props.router, {
+                      pathname: `/pdp/[sku]`,
+                      query: {
+                        sku: cartItem.detail?.ec_product_id,
+                        model: cartItem.detail?.ec_item_group_id,
+                      },
+                    })
+                  }>
+                  {cartItem.detail.ec_name || cartItem.sku}
+                </Link>
+              </Grid>
+              <Grid className='cart-item__title cart-item__remove-btn' item xs={1}>
+                <CloseOutlinedIcon onClick={() => this.handleRemoveProduct(cartItem)} />
+              </Grid>
+            </Grid>
+            <Price product={cartItem.detail} />
+            <Grid container className='cart-item-details'>
+              <Grid className='item-details-grid' item xs={12} sm={6}>
+                <span className='item-detail-tl'>Sku:</span>
+                <span className='item-detail-value'>{cartItem.sku || cartItem.productId}</span>
+              </Grid>
+              {size && (
+                <Grid className='item-details-grid' item xs={12} sm={6}>
+                  <span className='item-detail-tl'>Size:</span>
+                  <span className='item-detail-value'>{size}</span>
+                </Grid>
               )}
-            </Typography>
-            <Typography gutterBottom variant='body2'>
-              {cartItem.detail.ec_item_group_id} {cartItem.sku}
-            </Typography>
+              {colorLabel && (
+                <Grid className='item-details-grid' item xs={12} sm={6}>
+                  <span className='item-detail-tl'>Color:</span>
+                  <span className='item-detail-value'>{colorLabel}</span>
+                </Grid>
+              )}
+              <Grid className='item-details-grid' item xs={12} sm={6}>
+                <span className='item-detail-tl'>Total:</span>
+                <span className='item-detail-value'>{this.itemTotal(cartItem)}</span>
+              </Grid>
+            </Grid>
+            <Grid item className='cartitem-add-remove-grid'>
+              <AddRemoveProduct product={cartItem.detail} sku={cartItem.sku} label='Quantity:' />
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid item style={{ textAlign: 'right' }} id='cartlist-price-qty-grid'>
-          <Price product={cartItem.detail} />
-          <AddRemoveProduct product={cartItem.detail} sku={cartItem.sku} label='Quantity:' />
-          <Button className='cart-item-remove' startIcon={<RemoveShoppingCartIcon />} onClick={() => this.handleRemoveProduct(cartItem)}>
-            Remove
-          </Button>
         </Grid>
       </Grid>
     );
@@ -105,41 +153,79 @@ class CartList extends Component<{ router?: NextRouter; }> {
     const items = this.state.items.map((item) => this.renderItem(item));
     return (
       <div id='cart-list' className='cart-list'>
-        <h1>Your Cart items</h1>
-        <Grid container>{items}</Grid>
-        {this.total()}
+        <Grid container spacing={8}>
+          <Grid item xs={12} sm={8}>
+            {this.state.items.length > 0 && (
+              <>
+                <h1 style={{ marginBottom: '50px' }} className='cart-list-title'>
+                  Shopping Bag
+                </h1>
+                {items}
+              </>
+            )}
+          </Grid>
+          {this.state.items.length > 0 && (
+            <Grid item xs={12} sm={3}>
+              <h1 style={{ marginBottom: '50px' }} className='cart-list-title'>
+                Summary
+              </h1>
+              {this.total()}
+            </Grid>
+          )}
+        </Grid>
       </div>
     );
   }
 
   total() {
-    let total = 0;
+    let subtotal = 0, deliveryCharges = 0, tax = 1.05;
     this.state.items.forEach((item) => {
       let price = item.detail.ec_promo_price;
       if (price === undefined) {
         price = item.detail.ec_price;
       }
-      total += item.quantity * price || 0;
+      subtotal += item.quantity * price || 0;
     });
+
+    let freeShippingThreshold: number = FREE_SHIPPING_THRESHOLD_DEFAULT;
+    try {
+      freeShippingThreshold = parseFloat(window.sessionStorage.getItem(FREE_SHIPPING_THRESHOLD_KEY));
+      if (isNaN(freeShippingThreshold)) {
+        freeShippingThreshold = FREE_SHIPPING_THRESHOLD_DEFAULT;
+      }
+    }
+    catch (e) { /* no-op */ }
+
+    if (subtotal < freeShippingThreshold) {
+      this.state.items.forEach((cartProduct) => {
+        deliveryCharges += cartProduct.quantity * 1.49;
+      });
+    }
+
     return (
-      <div className='cart-total__container'>
-        <div className='cart-total__row'>
-          <div className='cart-total-label'>Subtotal: </div>
-          <div className='cart-total-price'>{formatPrice(total)}</div>
-        </div>
-        <div className='cart-total__row'>
-          <div className='cart-total-label'>Shipping: </div>
-          <div className='cart-total-price'>Free</div>
-        </div>
-        <div className='cart-total__row'>
-          <div className='cart-total-label'>Tax: </div>
-          <div className='cart-total-price'>{formatPrice(total * 0.05)}</div>
-        </div>
-        <div className='cart-total__row'>
-          <div className='cart-total-label'>TOTAL: </div>
-          <div className='cart-total-price'>{formatPrice(total * 1.05)}</div>
-        </div>
-      </div>
+      <Grid container direction='column' className='cart-total__container'>
+        <Grid item className='cart-total-grid'>
+          <span className='cart-total'>Total </span>
+          <span className='cart-price'>{formatPrice((subtotal + deliveryCharges) * tax)}</span>
+        </Grid>
+        <Grid item className='cart-total-grid'>
+          <span className='cart-total-label'>Subtotal </span>
+          <span className='cart-total-price'>{formatPrice(subtotal)}</span>
+        </Grid>
+        <Grid item className='cart-total-grid'>
+          <span className='cart-total-label'>Tax </span>
+          <span className='cart-total-price'>{formatPrice((subtotal + deliveryCharges) * 0.05)}</span>
+        </Grid>
+        <Grid item className='cart-total-grid'>
+          <span className='cart-total-label'>Delivery </span>
+          <span className='cart-total-price'>{deliveryCharges ? formatPrice(deliveryCharges) : 'Free'}</span>
+        </Grid>
+        <Grid item>
+          <Button id='checkout' className='cart-checkout-btn' disabled={this.state.items.length == 0 ? true : false} onClick={() => this.handleCheckout()} variant='contained' color='primary'>
+            <span className='cart-checkout-label'>Checkout</span>
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 }

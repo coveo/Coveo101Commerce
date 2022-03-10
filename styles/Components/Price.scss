@@ -7,9 +7,8 @@
     font-size: 0.7em;
   }
 
-  .display-promo {
+  .price-promo {
     margin-left: 10px;
-    font-size: 0.8em;
   }
 
   .store {
@@ -18,24 +17,22 @@
   .store {
     font-size: 15px !important;
   }
-  .sdisplay-price {
-    font-size: 0.8em !important;
-  }
   .store-na {
     font-weight: normal;
     font-size: 8pt;
   }
-  .display-promo,
-  .display-price {
+  .price-promo,
+  .price-regular {
     font-weight: bold;
   }
-  .display-orig-price {
+  .price-regular--discounted {
     font-weight: normal;
     text-decoration: line-through;
     padding-right: 5px;
+    color: #757575;
   }
 }
 
 .widget-price-color {
-  color: $red;
+  color: #fc622b;
 }

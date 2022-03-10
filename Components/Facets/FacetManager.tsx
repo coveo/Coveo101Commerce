@@ -19,6 +19,9 @@ type FacetManagerChild = ReactElement<{
 interface IFacetField {
   field: string;
   label: string;
+  numberOfValues: number;
+  showCounts?: boolean;
+  sortCriteria?: 'score' | 'alphanumeric' | 'occurrences' | 'automatic';
 }
 
 interface IFacetManagerProps {
@@ -63,7 +66,15 @@ class FacetManager extends React.Component<IFacetManagerProps> {
 
     //Add the additionalFacets
     this.props.additionalFacets?.map(item => {
-      childFacets.push(<ReactFacet key={item.field} id={item.field} engine={this.props.engine} facetId={item.field} label={item.label} field={item.field} />);
+      childFacets.push(<ReactFacet key={item.field} id={item.field}
+        facetId={item.field}
+        engine={this.props.engine}
+        field={item.field}
+        label={item.label}
+        numberOfValues={item.numberOfValues}
+        showCounts={item.showCounts !== false}
+        sortCriteria={item.sortCriteria}
+      />);
     });
 
     const payload = this.createPayload(childFacets);

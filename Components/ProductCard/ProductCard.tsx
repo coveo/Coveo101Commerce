@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Card, CardMedia, CardContent, Typography } from '@material-ui/core';
-import { loadClickAnalyticsActions, Result, SearchEngine, Unsubscribe } from '@coveo/headless';
-import { loadClickAnalyticsActions as logRecommendationClickActions } from '@coveo/headless/recommendation';
+import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { Result, SearchEngine, Unsubscribe } from '@coveo/headless';
 import { ProductRecommendationEngine } from '@coveo/headless/product-recommendation';
 
 import Price from '../Price';
 import Rating from './Rating';
-import AddRemoveProduct from '../Cart/AddRemoveProduct';
 import { IProduct, normalizeProduct } from './Product.spec';
 import { NextRouter, withRouter } from 'next/router';
 import CoveoUA from '../../helpers/CoveoAnalytics';
@@ -30,13 +28,13 @@ export interface IProductCardState {
 
 export class ProductCard extends Component<ProductCardProps, IProductCardState> {
   state: IProductCardState;
-  private unsubscribe: Unsubscribe = () => {};
+  private unsubscribe: Unsubscribe = () => { };
   private image: string;
   constructor(props) {
     super(props);
     let product: IProduct = this.props.product;
     let images: Array<string> = typeof product.ec_images === 'string' ? [product.ec_images] : product.ec_images;
-    this.image = images[0] || '/missing.svg';
+    this.image = (images && images[0]) || '/missing.svg';
     // normalize Recommendations.
     if ((product as any).additionalFields) {
       product = {
@@ -81,57 +79,12 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
       routerOptions.query['storeId'] = storeId;
     }
 
-    this.logClick(isRecommendation);
-
     const searchUid = this.props.engine.state['search']?.response?.searchUid || this.props.engine.state['productRecommendations']?.searchUid;
     if (searchUid) {
-      CoveoUA.productClick(product, searchUid, isRecommendation, () => routerPush(this.props.router, routerOptions));
+      const recommendationStrategy = (isRecommendation && this.props.engine.state as any)?.productRecommendations?.id || '';
+      CoveoUA.productClick(product, searchUid, recommendationStrategy, () => routerPush(this.props.router, routerOptions));
     } else {
       routerPush(this.props.router, routerOptions);
-    }
-  }
-
-  private logClick(isRecommendation: boolean = false) {
-    let result = this.props.result;
-    if (!result) {
-      // ProductRecommendation in Headless do not have an action to log clicks/open
-      // We are using Recommendation's logRecommendationOpen() -
-
-      // But, because ProductRecommendations don't have all the fields required for Analytics,
-      // we are augmenting them manually here.
-      const product = {
-        ...this.props.product,
-        title: this.props.product.ec_name,
-        uniqueId: this.props.product.permanentid,
-        uri: this.props.product.clickUri,
-        urihash: this.props.product['urihash'],
-      };
-      result = {
-        ...product,
-        raw: { ...product }, // analytics will look for some properties under raw.
-      };
-    }
-
-    if (this.props.engine && this.props) {
-      if (isRecommendation) {
-        const engineState = this.props.engine.state as any;
-        let searchUid = engineState.search?.response?.searchUid;
-        if (!searchUid && engineState.productRecommendations?.searchUid) {
-          searchUid = engineState.productRecommendations.searchUid;
-        }
-
-        // Because of inconsistency in Headless with ProductRecommendations, Recommendations, and Search engines/responses,
-        // we store the searchUid in the session to be reused in the Analytics middleware for the Recommendation Engine.
-        sessionStorage.setItem('_r_searchQueryUid', searchUid);
-        sessionStorage.setItem('_r_originLevel2', engineState.productRecommendations.id);
-
-        const { logRecommendationOpen } = logRecommendationClickActions(this.props.engine as any);
-        this.props.engine.dispatch(logRecommendationOpen(result) as any);
-      } else {
-        // result from Search
-        const { logDocumentOpen } = loadClickAnalyticsActions(this.props.engine as any);
-        this.props.engine.dispatch(logDocumentOpen(result) as any);
-      }
     }
   }
 
@@ -146,16 +99,11 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
 
   render() {
     const product: IProduct = this.state.product;
-    const relatedProducts = [];
-    // Products in the same group are "folded" under "childResults" in the Search response.
-    if (product.childResults != undefined) {
-      product.childResults.map((child) => {
-        relatedProducts.push(child);
-      });
-    }
+    const categories: string[] = (product.ec_category || []);
+    const lastCategory: string = (categories.length && categories.slice(-1)[0]) || '';
 
     return (
-      <Card className='card-product' data-product-id={product.permanentid}>
+      <Card className='card-product' data-product-id={product.permanentid} data-category={lastCategory} data-brand={product.ec_brand} data-title={product.ec_name}>
         <CardMedia
           className={'card__media'}
           image={this.state.currentImage}
@@ -178,10 +126,7 @@ export class ProductCard extends Component<ProductCardProps, IProductCardState> 
           </div>
           {product.ec_fit_size && <Typography className={'card__model'}>Fit: {product.ec_fit_size}</Typography>}
           {product.permanentid != product.ec_item_group_id && <Typography className={'card__model'}>Model: {product.ec_item_group_id}</Typography>}
-          <ProductGrouping relatedProducts={relatedProducts} onClick={(e) => this.clickRelatedProduct(e)} changeImage={(e) => this.changeImage(e)} />
-          <div className={'card__add-to-cart'}>
-            <AddRemoveProduct sku={product.permanentid} product={product} label='In cart:' />
-          </div>
+          <ProductGrouping product={product} onClick={(e) => this.clickRelatedProduct(e)} changeImage={(e) => this.changeImage(e)} />
         </CardContent>
       </Card>
     );

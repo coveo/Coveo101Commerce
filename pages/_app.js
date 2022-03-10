@@ -2,24 +2,18 @@ import App from '../Components/Layout/App';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../helpers/theme';
 import { Provider } from "react-redux";
-import { StylesProvider } from "@material-ui/styles";
+
 import '../styles/Index.scss';
 import cartStore from '../reducers/cartStore'; // used in <Provider>
 
+import { Overlay as DebugOverlay } from '../Components/Debug/Overlay';
+
 import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
-
-const getBotParamFromUrl = () => {
-  if (typeof window === "object" && (/\b(bot|isBot|fromTest|fromTester)=(true|false|0|1)\b/i).test(window.location.href)) {
-    const isBotValue = (RegExp.$2).toLowerCase();
-    return (isBotValue === 'true' || isBotValue === '1');
-  }
-  return null;
-};
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -30,16 +24,6 @@ export default function MyApp(props) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
-
-    const isBot = getBotParamFromUrl();
-    if (isBot !== null) {
-      if (isBot) {
-        sessionStorage.setItem('isBot', isBot);
-        // eslint-disable-next-line no-undef
-        coveoua('set', 'custom', { isBot: true, fromTester: true });
-      }
-      else { sessionStorage.removeItem('isBot'); }
-    }
   }, []);
 
   return (
@@ -49,17 +33,16 @@ export default function MyApp(props) {
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <meta property="og:site_name" content={publicRuntimeConfig.title} />
       </Head>
-      <StylesProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Provider store={cartStore}>
-            <App>
-              <Component {...pageProps} />
-            </App>
-          </Provider>
-        </ThemeProvider>
-      </StylesProvider>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Provider store={cartStore}>
+          <App>
+            <Component {...pageProps} />
+            {typeof window === 'object' && <DebugOverlay></DebugOverlay>}
+          </App>
+        </Provider>
+      </ThemeProvider>
     </React.Fragment>
   );
 }

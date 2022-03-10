@@ -1,9 +1,9 @@
 import { Unsubscribe } from '@coveo/headless';
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import AddCircle from '@material-ui/icons/AddCircle';
-import RemoveCircle from '@material-ui/icons/RemoveCircle';
+import { Button, Grid } from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 
 import store from '../../reducers/cartStore';
 import { addToCart } from './cart-actions';
@@ -13,7 +13,7 @@ import CoveoUA, { getAnalyticsProductData } from '../../helpers/CoveoAnalytics';
 export interface IAddRemoveProductProps {
   product?: any;
   sku: string;
-  label: string;
+  label?: string;
 }
 export interface IAddRemoveProductState {
   count: number;
@@ -48,14 +48,16 @@ class AddRemoveProduct extends Component<IAddRemoveProductProps, IAddRemoveProdu
   }
 
   addToCart() {
-    this.updateCart(this.state.count + 1);
-
-    const product = getAnalyticsProductData(this.props.product, this.props.sku, this.state.count + 1);
-    CoveoUA.addToCart(product);
+    const quantity: number = this.state.count + 1;
+    this.updateAndSendAnalytics(quantity);
   }
 
   removeFromCart() {
-    const quantity = Math.max(this.state.count - 1, 0);
+    const quantity: number = Math.max(this.state.count - 1, 0);
+    this.updateAndSendAnalytics(quantity);
+  }
+
+  private updateAndSendAnalytics(quantity: number) {
     this.updateCart(quantity);
 
     const product = getAnalyticsProductData(this.props.product, this.props.sku, this.state.count);
@@ -94,22 +96,27 @@ class AddRemoveProduct extends Component<IAddRemoveProductProps, IAddRemoveProdu
   }
 
   render() {
-    if (this.state.count < 1) {
-      return (
-        <Button className='add-to-cart__btn CoveoResultAddToCart' variant='outlined' color='primary' startIcon={<AddShoppingCartIcon />} onClick={() => this.addToCart()}>
-          Add to Cart
-        </Button>
-      );
-    }
+    const hasItems = this.state.count > 0 ? 'add-to-cart__not-empty' : 'add-to-cart__empty';
     return (
-      <div className='add-remove-product'>
-        {this.props.label} &nbsp;
-        <div className='add-remove-count'>
-          <RemoveCircle className='add-remove-count__btn CoveoResultAddToCart-More' onClick={() => this.removeFromCart()} />
-          {this.state.count}
-          <AddCircle className='add-remove-count__btn CoveoResultAddToCart-Less' onClick={() => this.addToCart()} />
+      <Grid item className={"add-to-cart__btn-container " + hasItems}>
+        <Button
+          className='add-to-cart__btn CoveoResultAddToCart'
+          variant='outlined'
+          color='primary'
+          startIcon={<AddShoppingCartIcon className='add-to-cart__btn-icon' />}
+          disabled={this.state.count > 0}
+          onClick={() => this.addToCart()}>
+          <span className='add-to-cart__btn-label'>Add to Bag</span>
+        </Button>
+        <div className='add-remove-product'>
+          {this.props.label && <span className='add-remove-product__label'> {this.props.label} &nbsp; </span>}
+          <div className='add-remove-count'>
+            <RemoveOutlinedIcon className={'add-remove-count__btn CoveoResultAddToCart-Less'} style={{ marginRight: '10px' }} onClick={() => this.removeFromCart()} />
+            {this.state.count}
+            <AddOutlinedIcon className='add-remove-count__btn CoveoResultAddToCart-More' style={{ marginLeft: '10px' }} onClick={() => this.addToCart()} />
+          </div>
         </div>
-      </div>
+      </Grid>
     );
   }
 }

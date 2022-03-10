@@ -1,0 +1,45 @@
+$color: #626971;
+$bgColor: #f6f7f9;
+$borderColor: $white;
+$borderWidth: 4px;
+
+.debug-overlay-container,
+.debug-overlay-container--toggle-btn {
+  position: fixed;
+  right: 0;
+  z-index: 999;
+
+  color: $color;
+  background-color: $bgColor;
+  border-radius: 8px 0 0 8px;
+  border-color: $white;
+  border-style: solid;
+  border-width: $borderWidth 0 $borderWidth $borderWidth;
+}
+
+.debug-overlay-container--toggle-btn {
+  top: 60vh;
+  padding: calc(12px - $borderWidth);
+  cursor: pointer;
+}
+
+.debug-overlay-container--toggle-btn.open {
+  right: 400px;
+  border-color: $borderColor;
+  margin-right: -$borderWidth;
+}
+
+.debug-overlay-container {
+  top: 200px;
+  bottom: 50px;
+  width: 400px;
+  padding: 15px;
+
+  .debug-overlay--content {
+    margin-top: 15px;
+  }
+
+  .debug-overlay--custom-context {
+    margin-top: 30px;
+  }
+}

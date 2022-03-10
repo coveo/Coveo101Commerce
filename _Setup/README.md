@@ -48,6 +48,8 @@ To install the [pushapi tool](https://www.npmjs.com/package/coveo-pushapi-cli) :
 > npm install -g coveo-pushapi-cli
 ```
 
+#### Catalog (Products)
+
 Then in a terminal, from the folder `_Setup/data`, run:
 
 ```bash
@@ -56,6 +58,13 @@ Then in a terminal, from the folder `_Setup/data`, run:
 
 The tool will ask for the proper ids (org, source, apikey) you need to do a successful Push.
 If asked about the source being a Catalog source, say "yes".
+
+#### Stores
+
+```bash
+> cd stores
+> pushapi stores_with_variants.json
+```
 
 ### Push API key
 

@@ -132,3 +132,181 @@
     opacity: 1;
   }
 }
+
+body.fashion {
+  .hero-banner-1 {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .banner1-small-img {
+    width: 625px;
+    height: 535px;
+    margin: auto;
+    background-repeat: round !important;
+
+    .banner1-img-text {
+      width: 540px;
+      margin-left: 20px;
+      padding-top: 15px;
+      font-family: Alegreya Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 80px;
+      line-height: 72px;
+      letter-spacing: 0.011em;
+      color: #282829;
+    }
+  }
+  .banner1-large-img {
+    margin-right: 25px;
+    height: 750px;
+    background-repeat: round !important;
+  }
+
+  .hero-text__grid {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 30px;
+
+    .hero__tl {
+      font-size: 28px;
+      line-height: 36px;
+      width: 625px;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+
+    .hero__subtl {
+      font-size: 24px;
+      line-height: 29px;
+      width: 625px;
+      margin: auto;
+      margin-bottom: 18px;
+    }
+
+    .hero__txt {
+      font-family: Gibson;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 24px;
+      text-transform: capitalize;
+    }
+
+    .hero-text__btn {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      width: fit-content;
+      height: 48px;
+      background: #e1f88f;
+      border-radius: 4px;
+      margin: auto;
+      min-width: 190px;
+      max-width: fit-content;
+    }
+  }
+
+  #hero-banner-2 {
+    background: linear-gradient(0deg, #f6f7f9, #f6f7f9);
+    padding: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    .hero-jeans-grid {
+      margin-left: 60px;
+    }
+
+    .banner2-text-grid {
+      text-align: center;
+      font-style: normal;
+      letter-spacing: 0.011em;
+      color: #282829;
+      .banner2-text1 {
+        font-family: Alegreya Sans;
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 72px;
+        margin-bottom: 30px;
+      }
+      .banner2-text2 {
+        font-family: Roboto;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 30px;
+        margin: auto;
+        margin-bottom: 30px;
+        width: 580px;
+      }
+      .banner2-btn {
+        padding: 12px;
+        margin-bottom: 60px;
+        height: 48px;
+        background: #e1f88f;
+        border: 1px solid #e1f88f;
+        box-sizing: border-box;
+        border-radius: 4px;
+        font-family: 'Gibson';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: capitalize;
+      }
+    }
+
+    .banner2-stock-image {
+      height: 320px;
+      width: 645px;
+      margin: auto;
+    }
+
+    .banner2-product-image {
+      margin-left: 50px;
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .q-recs__component,
+  #hero-banner-2 {
+    display: none !important;
+  }
+  .hero-text__grid {
+    height: auto !important;
+  }
+  .banner1-large-img {
+    display: none;
+  }
+  .banner1-small-img {
+    margin-right: 0px;
+    .banner1-img-text {
+      width: unset !important;
+      font-size: 60px !important;
+    }
+  }
+  .hero__tl,
+  .hero__subtl {
+    width: unset !important;
+  }
+  .hero-text__btn {
+    top: -285px;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .banner1-large-img {
+    height: 850px !important;
+  }
+  .hero-text__grid {
+    margin-top: 50px !important;
+  }
+  .hero-text__btn {
+    margin-top: 30px !important;
+  }
+}

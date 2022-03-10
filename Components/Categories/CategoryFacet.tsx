@@ -1,24 +1,19 @@
-import React from "react";
-import {
-  CategoryFacetState,
-  CategoryFacet as HeadlessCategoryFacet,
-  buildCategoryFacet,
-  CategoryFacetValue,
-  Unsubscribe,
-  SearchEngine
-} from '@coveo/headless';
-import { Grid, Typography, List, ListItem, ListItemText, Button } from '@material-ui/core';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { IProduct, normalizeProduct } from "../ProductCard/Product.spec";
-import categoryExtract from "../../helpers/categoryExtract";
+import React from 'react';
+import { CategoryFacetState, CategoryFacet as HeadlessCategoryFacet, buildCategoryFacet, CategoryFacetValue, Unsubscribe, SearchEngine } from '@coveo/headless';
+import { Grid, Typography, List, ListItem, ListItemText, Button } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { IProduct, normalizeProduct } from '../ProductCard/Product.spec';
+import categoryExtract from '../../helpers/categoryExtract';
 
 export interface IFacetProps {
-  facetId: string,
-  field: string,
-  label: string,
-  engine: SearchEngine,
-  id: string,
-  currentPath?: string[],
+  facetId: string;
+  field: string;
+  label: string;
+  engine: SearchEngine;
+  id: string;
+  currentPath?: string[];
   productForCategory?: IProduct;
 }
 
@@ -33,7 +28,7 @@ class CategoryFacet extends React.PureComponent<IFacetProps> {
     if (this.props.productForCategory && this.props.currentPath) {
       const normalizedFirstProduct = normalizeProduct(this.props.productForCategory);
       const categoryValues = categoryExtract(normalizedFirstProduct, this.props.currentPath);
-      const labels = categoryValues.labels.map(label => label.split('|').pop());
+      const labels = categoryValues.labels.map((label) => label.split('|').pop());
       basePath = labels;
     }
 
@@ -43,8 +38,8 @@ class CategoryFacet extends React.PureComponent<IFacetProps> {
         facetId: this.props.facetId,
         delimitingCharacter: '|',
         basePath,
-        sortCriteria: "occurrences",
-      }
+        sortCriteria: 'occurrences',
+      },
     });
     return this.facet.state;
   }
@@ -63,7 +58,7 @@ class CategoryFacet extends React.PureComponent<IFacetProps> {
   }
 
   private get parents() {
-    const parents = this.state.parents;
+    const parents = this.state?.parents || [];
     return parents.map((parent, i) => {
       const isLast = i === parents.length - 1;
       return this.buildParent(parent, isLast);
@@ -71,15 +66,10 @@ class CategoryFacet extends React.PureComponent<IFacetProps> {
   }
 
   private buildParent(parent: CategoryFacetValue, isLast: boolean) {
-
     const parentClasses = isLast ? 'parent-item' : 'parent-item-back';
 
     return (
-      <ListItem
-        className={parentClasses + ' coveo-selected'}
-        key={parent.value + '-' + parent.path}
-        data-facet-value={parent.value}
-        onClick={() => !isLast && this.facet.toggleSelect(parent)}>
+      <ListItem className={parentClasses + ' coveo-selected'} key={parent.value + '-' + parent.path} data-facet-value={parent.value} onClick={() => !isLast && this.facet.toggleSelect(parent)}>
         {!isLast && <ArrowBackIosIcon />}
         {parent.value}
       </ListItem>
@@ -93,18 +83,13 @@ class CategoryFacet extends React.PureComponent<IFacetProps> {
   }
 
   private buildValue(item: CategoryFacetValue, hasParents: boolean) {
-
-    const valueClasses = hasParents ? "facet-list-item " + 'facet-child' : 'facet-list-item';
+    const valueClasses = hasParents ? 'facet-list-item ' + 'facet-child' : 'facet-list-item';
 
     return (
-      <ListItem
-        data-facet-value={item.value}
-        key={[...item.path, item.value].join('-')}
-        className={valueClasses}
-        onClick={() => this.facet.toggleSelect(item)}>
+      <ListItem data-facet-value={item.value} key={[...item.path, item.value].join('-')} className={valueClasses} onClick={() => this.facet.toggleSelect(item)}>
         <ListItemText>
-          <span className="facet-value">{item.value}</span>
-          <span className="facet-count">({item.numberOfResults})</span>
+          <span className='facet-value'>{item.value}</span>
+          <span className='facet-count'>({item.numberOfResults})</span>
         </ListItemText>
       </ListItem>
     );
@@ -112,76 +97,54 @@ class CategoryFacet extends React.PureComponent<IFacetProps> {
 
   private get resetButton() {
     return (
-      <Button
-        color="primary"
-        onClick={
-          () => this.facet.deselectAll()
-        }
-      >
+      <Button color='primary' onClick={() => this.facet.deselectAll()} className={'facet-reset-btn'}>
         clear X
       </Button>
     );
   }
 
   private get showMore() {
-    if (!this.state.canShowMoreValues) {
+    if (!this.state?.canShowMoreValues) {
       return null;
     }
     return (
-      <Button
-        color="primary"
-        className={'btn-control--primary CoveoFacetShowMore'}
-        onClick={
-          () => this.facet.showMoreValues()
-        }
-      >
+      <Button color='primary' className={'btn-control--primary CoveoFacetShowMore'} onClick={() => this.facet.showMoreValues()} startIcon={<AddIcon fontSize={'small'} />} size='small'>
         Show more
       </Button>
     );
   }
 
   private get showLess() {
-    if (!this.state.canShowLessValues) {
+    if (!this.state?.canShowLessValues) {
       return null;
     }
     return (
-      <Button
-        color="inherit"
-        className={'btn-control--secondary CoveoFacetShowLess'}
-        onClick={
-          () => this.facet.showLessValues()
-        }
-      >
+      <Button color='inherit' className={'btn-control--secondary CoveoFacetShowLess'} onClick={() => this.facet.showLessValues()} startIcon={<RemoveIcon fontSize={'small'} />} size='small'>
         Show Less
       </Button>
     );
   }
 
   render() {
-
-    if (this.values.length === 0) {
-      return null;
-    }
     return (
-      <div className="CoveoCategoryFacet" id={this.props.id}>
+      <div className='CoveoCategoryFacet' id={this.props.id}>
         <Grid container justifyContent={'space-between'} alignItems={'center'}>
-          <Grid item>
-            <Typography noWrap className="facet-title">
+          <Grid item className={'facet-title-grid'}>
+            <Typography noWrap className='facet-title'>
               {this.props.label}
             </Typography>
           </Grid>
-          <Grid item>
-            {this.state.hasActiveValues && this.resetButton}
-          </Grid>
+          <Grid item>{this.state?.hasActiveValues && this.resetButton}</Grid>
         </Grid>
-        <List className="MuiListFacet">
+        <List className='MuiListFacet'>
           {this.parents}
           {this.values}
         </List>
-        {this.showMore}
-        {this.showLess}
+        <div className={'facet-more-less-btn'}>
+          {this.showMore}
+          {this.showLess}
+        </div>
       </div>
-
     );
   }
 }

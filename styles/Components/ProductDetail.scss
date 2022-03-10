@@ -2,8 +2,17 @@
   margin: 4px 0px;
   font-weight: 700;
   font-size: 14px;
-  display: flex;
-  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.pdp-accordion-description {
+  display: none;
+}
+
+.pdp__rating-reviews {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #8e959d;
 }
 
 .image-slider__container {
@@ -95,56 +104,78 @@
   display: none;
 }
 //----------Image Carousel Component--------
+#pdp-image {
+  margin-left: 20px;
+}
+
 .carousel_container {
+  display: flex;
   font-family: sans-serif;
   text-align: center;
-  width: 830px;
-  display: flex;
+  width: 630px;
   align-items: center;
   justify-content: center;
-}
+  margin-bottom: 70px;
 
-.carousel_container ul {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  max-width: 100%;
-
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
-  &::-webkit-scrollbar {
-    background: transparent;
-    -webkit-appearance: none;
-    width: 0;
-    height: 0;
+  .pdp-main-img-grid {
+    width: 500px;
   }
-}
-.carousel-btn__container {
-  width: 50px;
-}
 
-.carousel-btn-prev {
-  margin-left: 5px;
-}
-.carousel-btn-next {
-  margin-left: -55px;
-}
-
-.carousel__btn {
-  cursor: pointer;
-  font-size: 50px;
-  opacity: 0.4;
-  position: absolute;
-  margin-top: -25px;
+  .slick-slider {
+    height: 650px;
+  }
+  .slick-slide {
+    display: flex !important;
+    justify-content: center;
+    img {
+      height: 600px;
+      margin: auto;
+    }
+  }
+  .thumbnail-slider-wrap {
+    .slick-list {
+      height: 600px !important;
+    }
+    .slick-slide img {
+      height: 100px;
+      width: 85px;
+      padding: 5px;
+    }
+    .slick-current {
+      img {
+        border: 1px solid black;
+      }
+    }
+  }
+  .slick-dots {
+    bottom: unset;
+    li {
+      width: unset;
+      height: unset;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  #pdp-image {
+    height: 650px;
+  }
   .carousel_container {
-    width: 380px;
-    img {
-      width: 380px !important;
-    }
+    width: 350px;
+  }
+  .pdp-main-img-grid {
+    width: 350px !important;
+  }
+  .slick-slide img {
+    width: 350px;
+  }
+  .thumbnail-slider-wrap {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .pdp-container {
+    margin: auto !important;
   }
 }

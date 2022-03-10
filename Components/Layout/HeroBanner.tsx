@@ -1,38 +1,17 @@
 import React from 'react';
-import { Unsubscribe, buildResultList, ResultListState, ResultList as HeadlessResultList, loadSearchAnalyticsActions, loadSearchActions } from '@coveo/headless';
-import { headlessEngine_Banner } from '../../helpers/Engine';
-import { Grid, Card, CardMedia, Button, Typography } from '@material-ui/core';
+import { routerPush } from '../../helpers/Context';
+
+import { Grid, Card, CardMedia, Button } from '@mui/material';
 import { NextRouter, withRouter } from 'next/router';
 
 interface IHeroBannerProps {
-  router?: NextRouter;
+  router: NextRouter;
 }
 
-class HeroBanner extends React.PureComponent<IHeroBannerProps> {
-  private headlessResultList: HeadlessResultList;
-  private unsubscribe: Unsubscribe = () => {};
-  state: ResultListState;
+export class HeroBanner extends React.PureComponent<IHeroBannerProps> {
 
-  constructor(props) {
-    super(props);
-    this.headlessResultList = buildResultList(headlessEngine_Banner);
-    this.state = this.headlessResultList.state;
-  }
-
-  componentDidMount() {
-    const analyticActions = loadSearchAnalyticsActions(headlessEngine_Banner);
-    const searchActions = loadSearchActions(headlessEngine_Banner);
-    headlessEngine_Banner.dispatch(searchActions.executeSearch(analyticActions.logInterfaceLoad()));
-
-    this.unsubscribe = this.headlessResultList.subscribe(() => this.updateState());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  updateState() {
-    this.setState(this.headlessResultList.state);
+  async goToSearchPage() {
+    this.props.router.push('/search');
   }
 
   renderCard(result) {
@@ -49,30 +28,56 @@ class HeroBanner extends React.PureComponent<IHeroBannerProps> {
     );
   }
 
+  private goToCategory(q: string) {
+    routerPush(this.props.router, { pathname: '/plp/[...category]', query: { category: q } });
+  }
+
   render() {
-    const results = this.state.results;
-    const spacing = 4;
     return (
-      <Grid container spacing={0} className='hero'>
-        <Grid item xs={12} md={5} className='hero__content'>
-          <Typography variant='h1' className='hero__tl'>
-            Welcome to the <span className='hero__tl-sp'>Coveo</span> Commerce Store
-          </Typography>
-          <p className='hero__subtl'>Browse, Search &amp; Shop.</p>
-          <p className='hero__txt'>Check out our latest features and capabilities in the Commerce world. Don&apos;t miss out!</p>
-          <Button className='btn--hero' onClick={() => this.props.router?.push('/search')}>
-            See our catalog
-          </Button>
+      <Grid container>
+        <Grid item xs={12}>
+          <Grid container className='hero-banner-1'>
+            <Grid item xs={12} sm={6}>
+              <Grid container>
+                <Grid item xs={12}>
+                  <Grid item xs={12} style={{ background: `url(/banner1_small_image.png)` }} className='banner1-small-img'>
+                    <div className={'banner1-img-text'}>Sweater Weather</div>
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} className='hero-text__grid'>
+                  <div className='hero__tl'>The Closet Collective</div>
+                  <div className='hero__subtl'>Get ready for the new season with a collection of affordable and warm clothes.</div>
+                  <Button className='btn--hero hero-text__btn' onClick={() => this.goToSearchPage()}>
+                    <span className='hero__txt'>Shop now</span>
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={6}>
+              <Grid item style={{ background: `url(/banner1_large_image.png)` }} className='banner1-large-img'></Grid>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item container xs={12} md={7} spacing={0} className='hero__grid'>
-          <Grid item container spacing={spacing} xs={4} className='hero__column-1'>
-            {results.slice(0, 3).map((result) => this.renderCard(result))}
-          </Grid>
-          <Grid item container spacing={spacing} xs={4} className='hero__column-2'>
-            {results.slice(3, 6).map((result) => this.renderCard(result))}
-          </Grid>
-          <Grid item container spacing={spacing} xs={4} className='hero__column-3'>
-            {results.slice(6, 9).map((result) => this.renderCard(result))}
+        <Grid item xs={12}>
+          <div id='q-bestsellers' className='q-recomendations'></div>
+        </Grid>
+        <Grid item xs={12} id='hero-banner-2'>
+          <Grid container className='hero-jeans-grid'>
+            <Grid item xs={6}>
+              <Grid container direction='column'>
+                <Grid item className='banner2-text-grid'>
+                  <div className='banner2-text1'> Jeans for everyone </div>
+                  <div className='banner2-text2'>Not everyone is made the same. This is why we have an extended selection of jeans to fit everybody just the perfect way!</div>
+                  <Button className='banner2-btn' onClick={() => this.goToCategory('men/jeans')}>
+                    Find your perfect jeans
+                  </Button>
+                </Grid>
+                <Grid item className='banner2-stock-image' style={{ background: `url(/bannerjeans.png)` }}></Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={5}>
+              <img className='banner2-product-image' src={'https://fashion.coveodemo.com/images/225538_cn15616160.jpg'} alt='jeans-product-image'></img>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

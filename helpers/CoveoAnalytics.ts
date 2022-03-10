@@ -4,11 +4,6 @@ declare global {
   function coveoua<T>(action?: string, fieldName?: any, fieldValue?: any);
 }
 
-import getConfig from 'next/config';
-const { publicRuntimeConfig } = getConfig();
-
-import cartStore from '../reducers/cartStore';
-
 interface AnalyticsProductData {
   name: string;
   id: string;
@@ -48,6 +43,23 @@ export const getAnalyticsProductData = (product, sku = '', quantity = 0, withQua
   return analyticsProductData;
 };
 
+const getOriginsAndCustomData = (dataToMerge?: any) => {
+  const page = window.location.pathname;
+  let originLevel2 = 'default';
+  if (page.startsWith('/plp/') || page.startsWith('/pdp/')) {
+    originLevel2 = page.substring(5);
+  }
+
+  const custom = {
+    ...(dataToMerge || {}),
+  };
+
+  return {
+    custom,
+    searchHub: sessionStorage.getItem('pageType'),
+    tab: originLevel2,
+  };
+};
 
 const addToCart = (products: AnalyticsProductData[] | AnalyticsProductData) => {
   products = Array.isArray(products) ? products : [products];
@@ -56,7 +68,7 @@ const addToCart = (products: AnalyticsProductData[] | AnalyticsProductData) => {
     coveoua('ec:addProduct', product);
   });
   coveoua('ec:setAction', 'add');
-  coveoua('send', 'event');
+  coveoua('send', 'event', getOriginsAndCustomData());
 };
 
 const addProductForPurchase = (products: AnalyticsProductData[] | AnalyticsProductData) => {
@@ -66,33 +78,13 @@ const addProductForPurchase = (products: AnalyticsProductData[] | AnalyticsProdu
   });
 };
 
+
 const detailView = (product) => {
-  // in a Single Page App (SPA), we can't rely on document.referrer when navigating on the site. 
-  let referrer = sessionStorage.getItem('path.current');
-  // there may be a delay for the route in sessionStorage (path.current) to be updated, so we compare it with href, 
-  if (referrer && referrer === window.location.href && sessionStorage.getItem('path.previous')) {
-    // path.current was the same as href, use path.previous
-    referrer = sessionStorage.getItem('path.previous');
-  }
-  else if (!referrer) {
-    // no referrer, fall back to the usual document.referrer
-    referrer = document.referrer;
-  }
-
-  // For more info on attributes for "view" event:  https://docs.coveo.com/en/2651/build-a-search-ui/log-view-events
-  coveoua('send', 'view', {
-    contentType: 'Product',
-    originLevel1: 'PDP',
-    originLevel2: product.id,
-    originLevel3: referrer,
-    title: product.name,
-    referrer,
-  });
-
   // Send the "pageview" event (measurement) 
   // https://docs.coveo.com/en/l2pd0522/coveo-for-commerce/measure-events-on-a-product-detail-page
   coveoua('ec:addProduct', product);
   coveoua('ec:setAction', 'detail');
+  coveoua('send', 'event', getOriginsAndCustomData());
 };
 
 const impressions = (product, searchUid) => {
@@ -104,10 +96,10 @@ const impressions = (product, searchUid) => {
 
 const logPageView = () => {
   coveoua('set', 'page', window.location.pathname);
-  coveoua('send', 'pageview', window.location.pathname);
+  coveoua('send', 'pageview', getOriginsAndCustomData());
 };
 
-const productClick = (product, searchUid, isRecommendation, callBack) => {
+const productClick = (product, searchUid: string, recommendationStrategy: string = '', callBack) => {
   const productData = {
     ...getAnalyticsProductData(product),
     position: product.index + 1
@@ -116,7 +108,13 @@ const productClick = (product, searchUid, isRecommendation, callBack) => {
   coveoua('ec:setAction', 'click', {
     list: `coveo:search:${searchUid}`
   });
-  coveoua('send', 'event');
+
+  let customData: any = {};
+  if (recommendationStrategy) {
+    customData.recommendation = recommendationStrategy;
+  }
+
+  coveoua('send', 'event', getOriginsAndCustomData(customData));
 
   setTimeout(callBack, 5);
 };
@@ -128,12 +126,12 @@ const removeFromCart = (products: AnalyticsProductData[] | AnalyticsProductData)
     coveoua('ec:addProduct', product);
   });
   coveoua('ec:setAction', 'remove');
-  coveoua('send', 'event');
+  coveoua('send', 'event', getOriginsAndCustomData());
 };
 
 const setActionPurchase = (purchasePayload) => {
   coveoua('ec:setAction', 'purchase', purchasePayload);
-  coveoua('send', 'event');
+  coveoua('send', 'event', getOriginsAndCustomData());
 };
 
 
@@ -149,39 +147,9 @@ export const getVisitorId = () => {
     return '';
   }
 
-  let visitorId = localStorage.getItem('visitorId');
-
+  let visitorId = window['coveo_visitorId'];
   if (!visitorId) {
-    visitorId = window['coveo_visitorId'];
-  }
-
-  if (!visitorId) {
-    // generate a new visitorId
-    const hasCryptoRandomValues = (): boolean => {
-      return (typeof crypto !== 'undefined') && (typeof crypto.getRandomValues !== 'undefined');
-    };
-    const getRandomValues = (rnds: Uint8Array) => {
-      if (hasCryptoRandomValues()) {
-        return crypto.getRandomValues(rnds);
-      }
-      for (let i = 0, r = 0; i < rnds.length; i++) {
-        if ((i & 0x03) === 0) {
-          r = Math.random() * 0x100000000;
-        }
-        rnds[i] = (r >>> ((i & 0x03) << 3)) & 0xff;
-      }
-      return rnds;
-    };
-
-    const uuidv4 = (a?: number | string): string => {
-      // eslint-disable-next-line no-extra-boolean-cast
-      if (!!a) {
-        return (Number(a) ^ (getRandomValues(new Uint8Array(1))[0] % 16 >> (Number(a) / 4))).toString(16);
-      }
-      return (`${1e7}` + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, uuidv4);
-    };
-
-    visitorId = uuidv4();
+    visitorId = window['coveoanalytics']?.getCurrentClient()?.visitorId;
   }
 
   if (visitorId) {
@@ -196,6 +164,8 @@ const CoveoAnalytics = {
   addProductForPurchase,
   addToCart,
   detailView,
+  getAnalyticsProductData,
+  getOriginsAndCustomData,
   impressions,
   logPageView,
   productClick,

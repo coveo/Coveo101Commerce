@@ -17,7 +17,7 @@ const fetch_request = async (method: string, url: string, body?: any) => {
   if (body) {
     props.body = JSON.stringify(body);
   }
-  
+
   const cartEndpoint = process.env.CART_ENDPOINT;
   return await fetch(`${cartEndpoint}${url}`, props);
 };
@@ -40,7 +40,21 @@ export class CartAPIClient implements CartClient {
   }
 
   async addToCart(cartId: string, item: CartProduct): Promise<CartResponse> {
-    const res = await fetch_request('POST', `/cart/${cartId}/product/${item.sku}`, item);
+    // Some items can be big with childResults or lots of details.
+    // We are stripping the details to only fields we need in the cart. 
+    const simplifiedItem = { ...item };
+    simplifiedItem.detail = {};
+    [
+      'cat_categories', 'cat_color', 'cat_color_code', 'cat_color_swatch', 'cat_total_sizes',
+      'ec_brand', 'ec_category', 'ec_description', 'ec_images', 'ec_item_group_id', 'ec_name',
+      'ec_price', 'ec_product_id', 'ec_promo_price', 'ec_rating', 'ec_shortdesc', 'ec_thumbnails',
+      'language', 'objecttype', 'permanentid',
+      'uri', 'urihash'
+    ].forEach(key => {
+      simplifiedItem.detail[key] = item.detail[key];
+    });
+
+    const res = await fetch_request('POST', `/cart/${cartId}/product/${simplifiedItem.sku}`, simplifiedItem);
     return (await res.json()) as CartResponse;
   }
 

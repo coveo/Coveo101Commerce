@@ -1,9 +1,9 @@
 .searchInterface {
   display: flex;
-  position: relative;
+  position: relative !important; /* MUI v5 fix */
   background: $white;
-  margin: 0;
-  width: 100%;
+  margin: 0 !important; /* MUI v5 fix */
+  width: 100% !important; /* MUI v5 fix */
 
   .search__footer-ui {
     animation: loadIn 1.5s;
@@ -71,6 +71,10 @@
   .search__facet-column {
     z-index: 10;
 
+    .facets--title {
+      display: none;
+    }
+
     .btn--close-facets {
       position: fixed;
       bottom: 0;
@@ -87,7 +91,7 @@
   }
 
   .mobile-backdrop {
-    content: "";
+    content: '';
     display: block;
     position: fixed;
     left: 0;
@@ -101,6 +105,8 @@
 
   .search__result-section {
     flex: 1;
+    padding-left: 16px !important; /* MUI v5 fix */
+    padding-top: 0 !important; /* MUI v5 fix */
   }
 
   @include breakpoint(sm) {
@@ -122,7 +128,7 @@
 
   @include breakpoint(md) {
     .search-facets__container {
-      width: 380px;
+      width: 360px;
     }
   }
 }

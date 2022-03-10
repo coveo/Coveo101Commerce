@@ -1,6 +1,5 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+
 import {
   buildSearchBox,
   SearchBoxState,
@@ -18,7 +17,7 @@ import { headlessEngine, headlessEngineQS } from '../../helpers/Engine';
 import router, { withRouter, NextRouter } from 'next/router';
 import getConfig from 'next/config';
 import store from '../../reducers/cartStore';
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Autocomplete, Card, CardContent, CardMedia, TextField, Typography } from '@mui/material';
 import { formatPrice } from '../Price';
 
 const { publicRuntimeConfig } = getConfig();
@@ -34,11 +33,12 @@ class SearchBox extends React.Component<SearchBoxProps> {
   private headlessSearchBox: HeadlessSearchBox;
   state: SearchBoxState;
   private searchPagePath = '/search';
-  private unsubscribe: Unsubscribe = () => {};
+  private unsubscribe: Unsubscribe = () => { };
   private urlManager: UrlManager;
-  private unsubscribeUrlManager: Unsubscribe = () => {};
-  private otherSuggestions = [];
-  private handler;
+  private unsubscribeUrlManager: Unsubscribe = () => { };
+  private productsSuggestions = [];
+  private lastQSQueryString: string;
+  private lastPath: string;
 
   constructor(props: any) {
     super(props);
@@ -58,11 +58,22 @@ class SearchBox extends React.Component<SearchBoxProps> {
       },
     });
     this.state = this.headlessSearchBox.state;
+    this.lastPath = '';
   }
 
   componentDidMount() {
-    this.unsubscribe = this.headlessSearchBox.subscribe(() => this.updateState());
+    this.unsubscribe = this.headlessSearchBox.subscribe(() => this.getSearchAsYouTypeResults());
     this.initUrlManager();
+  }
+
+  componentDidUpdate() {
+    const path = this.props.router.pathname;
+    if (path !== this.searchPagePath && path !== this.lastPath && this.state?.value) {
+      // clear value when navigating away from the search page.
+      this.setState({ value: '', suggestions: [] });
+      return null;
+    }
+    this.lastPath = path;
   }
 
   componentWillUnmount() {
@@ -78,17 +89,25 @@ class SearchBox extends React.Component<SearchBoxProps> {
     const analyticsActions = loadSearchAnalyticsActions(headlessEngineQS);
     await headlessEngineQS.dispatch(queryActions.updateQuery({ q }));
     await headlessEngineQS.dispatch(searchParActions.registerNumberOfResults(3));
+
+    this.lastQSQueryString = q;
+
     const res = await headlessEngineQS.dispatch(searchActions.executeSearch(analyticsActions.logInterfaceLoad()));
+    if ('error' in res) {
+      // usually a query aborted by a new query
+      // We don't want to update to the Query Suggestions on errors/cancelled queries.
+      return;
+    }
 
     const results = (res?.payload as any)?.response?.results;
-    this.otherSuggestions = [];
+    this.productsSuggestions = [];
     if (results) {
       if (results?.length) {
         results.forEach((product) => {
           let img = product.raw['ec_images'][0] || product.raw['ec_images'];
           let title = HighlightUtils.highlightString({ content: product.title, highlights: product.titleHighlights, openingDelimiter: '<strong>', closingDelimiter: '</strong>' });
 
-          this.otherSuggestions.push({
+          this.productsSuggestions.push({
             highlightedValue: title,
             img,
             group: 'Products',
@@ -98,14 +117,16 @@ class SearchBox extends React.Component<SearchBoxProps> {
         });
       }
     }
-    this.updateState();
   }
 
   updateState() {
-    //new object added explicitly for styling purpose
-    let suggestions = [...this.headlessSearchBox.state.suggestions, { hideValue: true }];
-    if (searchAsYouTypeEnabled && this.otherSuggestions && this.otherSuggestions.length > 0) {
-      suggestions = suggestions.concat(this.otherSuggestions);
+    // new object added explicitly for styling purpose
+    let suggestions = [...this.headlessSearchBox.state.suggestions];
+    if (suggestions.length) {
+      (suggestions as any).push({ hideValue: true });
+      if (searchAsYouTypeEnabled && this.productsSuggestions?.length > 0) {
+        suggestions = suggestions.concat(this.productsSuggestions);
+      }
     }
     this.setState({ ...this.headlessSearchBox.state, suggestions: suggestions });
   }
@@ -117,13 +138,13 @@ class SearchBox extends React.Component<SearchBoxProps> {
   updateHash() {
     //Only adds/pushes the state when facets are selected or deselected
     const isFacetDeselected = window.location.hash.includes('f[') && this.urlManager.state.fragment.indexOf('f[') === -1;
-    if (this.props.router.pathname == this.searchPagePath && (this.urlManager.state.fragment.includes('f[') || isFacetDeselected)) {
+    if (this.props.router.pathname === this.searchPagePath && (this.urlManager.state.fragment.includes('f[') || isFacetDeselected)) {
       history.pushState(null, document.title, `#${this.urlManager.state.fragment}`);
     }
   }
 
   onHashChange = () => {
-    if (window.location.pathname == this.searchPagePath && this.props.router.pathname != this.searchPagePath) {
+    if (window.location.pathname === this.searchPagePath && this.props.router.pathname !== this.searchPagePath) {
       this.handleRedirect();
     }
     //Synchronize only either when back or forward buttons are clicked (when in case of forced navigation)
@@ -140,14 +161,13 @@ class SearchBox extends React.Component<SearchBoxProps> {
     window.addEventListener('popstate', this.onHashChange);
   }
 
-  getSearchAsYouTypeResults() {
-    let q = this.headlessSearchBox.state.value;
-    if (q.length > 2) {
-      clearTimeout(this.handler);
-      this.handler = setTimeout(() => {
-        this.getResultForSuggestions(q);
-      }, 300);
+  async getSearchAsYouTypeResults() {
+    const firstSuggestion = this.headlessSearchBox.state?.suggestions[0]?.rawValue;
+    if (firstSuggestion !== this.lastQSQueryString && searchAsYouTypeEnabled && this.headlessSearchBox.state.isLoadingSuggestions) {
+      let q = firstSuggestion;
+      await this.getResultForSuggestions(q);
     }
+    this.updateState();
   }
 
   handleRedirect(option?: any) {
@@ -171,9 +191,11 @@ class SearchBox extends React.Component<SearchBoxProps> {
     }
   }
 
-  handleKeyPress(event: any) {
-    if (event.key === 'Enter') {
-      this.handleRedirect();
+  async handleOnHighlightChange(event: any, option) {
+    //for keydown events the tagname changes to 'INPUT'
+    if (event?.target.tagName === 'LI' || event?.target.tagName === 'INPUT') {
+      await this.getResultForSuggestions(option?.rawValue);
+      this.updateState();
     }
   }
 
@@ -185,33 +207,41 @@ class SearchBox extends React.Component<SearchBoxProps> {
           filterOptions={(options) => options}
           id='search-box'
           inputValue={this.state.value}
-          onInputChange={(_, newInputValue) => {
-            this.headlessSearchBox.updateText(newInputValue);
-
-            if (searchAsYouTypeEnabled) {
-              this.getSearchAsYouTypeResults();
+          onInputChange={(event: any, newInputValue: string, reason: string) => {
+            if (reason == 'reset' && !event) {
+              //else autocomplete will trigger update state with empty value
+              return;
+            }
+            if (event?.type !== 'keydown') {
+              this.headlessSearchBox.updateText(newInputValue);
             }
           }}
           groupBy={(option: any) => option.group || 'Suggestions'}
-          onChange={(_, value) => {
+          onChange={(event: any, value, reason: string) => {
+            const searchText = value?.rawValue || value;
+            //to handle the keypress on option explicitly
+            if (reason == 'selectOption' && event?.key == 'Enter') {
+              this.headlessSearchBox.updateText(searchText);
+            }
+
             this.headlessSearchBox.submit();
-            this.handleRedirect(value);
+            this.handleRedirect(searchText);
           }}
-          onKeyPress={(e) => this.handleKeyPress(e)}
+          onHighlightChange={(e, option) => this.handleOnHighlightChange(e, option)}
           options={this.state.suggestions}
           getOptionLabel={(option) => {
-            return typeof option === 'object' ? option.rawValue : option;
+            return option?.rawValue || '';
           }}
           onFocus={() => {
             if (!this.headlessSearchBox.state.value) {
               this.headlessSearchBox.updateText('');
             }
           }}
-          renderOption={(option) => {
+          renderOption={(props, option) => {
             if (option.group === 'Products') {
               return (
-                <div className={'productSuggestion_card'}>
-                  <Card style={{ width: '200px', height: '230px' }} variant='outlined'>
+                <div className={'productSuggestion_card'} key={'ps_' + option.info.pid}>
+                  <Card {...(props as any)} className='productSuggestion_card' style={{ width: '200px', height: '230px' }} variant='outlined'>
                     <CardMedia component='img' height='150' width='150' image={option.img} alt={option.rawValue} />
                     <CardContent>
                       <Typography gutterBottom variant='body1' component='div' noWrap={false}>
@@ -225,7 +255,7 @@ class SearchBox extends React.Component<SearchBoxProps> {
                 </div>
               );
             } else {
-              return <div className='redirection-div' dangerouslySetInnerHTML={{ __html: option.highlightedValue }}></div>;
+              return <li className='redirection-div' {...(props as any)} dangerouslySetInnerHTML={{ __html: option.highlightedValue }}></li>;
             }
           }}
           freeSolo

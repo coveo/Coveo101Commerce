@@ -1,7 +1,7 @@
 import React from 'react';
 import { buildHistoryManager, buildQuerySummary, HistoryManager, QuerySummary } from '@coveo/headless';
 import { headlessEngine } from '../../helpers/Engine';
-import { Container, Typography } from '@material-ui/core';
+import { Container, Typography } from '@mui/material';
 import PopularBought from '../Recommendations/PopularBought';
 import UserRecommender from '../Recommendations/UserRecommender';
 
@@ -25,7 +25,7 @@ export default class NoResults extends React.Component {
     }
 
     return (
-      <Container maxWidth='md' className='noResults-container'>
+      <Container className='noResults-container'>
         <Typography className='display-message' variant='subtitle1' align='center'>
           Ooops...we did not find anything for <span className='query'>{this.querySummary.state.query}</span>
         </Typography>

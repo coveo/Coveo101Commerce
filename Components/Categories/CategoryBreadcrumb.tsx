@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Breadcrumbs, Link, Typography } from '@material-ui/core';
+import { Breadcrumbs, Link, Typography } from '@mui/material';
 import { NextRouter, withRouter } from "next/router";
 import { IProduct, normalizeProduct } from "../ProductCard/Product.spec";
 import categoryExtract from "../../helpers/categoryExtract";

@@ -3,7 +3,7 @@ import React from 'react';
 import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
-import { ServerStyleSheets } from '@material-ui/core/styles';
+import { ServerStyleSheets } from '@mui/styles';
 import { getEndpoint } from '../helpers/Endpoints';
 
 import getConfig from 'next/config';
@@ -29,10 +29,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300&display=swap" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;800&display=swap"></link>
           {publicRuntimeConfig.extraCSS && <link rel="stylesheet" type="text/css" href={publicRuntimeConfig.extraCSS} />}
           <COVEOUA_script />
         </Head>
-        <body>
+        <body className={publicRuntimeConfig.scenario || ''}>
           <Main />
           <NextScript />
         </body>

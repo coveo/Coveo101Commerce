@@ -10,11 +10,13 @@
 
   .MuiAutocomplete-listbox {
     display: flex;
-    flex-direction: row-reverse;
     width: 100%;
 
     .MuiAutocomplete-groupLabel {
       display: none;
+    }
+    .MuiAutocomplete-option {
+      display: block;
     }
 
     & li:nth-child(1) {
@@ -35,12 +37,14 @@
       display: flex;
       align-items: flex-start;
       padding-left: 5px;
+      min-width: 617px;
 
       .MuiAutocomplete-option {
         padding: 0;
       }
 
       .productSuggestion_card {
+        cursor: pointer;
         padding: 2px;
 
         .MuiCardMedia-img {
@@ -88,6 +92,7 @@
         flex-direction: column;
         width: 100% !important;
         align-items: center !important;
+        min-width: unset;
 
         .MuiAutocomplete-option {
           justify-content: center;
@@ -105,6 +110,60 @@
             border: none;
           }
         }
+      }
+    }
+  }
+}
+
+body.fashion {
+  .searchBox {
+    width: fit-content;
+    float: right;
+
+    .MuiInputBase-root {
+      border-radius: 0px;
+      border-bottom: 1px solid $black;
+      width: 530px;
+      padding-bottom: 0px;
+    }
+    input {
+      font-size: 24px;
+    }
+  }
+
+  .MuiAutocomplete-popper {
+    .MuiAutocomplete-option {
+      &,
+      & .MuiTypography-body1 {
+        font-size: 16px;
+      }
+    }
+
+    .MuiAutocomplete-listbox {
+      & li:nth-child(2) ul {
+        .productSuggestion_card {
+          .MuiTypography-root {
+            -webkit-line-clamp: 1;
+            display: inherit;
+          }
+
+          .MuiTypography-body1 {
+            white-space: nowrap;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-sm) {
+  body.fashion {
+    .searchBox {
+      .MuiInputBase-root {
+        width: 200px;
       }
     }
   }

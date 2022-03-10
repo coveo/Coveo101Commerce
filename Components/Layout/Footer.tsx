@@ -1,54 +1,57 @@
-import React from "react";
-import Image from 'next/image';
-import { Container, Grid, Typography, Box } from "@material-ui/core";
+import React from 'react';
 import { withRouter, NextRouter } from 'next/router';
-import { routerPush } from '../../helpers/Context';
 
-import logo from '../../public/logos/coveo_logo_footer.png';
+import { Container, Grid, Typography, TextField, InputAdornment } from '@mui/material';
+import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
 
 interface IFooterProps {
   router?: NextRouter;
 }
 
 class Footer extends React.Component<IFooterProps> {
-
   constructor(props) {
     super(props);
   }
 
   render() {
-
-
-
     return (
-      <Container maxWidth="xl" className="footer__container">
-        <Grid container alignItems={"center"}>
-          <Grid item sm={6} className="logo-container">
-            <Box onClick={() => routerPush(this.props.router, { pathname: '/' })}>
-              <Image
-                alt=""
-                className="footer-logo"
-                src={logo}
-                width={200}
-                height={108}
+      <Container maxWidth='xl' className='footer__container'>
+        <Grid container alignItems={'center'} style={{ height: '100%', paddingTop: '15px', paddingBottom: '15px' }}>
+          <Grid className='footer-email-subscription-grid' item xs={12} sm={7}>
+            <div style={{ marginLeft: '45px' }}>
+              <Typography className='email-sub-header'>{"Let's Keep in Touch"} </Typography>
+              <Typography className='email-sub-text'>{`We send you really good emails about our collection, new products and deals. Don't miss out!`} </Typography>
+              <TextField
+                id='email-sub-inputField'
+                label='Subscribe'
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <ArrowRightAltOutlinedIcon />
+                    </InputAdornment>
+                  ),
+                }}
               />
-            </Box>
+            </div>
           </Grid>
-          <Grid item sm={6}>
-            <Grid className="footer-content">
-              <Typography variant="h5">
-                Built with
-              </Typography>
-              <Typography>
-                <a className="footer-link" href="https://docs.coveo.com/en/headless/latest/">Coveo Headless API, </a>
-                <a className="footer-link" href="https://material-ui.com/">React + Material UI</a>,
-                and of course,
-                <a className="footer-link" href="https://www.coveo.com/en"> Coveo Cloud V2.</a>
-              </Typography>
-            </Grid>
+          <Grid item className='footer-options-grid' xs={12} sm={5}>
+            <div style={{ marginLeft: '30px' }}>
+              <div>FAQs</div>
+              <div>Returns</div>
+              <div>Shipping</div>
+              <div>Sizing</div>
+              <div>Rewards</div>
+              <div>Refer a friend</div>
+              <div>Contact</div>
+              <div>Careers</div>
+              <div>Instagram</div>
+              <div>Facebook</div>
+              <div>Program</div>
+              <div>Sustainability</div>
+            </div>
           </Grid>
         </Grid>
-      </Container >
+      </Container>
     );
   }
 }

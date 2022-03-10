@@ -3,29 +3,28 @@
 import React from 'react';
 import { buildResultList, buildResultTemplatesManager, ResultTemplatesManager, Result, ResultListState, ResultList as HeadlessResultList, SearchEngine, Unsubscribe } from '@coveo/headless';
 
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import ProductCard from '../ProductCard/ProductCard';
-import CoveoUA, { getAnalyticsProductData } from '../../helpers/CoveoAnalytics';
 import { normalizeProduct } from '../ProductCard/Product.spec';
+import CoveoUA from '../../helpers/CoveoAnalytics';
+
+const CACHE_SEARCH_IDS = []; // to prevent multiple impressions requests when Reacts remount this component
+
 export interface resultListProps {
   engine: SearchEngine;
   id: string;
 }
 
-export default class ResultList extends React.PureComponent<resultListProps> {
+export default class ResultList extends React.Component<resultListProps> {
   private headlessResultList: HeadlessResultList;
   private headlessResultTemplateManager: ResultTemplatesManager;
   private unsubscribe: Unsubscribe = () => { };
   state: ResultListState;
 
-  private prev_searchUid = '';
-
   constructor(props: any) {
     super(props);
 
     this.headlessResultList = buildResultList(this.props.engine);
-
-    this.state = this.headlessResultList.state;
 
     this.headlessResultTemplateManager = buildResultTemplatesManager(this.props.engine);
 
@@ -56,31 +55,36 @@ export default class ResultList extends React.PureComponent<resultListProps> {
 
   searchImpressions() {
     const searchUid = this.searchUid();
-    this.props.engine.state.search.results.forEach((product, index) => {
-      const product_parsed = getAnalyticsProductData(product.raw, '', 0, false);
-      CoveoUA.impressions({ ...product_parsed, position: index + 1 }, searchUid);
-    });
-    coveoua('send', 'event');
+    if (searchUid && !CACHE_SEARCH_IDS.includes(searchUid)) {
+      CACHE_SEARCH_IDS.push(searchUid);
+      CACHE_SEARCH_IDS.splice(0, CACHE_SEARCH_IDS.length - 100); // keep only the last 100 ids. 
+
+      this.props.engine.state.search.results.forEach((product, index) => {
+        const product_parsed = CoveoUA.getAnalyticsProductData(product.raw, '', 0, false);
+        CoveoUA.impressions({ ...product_parsed, position: index + 1 }, searchUid);
+      });
+      coveoua('ec:setAction', 'impression');
+      coveoua('send', 'event', CoveoUA.getOriginsAndCustomData());
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return !nextState.isLoading && (this.state?.searchResponseId !== nextState.searchResponseId);
   }
 
   updateState() {
     this.setState(this.headlessResultList.state);
-
-    const current_searchUid = this.props.engine.state.search.response.searchUid;
-    if (this.hasResults() && this.prev_searchUid !== current_searchUid) {
-      this.searchImpressions();
-      this.prev_searchUid = current_searchUid;
-    }
+    this.searchImpressions();
   }
 
   hasResults() {
-    return this.state.results.length !== 0;
+    return (this.state?.results || []).length !== 0;
   }
 
   private get resultListTemplate() {
     return (
       <Grid id={this.props.id} className={'CoveoResultList result-grid'} container spacing={4} data-search-uid={this.searchUid()}>
-        {this.state.results.map((_result: Result, index: number) => {
+        {(this.state?.results || []).map((_result: Result, index: number) => {
           // Need to clone the Result to add the index, as it's readonly.
           const result = {
             ..._result,

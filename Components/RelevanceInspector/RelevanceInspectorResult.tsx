@@ -8,9 +8,9 @@ import {
   Unsubscribe,
 } from "@coveo/headless";
 import { headlessEngine } from '../../helpers/Engine';
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@mui/material";
 import { Result } from "@coveo/headless";
-import BugReportIcon from "@material-ui/icons/BugReport";
+import BugReportIcon from "@mui/icons-material/BugReport";
 import RelevanceInspectorWindow from "./RelevanceInspectorWindow";
 
 interface IDebugProps {

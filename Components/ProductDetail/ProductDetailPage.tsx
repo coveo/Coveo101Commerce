@@ -2,10 +2,10 @@ import React from 'react';
 
 import getConfig from 'next/config';
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import { Accordion, AccordionDetails, AccordionSummary, Container, Typography } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
+import { Accordion, AccordionDetails, AccordionSummary, Container, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import { NextRouter } from 'next/router';
 import { IProduct } from '../ProductCard/Product.spec';
 
@@ -14,8 +14,8 @@ import Rating from '../ProductCard/Rating';
 import ImagesSlider from './ImagesSlider';
 import AddRemoveProduct from '../Cart/AddRemoveProduct';
 
-import FrequentlyViewedTogether from '../../Components/Recommendations/FrequentlyViewedTogether';
-import FrequentlyBoughtTogether from '../../Components/Recommendations/FrequentlyBoughtTogether';
+import FrequentlyViewedDifferentCategory from '../../Components/Recommendations/FrequentlyViewedDifferentCategory';
+import FrequentlyViewedSameCategory from '../../Components/Recommendations/FrequentlyViewedSameCategory';
 import AvailableColors from '../../Components/Fashion/AvailableColors';
 import AvailableSizes from '../../Components/Fashion/AvailableSizes';
 import RelatedProducts from './RelatedProducts';
@@ -38,28 +38,29 @@ class ProductDetailPage extends React.Component<IProductDetailPage, IProductDeta
   constructor(props) {
     super(props);
 
-    const product = this.props.product;
-    const availableSizes: string[] = product['cat_available_sizes'] || [];
-    const currentSize = availableSizes.length ? availableSizes[0] : '';
-    const sku = product.permanentid + (currentSize ? '_' + currentSize : '');
+    const availableSizes: string[] = this.props.product['cat_available_sizes'] || [];
+    const currentSize = (availableSizes.length ? availableSizes[0] : '');
 
-    this.state = { currentSize, sku };
+    this.state = { currentSize, sku: '' };
   }
 
-  componentDidUpdate() {
+  componentDidMount() { this.setSkuAndSize(); }
+  componentDidUpdate() { this.setSkuAndSize(); }
+
+  private setSkuAndSize() {
     let sku = this.props.product.permanentid;
 
     const productSizes: string[] = this.props.product['cat_available_sizes'] || [];
     const productSize = productSizes.length ? productSizes[0] : '';
-    let size = productSizes.includes(this.state.currentSize) ? this.state.currentSize : productSize;
+    const size = productSizes.includes(this.state.currentSize) ? this.state.currentSize : productSize;
     if (size) {
-      sku = sku + '_' + size;
+      sku = sku + '_' + size.replace(/[^0-9a-zA-Z]+/g, '-');
     }
 
     if (sku !== this.state.sku) {
       this.setState({
         currentSize: size,
-        sku: sku,
+        sku,
       });
     }
   }
@@ -153,7 +154,7 @@ class ProductDetailPage extends React.Component<IProductDetailPage, IProductDeta
             </div>
 
             <Grid item container spacing={6}>
-              <Grid item id='pdp-image'>
+              <Grid item id='pdp-image' data-product-id={product.permanentid} >
                 <ImagesSlider key={images.join()} images={images} />
               </Grid>
               <Grid item xs className='pdp-details-grid'>
@@ -166,14 +167,14 @@ class ProductDetailPage extends React.Component<IProductDetailPage, IProductDeta
                     </Grid>
                   )}
                   <Grid item>
-                    <div className='pdp__rating'>
-                      <Rating value={product.ec_rating} />
-                      <span style={{ marginLeft: '10px' }}>({reviewcount} reviews)</span>
+                    <div className='pdp__price'>
+                      <Price product={product as any} />
                     </div>
                   </Grid>
                   <Grid item>
-                    <div className='pdp__price'>
-                      <Price product={product as any} />
+                    <div className='pdp__rating'>
+                      <Rating value={product.ec_rating} />
+                      <span className='pdp__rating-reviews'>{reviewcount} Reviews</span>
                     </div>
                   </Grid>
                 </Grid>
@@ -189,22 +190,38 @@ class ProductDetailPage extends React.Component<IProductDetailPage, IProductDeta
                   </div>
                 )}
 
-                <div className='pdp__sku-id-model'>SKU: {this.state.sku}</div>
+                <div className='pdp__sku'>SKU: {this.state.sku}</div>
 
                 <div className='pdp__addToCart'>
-                  <AddRemoveProduct sku={this.state.sku} product={product} label='In cart:' />
+                  <AddRemoveProduct sku={this.state.sku} product={product} />
                 </div>
 
-                <div style={{ marginTop: '20px' }}>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: product.ec_description,
-                    }}></div>
-                  <div className='pdp__sku-id-model'>
-                    {this.state.sku != product.permanentid && <div>PRODUCT-ID: {product.permanentid}</div>}
-                    {product.permanentid != product.ec_item_group_id && <div>MODEL: {product.ec_item_group_id}</div>}
-                  </div>
+                <div
+                  className='pdp-text-description'
+                  dangerouslySetInnerHTML={{
+                    __html: product.ec_description,
+                  }}></div>
+
+                <div className='pdp__sku-id-model'>
+                  {this.state.sku != product.permanentid && <div>PRODUCT-ID: {product.permanentid}</div>}
+                  {product.permanentid != product.ec_item_group_id && <div>MODEL: {product.ec_item_group_id}</div>}
                 </div>
+
+                <Accordion className='pdp-accordion-description' defaultExpanded={true}>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls='panel1a-content' id='panel1a-header'>
+                    <Typography>Description</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: product.ec_description,
+                      }}></div>
+                    <div className='pdp__sku-id-model'>
+                      {this.state.sku != product.permanentid && <div>PRODUCT-ID: {product.permanentid}</div>}
+                      {product.permanentid != product.ec_item_group_id && <div>MODEL: {product.ec_item_group_id}</div>}
+                    </div>
+                  </AccordionDetails>
+                </Accordion>
 
                 {!publicRuntimeConfig.features?.productRelatedByColorsAndSize && <RelatedProducts product={product} />}
 
@@ -215,9 +232,10 @@ class ProductDetailPage extends React.Component<IProductDetailPage, IProductDeta
             </Grid>
           </Grid>
         </Grid>
-
-        <FrequentlyViewedTogether title='Products frequently seen together' skus={[product.permanentid]} searchHub='PDP' />
-        <FrequentlyBoughtTogether title='Products frequently bought together' skus={[product.permanentid]} searchHub='PDP' />
+        <Grid container className='pdp-recommendations-grid'>
+          <FrequentlyViewedSameCategory title='Similar Products for You' skus={[product.permanentid]} product={product} searchHub='PDP' />
+          <FrequentlyViewedDifferentCategory title='Good Match With' skus={[product.permanentid]} product={product} searchHub='PDP' />
+        </Grid>
       </Container>
     );
   }

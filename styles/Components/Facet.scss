@@ -74,7 +74,7 @@
   padding-bottom: 5px;
   width: 55px;
   height: 55px;
-  display: inline-block;
+  display: inline-block !important; /* MUI v5 fix */
   vertical-align: middle;
 
   &:hover {

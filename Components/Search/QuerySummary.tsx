@@ -1,10 +1,10 @@
 /* eslint-disable no-use-before-define */
-import React from "react";
-import { buildQuerySummary, QuerySummaryState, QuerySummary as HeadlessQuerySummary, SearchEngine, Unsubscribe } from "@coveo/headless";
-import { Box } from "@material-ui/core";
+import React from 'react';
+import { buildQuerySummary, QuerySummaryState, QuerySummary as HeadlessQuerySummary, SearchEngine, Unsubscribe } from '@coveo/headless';
+import { Box } from '@mui/material';
 
 export interface IQuerySummaryProps {
-  engine: SearchEngine,
+  engine: SearchEngine;
 }
 
 export default class QuerySummary extends React.Component<IQuerySummaryProps> {
@@ -38,32 +38,23 @@ export default class QuerySummary extends React.Component<IQuerySummaryProps> {
 
   renderBold(input: string) {
     return (
-      <Box component="span">
+      <Box component='span'>
         <strong>{input}</strong>
       </Box>
     );
   }
 
   renderRange() {
-    return this.renderBold(
-      ` ${this.state.firstResult}-${this.state.lastResult}`
-    );
+    return this.renderBold(` ${this.state.firstResult}-${this.state.lastResult}`);
   }
 
   renderTotal() {
-    return (
-      <Box component="span">
-        {" "}
-        of {this.renderBold(this.state.total.toString())}
-      </Box>
-    );
+    return <Box component='span'> {this.renderBold(this.state.total.toString())}</Box>;
   }
 
   renderQuery() {
     if (this.state.hasQuery) {
-      return (
-        <Box component="span"> for {this.renderBold(this.state.query)}</Box>
-      );
+      return <Box component='span'> for {this.renderBold(this.state.query)}</Box>;
     }
   }
 
@@ -73,10 +64,8 @@ export default class QuerySummary extends React.Component<IQuerySummaryProps> {
 
   renderHasResults() {
     return (
-      <Box>
-        Results{this.renderRange()}
-        {this.renderTotal()}
-        {this.renderQuery()}
+      <Box className='query-summary'>
+        We found {this.renderTotal()} results {this.renderQuery()}
         {/* {this.renderDuration()} */}
       </Box>
     );
@@ -84,7 +73,7 @@ export default class QuerySummary extends React.Component<IQuerySummaryProps> {
 
   render() {
     if (typeof window === 'undefined' || !this.state.hasDuration) {
-      // avoir flashing a "no-result" on load
+      // avoid flashing a "no-result" on load
       return null;
     }
     if (!this.state.hasResults) {
