@@ -1648,7 +1648,10 @@
           "modelActivenessState": "ACTIVE",
           "modelDisplayName": "ART",
           "searchEventFilter": "(originLevel1=~'MainSearch' OR originLevel1=~'Listing')",
-          "viewEventFilter": ""
+          "viewEventFilter": "",
+          "extraConfig": {
+            "filterOutEmptyQueries": false
+          }
         },
         "parents": {},
         "resourceName": "ART_OZqnzo"
@@ -1659,9 +1662,7 @@
             "--conf",
             "coveo.drill.automaticSelection.fields.0.field=ec_category",
             "--conf",
-            "coveo.drill.automaticSelection.fields.0.strategy=taxonomy_coverage",
-            "--conf",
-            "coveo.drill.indexContent.documentGroupId=1639593647500"
+            "coveo.drill.automaticSelection.fields.0.strategy=taxonomy_coverage"
           ],
           "commonFilter": "",
           "engineId": "facetsense",
@@ -1671,7 +1672,15 @@
           "intervalUnit": "WEEK",
           "modelActivenessState": "ACTIVE",
           "modelDisplayName": "DNE",
-          "searchEventFilter": ""
+          "searchEventFilter": "",
+          "extraConfig": {
+            "automaticSelection": {
+              "fields": [{
+                "field": "ec_category",
+                "strategy": "taxonomy_coverage"
+              }]
+            }
+          }
         },
         "parents": {},
         "resourceName": "DNE_qnlZNJ"
